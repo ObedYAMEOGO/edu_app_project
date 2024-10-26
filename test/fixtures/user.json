@@ -1,0 +1,13 @@
+
+{
+    "uid": "1",
+    "email": "Test email",
+    "points": 0,
+    "fullName": "Test name",
+    "profilePic": "Test profile pic",
+    "bio": "Test bio",
+    "groupIds": ["1", "2"],
+    "enrolledCourseIds": ["1", "2"],
+    "following": ["1", "2"],
+    "followers": ["1", "2"]
+}
