@@ -1,6 +1,3 @@
-import 'package:edu_app_project/core/common/widgets/gradient_background.dart';
-import 'package:edu_app_project/core/res/colours.dart';
-import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/res/media_res.dart';
 import 'package:flutter/material.dart';
 
@@ -28,18 +25,20 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: GradientBackground(
-        image: MediaRes.onBoardingBackground,
-        child: Center(
-            child: Text(
-          'skillora',
-          style: TextStyle(
-              color: Colours.primaryColour,
-              fontSize: 22,
-              fontFamily: Fonts.montserrat,
-              fontWeight: FontWeight.w600),
-        )),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const SizedBox(height: 270), // Space from the top
+          const Center(
+            child: Image(
+              image: AssetImage(Res.logoImage),
+              width: 130, // Adjust logo width
+              height: 130, // Adjust logo height
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -9,10 +9,10 @@ class PageUnderConstruction extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GradientBackground(
-        image: MediaRes.backgroundImg,
+        image: Res.backgroundImg,
         child: Center(
             child: Image.asset(
-          MediaRes.pageUnderConstruction,
+          Res.pageUnderConstruction,
           width: 150,
         )),
       ),

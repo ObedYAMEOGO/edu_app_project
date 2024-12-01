@@ -42,18 +42,21 @@ class _SignInScreenState extends State<SignInScreen> {
         listener: (_, state) {
           if (state is AuthError) {
             Utils.showSnackBar(
-              context,
-              state.message,
-              ContentType.failure,
-            );
+                context,
+                "Informations incorrects ou soucis d'accès à internet. Veuillez réessayer!",
+                ContentType.failure,
+                title: "Oups!");
           } else if (state is SignedIn) {
             context.read<UserProvider>().initUser(state.user);
             Navigator.pushReplacementNamed(context, Dashboard.routeName);
+            Utils.showSnackBar(
+                context, "Vous êtes connecté!", ContentType.success,
+                title: "Parfait!");
           }
         },
         builder: (context, state) {
           return GradientBackground(
-            image: MediaRes.backgroundImg,
+            image: Res.backgroundImg,
             child: SafeArea(
                 child: Center(
               child: ListView(
@@ -64,7 +67,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     "Connexion",
                     style: TextStyle(
                         fontFamily: Fonts.montserrat,
-                        fontSize: 25,
+                        fontSize: 20,
                         fontWeight: FontWeight.w700,
                         color: Colours.primaryColour),
                     textAlign: TextAlign.center,
@@ -86,13 +89,13 @@ class _SignInScreenState extends State<SignInScreen> {
                           Navigator.pushReplacementNamed(
                               context, '/forgot-password');
                         },
-                        child: Text('Mot de passe oublié ?',
-                            style: TextStyle(
-                              color: Colours.primaryColour,
-                            )),
+                        child: Text(
+                          'Mot de passe oublié ?',
+                          style: TextStyle(color: Colors.blue, fontSize: 12),
+                        ),
                       )),
                   const SizedBox(
-                    height: 25,
+                    height: 15,
                   ),
                   if (state is AuthLoading)
                     const Center(
@@ -100,6 +103,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     )
                   else
                     RoundedButton(
+                      height: 45,
                       label: "Se connecter",
                       onPressed: () {
                         FocusManager.instance.primaryFocus?.unfocus();
@@ -130,12 +134,17 @@ class _SignInScreenState extends State<SignInScreen> {
                             Text(
                               'Pas de compte?   ',
                               style: TextStyle(
-                                  color: Colours.darkColour, fontFamily: Fonts.montserrat),
+                                  color: Colours.secondaryColour,
+                                  fontSize: 12,
+                                  fontFamily: Fonts.montserrat),
                             ),
                             Text(
                               '  S\'inscrire',
                               style: TextStyle(
-                                  color: Colours.primaryColour, fontFamily:Fonts.montserrat),
+                                  color: Colours.primaryColour,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: Fonts.montserrat),
                             )
                           ],
                         ),

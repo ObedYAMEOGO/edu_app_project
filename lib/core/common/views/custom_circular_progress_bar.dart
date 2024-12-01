@@ -11,7 +11,7 @@ class CustomCircularProgressBarIndicator extends StatelessWidget {
       height: 20,
       child: CircularProgressIndicator(
         strokeWidth: 1.5, // Réduire l'épaisseur pour un effet plus fluide
-        valueColor: AlwaysStoppedAnimation(Colours.lightGoldenColor),
+        valueColor: AlwaysStoppedAnimation(Colours.successColor),
       ),
     );
   }

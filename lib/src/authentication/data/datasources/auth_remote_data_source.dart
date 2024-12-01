@@ -121,7 +121,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       );
 
       await userCred.user?.updateDisplayName(fullName);
-      await userCred.user?.updatePhotoURL(kDefaultImage);
+      await userCred.user?.updatePhotoURL(kDefaultAvatar);
       await _setUserData(_authClient.currentUser!, email);
     } on FirebaseAuthException catch (e) {
       throw ServerException(

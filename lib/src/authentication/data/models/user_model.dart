@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:edu_app_project/core/enums/subscription_enum.dart';
+import 'package:edu_app_project/core/extensions/int_extensions.dart';
 import 'package:edu_app_project/core/utils/typedefs.dart';
 import 'package:edu_app_project/src/authentication/domain/entities/user.dart';
 
@@ -7,20 +10,26 @@ class LocalUserModel extends LocalUser {
     required super.email,
     required super.points,
     required super.fullName,
-    super.groupIds,
-    super.enrolledCourseIds,
-    super.following,
-    super.followers,
+    super.dateSubscribed,
+    super.subscription,
     super.profilePic,
     super.bio,
+    super.enrolledCourseIds,
+    super.followers,
+    super.following,
+    super.groupIds,
   });
+
   const LocalUserModel.empty()
       : this(
           uid: '',
           email: '',
           points: 0,
           fullName: '',
+          profilePic: '',
+          bio: '',
         );
+
   LocalUserModel.fromMap(DataMap map)
       : super(
           uid: map['uid'] as String,
@@ -30,49 +39,56 @@ class LocalUserModel extends LocalUser {
           profilePic: map['profilePic'] as String?,
           bio: map['bio'] as String?,
           groupIds: (map['groupIds'] as List<dynamic>).cast<String>(),
+          dateSubscribed: (map['dateSubscribed'] as Timestamp?)?.toDate(),
+          subscription: (map['subscription'] as num?)?.toInt().subscription,
           enrolledCourseIds:
               (map['enrolledCourseIds'] as List<dynamic>).cast<String>(),
           following: (map['following'] as List<dynamic>).cast<String>(),
           followers: (map['followers'] as List<dynamic>).cast<String>(),
         );
+
   LocalUserModel copyWith({
     String? uid,
     String? email,
-    String? profilePic,
-    String? bio,
     int? points,
     String? fullName,
-    List<String>? groupIds,
+    String? profilePic,
+    DateTime? dateSubscribed,
+    Subscription? subscription,
+    String? bio,
     List<String>? enrolledCourseIds,
-    List<String>? following,
     List<String>? followers,
+    List<String>? following,
+    List<String>? groupIds,
   }) {
     return LocalUserModel(
       uid: uid ?? this.uid,
       email: email ?? this.email,
-      profilePic: profilePic ?? this.profilePic,
-      bio: bio ?? this.bio,
       points: points ?? this.points,
       fullName: fullName ?? this.fullName,
-      groupIds: groupIds ?? this.groupIds,
+      profilePic: profilePic ?? this.profilePic,
+      bio: bio ?? this.bio,
       enrolledCourseIds: enrolledCourseIds ?? this.enrolledCourseIds,
-      following: following ?? this.following,
       followers: followers ?? this.followers,
+      following: following ?? this.following,
+      groupIds: groupIds ?? this.groupIds,
+      subscription: subscription ?? this.subscription,
+      dateSubscribed: dateSubscribed ?? this.dateSubscribed,
     );
   }
 
-  DataMap toMap() {
-    return {
-      'uid': uid,
-      'email': email,
-      'profilePic': profilePic,
-      'bio': bio,
-      'points': points,
-      'fullName': fullName,
-      'groupIds': groupIds,
-      'enrolledCourseIds': enrolledCourseIds,
-      'following': following,
-      'followers': followers,
-    };
-  }
+  DataMap toMap() => {
+        'uid': uid,
+        'email': email,
+        'points': points,
+        'fullName': fullName,
+        'profilePic': profilePic,
+        'bio': bio,
+        'dateSubscribed': dateSubscribed,
+        'subscription': subscription,
+        'groupIds': groupIds,
+        'enrolledCourseIds': enrolledCourseIds,
+        'following': following,
+        'followers': followers,
+      };
 }

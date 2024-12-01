@@ -36,19 +36,22 @@ class _SignUpFormState extends State<SignUpForm> {
             controller: widget.fullNameController,
             hintText: 'Nom et Prénom (s)',
             keyboardType: TextInputType.name,
+            prefixIcon: Icon(Icons.people),
           ),
-          const SizedBox(height: 25),
+          const SizedBox(height: 15),
           IField(
             controller: widget.emailController,
             hintText: 'Adresse email',
             keyboardType: TextInputType.emailAddress,
+            prefixIcon: Icon(Icons.email),
           ),
-          const SizedBox(height: 25),
+          const SizedBox(height: 15),
           IField(
             controller: widget.passwordController,
             hintText: 'Mot de Passe',
             obscureText: obscurePassword,
             keyboardType: TextInputType.visiblePassword,
+            prefixIcon: Icon(Icons.verified),
             suffixIcon: IconButton(
               onPressed: () {
                 setState(() {
@@ -61,12 +64,13 @@ class _SignUpFormState extends State<SignUpForm> {
               ),
             ),
           ),
-          const SizedBox(height: 25),
+          const SizedBox(height: 15),
           IField(
             controller: widget.confirmPasswordController,
             hintText: 'Confirmer mot de passe',
             obscureText: obscureConfirmPassword,
             keyboardType: TextInputType.visiblePassword,
+            prefixIcon: Icon(Icons.verified_user),
             suffixIcon: IconButton(
               onPressed: () {
                 setState(() {

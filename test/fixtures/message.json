@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "senderId": "1",
+  "message": "Test message",
+  "groupId": "1",
+  "messageBeingRepliedToId": null,
+  "messageBeingRepliedToSenderId": null,
+  "messageBeingRepliedToText": null
+}

@@ -1,0 +1,18 @@
+{
+    "id": "_empty.id",
+    "name": "_empty.name",
+    "description": "_empty.description",
+    "amount": null,
+    "numberOfRecipients": 0,
+    "applicationDeadline": "2024-06-25T12:00:00Z",
+    "createdAt": "2024-06-25T12:00:00Z",
+    "updatedAt": "2024-06-25T12:00:00Z",
+    "isActive": false,
+    "image": "_empty.image",
+    "imageIsFile": false,
+    "availableFields": [],
+    "country": "_empty.country",
+    "logoImage": "_empty.logoImage",
+    "category": "_empty.category",
+    "videoUrl": "_empty.videoUrl"
+}

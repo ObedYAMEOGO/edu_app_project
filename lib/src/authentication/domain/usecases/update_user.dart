@@ -4,7 +4,7 @@ import 'package:edu_app_project/core/utils/typedefs.dart';
 import 'package:edu_app_project/src/authentication/domain/repos/auth_repo.dart';
 import 'package:equatable/equatable.dart';
 
-class UpdateUser extends UsecaseWithParams<void, UpdateUserParams> {
+class UpdateUser extends FutureUsecaseWithParams<void, UpdateUserParams> {
   const UpdateUser(this._repo);
 
   final AuthRepo _repo;

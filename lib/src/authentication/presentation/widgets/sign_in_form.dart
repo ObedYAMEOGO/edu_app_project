@@ -29,12 +29,14 @@ class _SignInFormState extends State<SignInForm> {
             controller: widget.emailController,
             hintText: 'Votre adresse email svp',
             keyboardType: TextInputType.emailAddress,
+            prefixIcon: Icon(Icons.email),
           ),
           const SizedBox(height: 15),
           IField(
             controller: widget.passwordController,
             hintText: 'Mot de passe',
             obscureText: obscurePassword,
+            prefixIcon: Icon(Icons.verified_user),
             keyboardType: TextInputType.visiblePassword,
             suffixIcon: IconButton(
               onPressed: () {

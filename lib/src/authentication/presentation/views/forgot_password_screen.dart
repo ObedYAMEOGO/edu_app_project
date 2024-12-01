@@ -39,23 +39,23 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         listener: (_, state) {
           if (state is AuthError) {
             Utils.showSnackBar(
-              context,
-              state.message,
-              ContentType.failure,
-            );
+                context,
+                "Informations incorrects ou soucis d'accès à internet. Veuillez réessayer!",
+                ContentType.failure,
+                title: "Oups!");
           } else if (state is ForgotPasswordSent) {
             Utils.showSnackBar(
-              context,
-              'Email de réinitialisation envoyé.',
-              ContentType.success,
-            );
+                context,
+                'Email de réinitialisation envoyé. Veuillez vérifier vos email!',
+                ContentType.success,
+                title: "Parfait!");
             Navigator.pushReplacementNamed(context, SignInScreen.routeName);
           }
         },
         builder: (context, state) {
           return Scaffold(
             body: GradientBackground(
-              image: MediaRes.backgroundImg,
+              image: Res.backgroundImg,
               child: SafeArea(
                 child: Center(
                   child: ListView(
@@ -66,15 +66,15 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         'Réinitialiser le mot de passe',
                         style: TextStyle(
                           fontFamily: Fonts.montserrat,
-                          color: Colours.whiteColour,
+                          color: Colours.primaryColour,
                           fontSize: 20,
+                          fontWeight: FontWeight.w700,
                         ),
                         textAlign: TextAlign.center,
                       ),
-                      const SizedBox(height: 40),
                       Column(
                         children: [
-                          const SizedBox(height: 20),
+                          const SizedBox(height: 25),
                           Form(
                             key: formKey,
                             child: Column(
@@ -83,6 +83,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                   controller: emailController,
                                   hintText: 'Adresse email',
                                   keyboardType: TextInputType.emailAddress,
+                                  prefixIcon: Icon(Icons.email),
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
                                       return 'Veuillez entrer votre email';
@@ -99,6 +100,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                 child: CustomCircularProgressBarIndicator())
                           else
                             RoundedButton(
+                              height: 45,
                               label: 'Envoyer',
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
@@ -125,7 +127,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                   'Mot de passe?   ',
                                   style: TextStyle(
                                     fontFamily: Fonts.montserrat,
-                                    color: Colours.darkColour,
+                                    fontSize: 12,
+                                    color: Colours.secondaryColour,
                                   ),
                                 ),
                                 Text(
@@ -133,6 +136,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                   style: TextStyle(
                                     color: Colours.primaryColour,
                                     fontFamily: Fonts.montserrat,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ],

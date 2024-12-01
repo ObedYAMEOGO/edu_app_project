@@ -1,11 +1,9 @@
-
-
 import 'package:edu_app_project/core/usecases/usecases.dart';
 import 'package:edu_app_project/core/utils/typedefs.dart';
 import 'package:edu_app_project/src/authentication/domain/repos/auth_repo.dart';
 import 'package:equatable/equatable.dart';
 
-class SignUp extends UsecaseWithParams<void, SignUpParams> {
+class SignUp extends FutureUsecaseWithParams<void, SignUpParams> {
   const SignUp(this._repo);
   final AuthRepo _repo;
 

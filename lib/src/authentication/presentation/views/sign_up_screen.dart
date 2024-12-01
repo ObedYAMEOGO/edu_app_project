@@ -48,7 +48,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
       body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthError) {
-            Utils.showSnackBar(context, state.message, ContentType.failure);
+            Utils.showSnackBar(
+                context,
+                "Informations incorrects ou soucis d'accès à internet. Veuillez réessayer!",
+                ContentType.failure,
+                title: "Oups !");
           } else if (state is SignedUp) {
             context.read<AuthBloc>().add(
                   SignInEvent(
@@ -56,7 +60,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     password: passwordController.text.trim(),
                   ),
                 );
-            Utils.showSnackBar(context, 'Vos informations ont été enregistrées avec succès', ContentType.success);
+            Utils.showSnackBar(
+                context,
+                'Vos informations ont été enregistrées avec succès',
+                ContentType.success,
+                title: "Parfait!");
           } else if (state is SignedIn) {
             context.read<UserProvider>().initUser(state.user);
             Navigator.pushReplacementNamed(context, Dashboard.routeName);
@@ -64,7 +72,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         },
         builder: (context, state) {
           return GradientBackground(
-            image: MediaRes.backgroundImg,
+            image: Res.backgroundImg,
             child: SafeArea(
               child: Center(
                 child: ListView(
@@ -77,7 +85,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       style: TextStyle(
                           fontFamily: Fonts.montserrat,
                           fontWeight: FontWeight.w700,
-                          fontSize: 32,
+                          fontSize: 20,
                           color: Colours.primaryColour),
                     ),
                     const SizedBox(height: 25),
@@ -95,6 +103,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           )
                         : RoundedButton(
                             label: 'S\'inscrire',
+                            height: 45,
                             onPressed: () {
                               FocusManager.instance.primaryFocus?.unfocus();
                               if (formKey.currentState!.validate()) {
@@ -127,13 +136,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               Text(
                                 'Déjà un compte?   ',
                                 style: TextStyle(
-                                    color: Colours.darkColour,
+                                    color: Colours.secondaryColour,
+                                    fontSize: 12,
                                     fontFamily: Fonts.montserrat),
                               ),
                               Text(
                                 '  Se connecter',
                                 style: TextStyle(
                                     color: Colours.primaryColour,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
                                     fontFamily: Fonts.montserrat),
                               )
                             ],
