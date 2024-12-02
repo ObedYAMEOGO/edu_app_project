@@ -20,6 +20,15 @@ class ScholarshipDetailsScreen extends StatelessWidget {
 
   final Scholarship scholarship;
 
+  Future<void> _launchURL() async {
+    final Uri _url = Uri.parse(scholarship.videoUrl);
+    if (await canLaunchUrl(_url)) {
+      await launchUrl(_url);
+    } else {
+      throw 'Could not launch $_url';
+    }
+  }
+
   // Function to launch WhatsApp with a prefilled message
   Future<void> _launchWhatsApp() async {
     final String message =
@@ -83,7 +92,7 @@ class ScholarshipDetailsScreen extends StatelessWidget {
                     bottom: 16,
                     right: 16,
                     child: GestureDetector(
-                      onTap: _launchWhatsApp, // Corrected here
+                      onTap: _launchURL, // Corrected here
                       child: CircleAvatar(
                         radius: 25,
                         backgroundColor: Colors.white,
