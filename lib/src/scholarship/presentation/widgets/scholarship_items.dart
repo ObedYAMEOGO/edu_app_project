@@ -1,5 +1,4 @@
 import 'package:edu_app_project/core/res/colours.dart';
-import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/src/scholarship/domain/entities/scholarship.dart';
 import 'package:edu_app_project/src/scholarship/presentation/views/scholarship_details_screen.dart';
 import 'package:flutter/material.dart';
@@ -17,26 +16,27 @@ class ScholarshipItems extends StatelessWidget {
       child: Column(
         children: scholarships.map((scholarship) {
           return Padding(
-            padding: const EdgeInsets.only(bottom: 9),
+            padding: const EdgeInsets.only(bottom: 10, top: 1),
             child: GestureDetector(
               onTap: () => Navigator.of(context).pushNamed(
                 ScholarshipDetailsScreen.routeName,
                 arguments: scholarship,
               ),
               child: Card(
+                color: Colors.white,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(2),
+                  borderRadius: BorderRadius.circular(8),
                 ),
-                elevation: 0,
+                elevation: 3,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Scholarship Image and Logo
                     Stack(
                       children: [
-                        // Main Image
                         ClipRRect(
                           borderRadius: const BorderRadius.vertical(
-                            top: Radius.circular(2),
+                            top: Radius.circular(8),
                           ),
                           child: Image.network(
                             scholarship.image,
@@ -45,16 +45,16 @@ class ScholarshipItems extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        // Logo Image
                         Positioned(
-                          bottom: 12,
+                          bottom: 20,
                           left: 15,
                           child: Container(
                             padding: EdgeInsets.symmetric(
-                                vertical: 5, horizontal: 10),
+                                horizontal: 5, vertical: 5),
                             decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(2)),
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
                             child: Image.network(
                               scholarship.logoImage,
                               height: 50,
@@ -62,92 +62,85 @@ class ScholarshipItems extends StatelessWidget {
                               fit: BoxFit.contain,
                             ),
                           ),
-                        ),
+                        )
                       ],
                     ),
+                    // Scholarship Information
                     Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(10.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Name
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 5, horizontal: 5),
-                            child: Text(
-                              '${scholarship.name}',
-                              style: const TextStyle(
-                                fontSize: 14,
-                                color: Colors.grey,
+                          // Name and Category in One Row
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  scholarship.name,
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.grey,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-
-                          // Category
-                          Container(
-                            width: double.infinity,
-                            padding: EdgeInsets.symmetric(
-                                vertical: 5, horizontal: 5),
-                            color: Colors.blue.withOpacity(0.05),
-                            child: Text(
-                              '${scholarship.category}',
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                                color: Colours.primaryColour,
+                              Container(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 2,
+                                  horizontal: 8,
+                                ),
+                                color: Color(0xFFE4E6EA),
+                                child: Text(
+                                  scholarship.category,
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colours.primaryColour,
+                                  ),
+                                ),
                               ),
-                            ),
+                            ],
                           ),
-                          const SizedBox(height: 8),
-
-                          // Country
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 5, horizontal: 5),
-                            child: Text(
-                              'Pays: ${scholarship.country}',
-                              style: const TextStyle(
-                                fontSize: 16,
-                                color: Colours.primaryColour,
-                                fontWeight: FontWeight.w500,
+                          const SizedBox(height: 6),
+                          // Country and Deadline in One Row
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Pays: ${scholarship.country}',
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colours.primaryColour,
+                                ),
                               ),
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-
-                          // Deadline
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 5, horizontal: 5),
-                            color: Colors.blue.withOpacity(0.05),
-                            //color: const Color(0xFFE4E6EA),
-
-                            child: Text(
-                              'Date limite: ${DateFormat('dd MMM yyyy').format(scholarship.applicationDeadline)}',
-                              style: const TextStyle(
-                                fontFamily: Fonts.montserrat,
-                                fontWeight: FontWeight.w500,
-                                color: Colours.secondaryColour,
-                                fontSize: 12,
+                              Text(
+                                'Date limite: ${DateFormat('dd MMM yyyy').format(scholarship.applicationDeadline)}',
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colours.secondaryColour,
+                                ),
                               ),
-                            ),
+                            ],
                           ),
-                          const SizedBox(height: 15),
-
-                          // Button to View Details (Centered left aligned)
-                          Center(
+                          const SizedBox(height: 10),
+                          // View Details Button
+                          Align(
+                            alignment: Alignment.centerRight,
                             child: TextButton(
                               onPressed: () => Navigator.of(context).pushNamed(
                                 ScholarshipDetailsScreen.routeName,
                                 arguments: scholarship,
                               ),
                               child: const Text(
-                                'Voir les details',
+                                'Voir les détails',
                                 style: TextStyle(
-                                  color: Colors.blue,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
+                                  color: Colours.primaryColour,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
                             ),

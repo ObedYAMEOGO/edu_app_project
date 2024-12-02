@@ -23,17 +23,18 @@ class ProfileHeader extends StatelessWidget {
               height: 10,
             ),
             CircleAvatar(
-                radius: 50,
-                backgroundImage: image != null
-                    ? NetworkImage(image)
-                    : Image.network(kDefaultAvatar) as ImageProvider),
+              radius: 50,
+              backgroundImage: image != null
+                  ? NetworkImage(image)
+                  : const NetworkImage(kDefaultAvatar) as ImageProvider,
+            ),
             const SizedBox(
               height: 16,
             ),
             Text(
               user?.fullName ?? 'Pas d\'utilisateur',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
             ),
             if (user?.bio != null && user!.bio!.isNotEmpty) ...[
               const SizedBox(
