@@ -132,14 +132,14 @@ class _ChatViewState extends State<ChatView>
                   preferredSize:
                       const Size.fromHeight(50), // Adjust height as needed
                   child: Container(
-                    color: Colours
-                        .primaryColour, // Set background color for the tab section
+                    color: Color(
+                        0xFFE4E6EA), // Set background color for the tab section
                     child: TabBar(
                       controller: _tabController,
                       indicator: const BoxDecoration(),
-                      labelColor: Colours.successColor,
+                      labelColor: Colours.primaryColour,
                       unselectedLabelColor:
-                          Color(0xFFE4E6EA), // Adjust text color for contrast
+                          Colors.grey[500], // Adjust text color for contrast
                       labelStyle: const TextStyle(
                         fontWeight: FontWeight.w500,
                         fontFamily: Fonts.montserrat,

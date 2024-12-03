@@ -50,31 +50,28 @@ class _AllCoursesViewState extends State<AllCoursesView> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         titleSpacing: 0,
-        leading: NestedBackButton(),
-        title: Container(
-          decoration: BoxDecoration(
-            color: const Color(0xFFE4E6EA),
-            borderRadius: BorderRadius.circular(8),
-          ),
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          height: 40,
+        leading: const NestedBackButton(),
+        title: Center(
           child: Container(
+            width: MediaQuery.of(context).size.width * 0.8,
+            height: 36,
             decoration: BoxDecoration(
               color: const Color(0xFFE4E6EA),
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(5),
             ),
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            height: 40,
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: TextField(
               controller: searchController,
               onChanged: _filterCourses,
-              style: const TextStyle(color: Colours.primaryColour),
+              style:
+                  const TextStyle(color: Colours.primaryColour, fontSize: 14),
               decoration: InputDecoration(
                 hintText: 'Recherche...',
-                border: InputBorder.none, // Remove default border
-                hintStyle: const TextStyle(color: Colors.grey),
+                border: InputBorder.none,
+                hintStyle: TextStyle(color: Colors.grey[600], fontSize: 14),
                 contentPadding: const EdgeInsets.symmetric(vertical: 10),
               ),
+              textAlignVertical: TextAlignVertical.center,
             ),
           ),
         ),
@@ -87,7 +84,7 @@ class _AllCoursesViewState extends State<AllCoursesView> {
             onPressed: () {
               FocusScope.of(context).requestFocus(FocusNode());
             },
-          )
+          ),
         ],
       ),
       body: SafeArea(

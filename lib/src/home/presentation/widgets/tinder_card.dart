@@ -21,8 +21,8 @@ class TinderCard extends StatelessWidget {
             gradient: isFirst
                 ? const LinearGradient(
                     colors: [
-                      Colours.primaryColour,
-                      Colours.primaryColour,
+                      Color(0xFFE4E6EA),
+                      Color(0xFFE4E6EA),
                     ],
                   )
                 : null,
@@ -30,7 +30,7 @@ class TinderCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(24),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(.15),
+                color: Colors.black.withOpacity(.005),
                 offset: const Offset(0, 5),
                 blurRadius: 10,
               ),
@@ -45,7 +45,7 @@ class TinderCard extends StatelessWidget {
                       '\n${context.courseOfTheDay?.title != null && context.courseOfTheDay!.title.length > 17 ? '${context.courseOfTheDay!.title.substring(0, 17)}...' : context.courseOfTheDay?.title ?? '______'} ',
                       textAlign: TextAlign.left,
                       style: const TextStyle(
-                        color: Colors.white,
+                        color: Colours.primaryColour,
                         fontSize: 22,
                         fontWeight: FontWeight.w600,
                       ),
@@ -53,12 +53,12 @@ class TinderCard extends StatelessWidget {
                     const SizedBox(height: 10),
                     const Row(
                       children: [
-                        Icon(Icons.timer, color: Colours.favoriteYellow),
+                        Icon(Icons.timer, color: Colours.primaryColour),
                         SizedBox(width: 8),
                         Text(
                           '10 minutes',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: Colours.secondaryColour,
                             fontSize: 12,
                           ),
                         ),
@@ -76,7 +76,7 @@ class TinderCard extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
-                color: Colours.greenColour,
+                color: Colours.primaryColour,
                 borderRadius: BorderRadius.circular(16),
               ),
               child: const Text(

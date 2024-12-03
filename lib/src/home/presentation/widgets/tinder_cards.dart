@@ -53,7 +53,7 @@ class _TinderCardsState extends State<TinderCards>
           cardBuilder: (context, index) {
             final isFirst = index == 0;
             final colorByIndex =
-                index == 1 ? Colours.secondaryColour : Colours.greenColour;
+                index == 1 ? Colours.secondaryColour : Color(0xFFE4E6EA);
             return Stack(
               children: [
                 Positioned(

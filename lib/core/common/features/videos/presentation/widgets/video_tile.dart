@@ -59,7 +59,7 @@ class VideoTile extends StatelessWidget {
                     width: 130,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24),
-                      color: Colors.black.withOpacity(0.3),
+                      color:  Colors.black.withOpacity(0.4)
                     ),
                     child: Center(
                       child: video.videoURL.isYouTubeVideo
@@ -84,7 +84,22 @@ class VideoTile extends StatelessWidget {
                     children: [
                       const Icon(
                         Icons.star_rounded,
-                        color: Colors.yellow,
+                        color: Color.fromARGB(255, 246, 181, 2),
+                        size: 14,
+                      ),
+                      const Icon(
+                        Icons.star_rounded,
+                        color: Color.fromARGB(255, 246, 181, 2),
+                        size: 14,
+                      ),
+                      const Icon(
+                        Icons.star_rounded,
+                        color: Color.fromARGB(255, 246, 181, 2),
+                        size: 14,
+                      ),
+                      const Icon(
+                        Icons.star_rounded,
+                        color: Color.fromARGB(255, 246, 181, 2),
                         size: 14,
                       ),
                       // Text(

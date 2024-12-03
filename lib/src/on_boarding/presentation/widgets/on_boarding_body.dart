@@ -135,7 +135,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody>
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.symmetric(
                         horizontal: buttonWidth,
-                        vertical: context.height * 0.018,
+                        vertical: context.height * 0.020,
                       ),
                       backgroundColor: Colours.primaryColour,
                       foregroundColor: Colors.white,
@@ -155,8 +155,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody>
                       'Commencer',
                       style: TextStyle(
                         fontFamily: Fonts.montserrat,
-                        fontWeight: FontWeight.bold,
-                        fontSize: context.width * 0.043,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),

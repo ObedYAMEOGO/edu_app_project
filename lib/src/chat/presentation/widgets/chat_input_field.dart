@@ -53,14 +53,13 @@ class _ChatInputFieldState extends State<ChatInputField> {
         maxLines: 5,
         decoration: InputDecoration(
           hintText: 'Message',
-          hintStyle: const TextStyle(
-            color: Color(0xFF9FA5BB),
+          hintStyle: TextStyle(
+            color: Colors.grey[600],
             fontSize: 14,
             fontWeight: FontWeight.w400,
           ),
           filled: true,
-          fillColor: 
-             Color(0xFFE4E6EA),
+          fillColor: Color(0xFFE4E6EA),
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 22,
             vertical: 8,

@@ -65,37 +65,37 @@ class _CourseVideosViewState extends State<CourseVideosView> {
       appBar: AppBar(
         leading: const NestedBackButton(),
         titleSpacing: 0,
-        title: Row(
-          children: [
-            Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: const Color(0xFFE4E6EA),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                height: 40,
-                child: TextField(
-                  controller: searchController,
-                  onChanged: _filterVideos,
-                  style: const TextStyle(color: Colours.primaryColour),
-                  decoration: const InputDecoration(
-                    hintText: 'Recherche...',
-                    border: InputBorder.none,
-                    hintStyle: TextStyle(color: Colors.grey),
-                    contentPadding: EdgeInsets.symmetric(vertical: 10),
-                  ),
-                ),
+        title: Center(
+          child: Container(
+            decoration: BoxDecoration(
+              color: const Color(0xFFE4E6EA),
+              borderRadius: BorderRadius.circular(5),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            width: MediaQuery.of(context).size.width * 0.8,
+            height: 36,
+            child: TextField(
+              controller: searchController,
+              onChanged: _filterVideos,
+              style:
+                  const TextStyle(color: Colours.primaryColour, fontSize: 14),
+              decoration: InputDecoration(
+                hintText: 'Recherche...',
+                border: InputBorder.none,
+                hintStyle: TextStyle(color: Colors.grey[600], fontSize: 14),
+                contentPadding: EdgeInsets.symmetric(vertical: 10),
               ),
             ),
-            IconButton(
-              icon: const Icon(Icons.search, color: Colours.primaryColour),
-              onPressed: () {
-                _filterVideos(searchController.text);
-              },
-            ),
-          ],
+          ),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search, color: Colours.primaryColour),
+            onPressed: () {
+              _filterVideos(searchController.text);
+            },
+          ),
+        ],
       ),
       body: SafeArea(
         child: BlocConsumer<VideoCubit, VideoState>(
@@ -122,7 +122,7 @@ class _CourseVideosViewState extends State<CourseVideosView> {
                     Text(
                       '${widget.course.title}',
                       style: const TextStyle(
-                        fontSize: 22,
+                        fontSize: 15,
                         fontWeight: FontWeight.w600,
                         color: Colours.primaryColour,
                       ),

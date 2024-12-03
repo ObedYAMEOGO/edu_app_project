@@ -15,20 +15,13 @@ class TimeTile extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Colours.primaryColour,
-            Colours.primaryColour,
+            const Color(0xFFE4E6EA),
+            const Color(0xFFE4E6EA),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        borderRadius: BorderRadius.circular(4),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.15),
-            blurRadius: 8,
-            offset: const Offset(0, 4),
-          ),
-        ],
+        borderRadius: BorderRadius.circular(50),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -38,15 +31,8 @@ class TimeTile extends StatelessWidget {
               time,
               prefixText: prefixText,
               style: TextStyle(
-                color: Colors.white,
+                color: Colours.primaryColour,
                 fontSize: 9,
-                shadows: [
-                  Shadow(
-                    color: Colors.black.withOpacity(0.3),
-                    offset: Offset(0, 2),
-                    blurRadius: 3,
-                  ),
-                ],
               ),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,

@@ -54,7 +54,7 @@ class ReplyPreview extends StatelessWidget {
                     GestureDetector(
                       onTap: notifier.clearReply,
                       child: const Icon(IconlyBroken.close_square,
-                          color: Colours.redColour, size: 17),
+                          color: Colours.redColour, size: 30),
                     ),
                   ],
                 ),

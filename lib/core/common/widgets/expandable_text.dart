@@ -77,10 +77,10 @@ class _ExpandableTextState extends State<ExpandableText> {
                           expanded = !expanded;
                         });
                       },
-                    style: const TextStyle(
-                      color: Color.fromARGB(255, 224, 148, 34),
+                    style:  TextStyle(
+                      color: Colours.successColor,
                       fontSize: 12,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ],
