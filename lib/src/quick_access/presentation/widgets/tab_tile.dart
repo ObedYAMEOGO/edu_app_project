@@ -21,7 +21,7 @@ class TabTile extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(50),
                     color: Color(0xFFE4E6EA),
                   ),
                   child: Text(
