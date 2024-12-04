@@ -112,7 +112,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody>
                         height: context.width * 0.17,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Color(0xFFE4E6EA),
+                          color: Color(0xFFE4E6EA).withOpacity(0.3),
                         ),
                       ),
                     ),
@@ -122,7 +122,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody>
                       onPressed: widget.onNextPagePressed,
                       backgroundColor: Colours.successColor,
                       child: Icon(
-                        Icons.forward,
+                        Icons.arrow_forward_ios,
                         color: Colours.primaryColour,
                         size: context.width * 0.05,
                       ),
