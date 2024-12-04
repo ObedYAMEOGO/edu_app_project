@@ -23,11 +23,10 @@ class ScholarshipItems extends StatelessWidget {
                 arguments: scholarship,
               ),
               child: Card(
-                color: Colors.white,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(30),
                 ),
-                elevation: 3,
+                elevation: 0.4,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -36,7 +35,7 @@ class ScholarshipItems extends StatelessWidget {
                       children: [
                         ClipRRect(
                           borderRadius: const BorderRadius.vertical(
-                            top: Radius.circular(8),
+                            top: Radius.circular(30),
                           ),
                           child: Image.network(
                             scholarship.image,
@@ -78,9 +77,9 @@ class ScholarshipItems extends StatelessWidget {
                               Expanded(
                                 child: Text(
                                   scholarship.name,
-                                  style: const TextStyle(
+                                  style:  TextStyle(
                                     fontSize: 14,
-                                    fontWeight: FontWeight.bold,
+                                    fontWeight: FontWeight.w500,
                                     color: Colors.grey,
                                   ),
                                   overflow: TextOverflow.ellipsis,

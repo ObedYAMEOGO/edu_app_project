@@ -38,8 +38,7 @@ class Res {
   static const examQuestions = '$_baseIcons/questions_document.png';
   static const examTimeRed = '$_baseIcons/exam_time_red.png';
   static const whatsapp = '$_baseIcons/communication.png';
-
-
+  static const youtubeVideoIcon = '$_baseIcons/ytb.png';
 
   static const pageContentFirst =
       "$_baseVectors/beautiful_girl_reading_books.png";

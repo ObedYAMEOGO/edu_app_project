@@ -71,7 +71,7 @@ class ScholarshipDetailsScreen extends StatelessWidget {
                 children: [
                   Center(
                     child: ClipRRect(
-                      borderRadius: const BorderRadius.all(Radius.circular(2)),
+                      borderRadius: const BorderRadius.all(Radius.circular(30)),
                       // ignore: unnecessary_null_comparison
                       child: scholarship.image != null
                           ? Image.network(
@@ -92,13 +92,23 @@ class ScholarshipDetailsScreen extends StatelessWidget {
                     bottom: 16,
                     right: 16,
                     child: GestureDetector(
-                      onTap: _launchURL, // Corrected here
-                      child: CircleAvatar(
-                        radius: 25,
-                        backgroundColor: Colors.white,
-                        child: Icon(
-                          IconlyBold.video,
-                          color: Colours.primaryColour,
+                      onTap: _launchURL,
+                      child: Container(
+                        padding: EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            //color: Colours.primaryColour,
+                            width: 2,
+                          ),
+                        ),
+                        child: CircleAvatar(
+                          radius: 25,
+                          backgroundColor: Colors.white,
+                          child: Image.asset(
+                            Res.youtubeVideoIcon,
+                            width: 50
+                          ),
                         ),
                       ),
                     ),
