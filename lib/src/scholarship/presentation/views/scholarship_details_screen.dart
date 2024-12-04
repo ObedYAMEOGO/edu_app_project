@@ -6,7 +6,6 @@ import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/res/media_res.dart';
 import 'package:edu_app_project/src/scholarship/domain/entities/scholarship.dart';
 import 'package:flutter/material.dart';
-import 'package:iconly/iconly.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart'; // For opening the URL
 
@@ -97,10 +96,6 @@ class ScholarshipDetailsScreen extends StatelessWidget {
                         padding: EdgeInsets.all(3),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          border: Border.all(
-                            //color: Colours.primaryColour,
-                            width: 2,
-                          ),
                         ),
                         child: CircleAvatar(
                           radius: 25,
