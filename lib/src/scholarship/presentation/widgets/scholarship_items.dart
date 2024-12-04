@@ -30,7 +30,6 @@ class ScholarshipItems extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Scholarship Image and Logo
                     Stack(
                       children: [
                         ClipRRect(
@@ -103,7 +102,6 @@ class ScholarshipItems extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(height: 6),
-                          // Country and Deadline in One Row
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [

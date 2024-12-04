@@ -51,9 +51,9 @@ class _OnBoardingBodyState extends State<OnBoardingBody>
     final double padding = context.width * 0.07;
     final double imageHeight = context.height * 0.5;
     final double buttonWidth = context.width * 0.2;
-    final double fontSizeTitle = context.width * 0.075;
+    final double fontSizeTitle = context.width * 0.06;
     final double fontSizeDescription =
-        context.width * 0.04; // Description font size
+        context.width * 0.039; // Description font size
 
     return SingleChildScrollView(
       child: Column(
@@ -76,7 +76,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody>
                   style: TextStyle(
                     fontFamily: Fonts.montserrat,
                     fontSize: fontSizeTitle,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w600,
                     color: Colours.primaryColour,
                   ),
                 ),
@@ -86,7 +86,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody>
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: fontSizeDescription,
-                    color: Colours.darkColour,
+                    color: Colours.secondaryColour,
                   ),
                 ),
                 SizedBox(height: context.height * 0.08),
@@ -108,22 +108,22 @@ class _OnBoardingBodyState extends State<OnBoardingBody>
                         ),
                       ),
                       child: Container(
-                        width: context.width * 0.15,
-                        height: context.width * 0.15,
+                        width: context.width * 0.17,
+                        height: context.width * 0.17,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colours.primaryColour.withOpacity(0.2),
+                          color: Color(0xFFE4E6EA),
                         ),
                       ),
                     ),
                     FloatingActionButton(
                       shape: const CircleBorder(),
-                      mini: true,
+                      mini: false,
                       onPressed: widget.onNextPagePressed,
-                      backgroundColor: Colours.primaryColour,
+                      backgroundColor: Colours.successColor,
                       child: Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        color: Colours.whiteColour,
+                        Icons.forward,
+                        color: Colours.primaryColour,
                         size: context.width * 0.05,
                       ),
                     ),
@@ -137,8 +137,8 @@ class _OnBoardingBodyState extends State<OnBoardingBody>
                         horizontal: buttonWidth,
                         vertical: context.height * 0.020,
                       ),
-                      backgroundColor: Colours.primaryColour,
-                      foregroundColor: Colors.white,
+                      backgroundColor: Colours.successColor,
+                      foregroundColor: Colours.primaryColour,
                     ),
                     onPressed: () async {
                       final navigator = Navigator.of(context);
@@ -155,6 +155,7 @@ class _OnBoardingBodyState extends State<OnBoardingBody>
                       'Commencer',
                       style: TextStyle(
                         fontFamily: Fonts.montserrat,
+                        fontSize: fontSizeDescription,
                         fontWeight: FontWeight.w600,
                       ),
                     ),

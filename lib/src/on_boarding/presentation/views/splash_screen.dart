@@ -1,3 +1,4 @@
+import 'package:edu_app_project/core/res/colours.dart';
 import 'package:edu_app_project/core/res/media_res.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +8,6 @@ class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _SplashScreenState createState() => _SplashScreenState();
 }
 
@@ -30,12 +30,40 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const SizedBox(height: 270), // Space from the top
+          const SizedBox(height: 250), // Space from the top
           const Center(
             child: Image(
               image: AssetImage(Res.logoImage),
               width: 130, // Adjust logo width
               height: 130, // Adjust logo height
+            ),
+          ),
+          const Spacer(),
+          Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  '| By Bassyam Education Team',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    color: Colours.primaryColour,
+                  ),
+                ),
+                const SizedBox(height: 5),
+                Text(
+                  '© 2024 All Rights Reserved',
+                  style: TextStyle(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w300,
+                    color: Colours.secondaryColour.withOpacity(0.5),
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+              ],
             ),
           ),
         ],
