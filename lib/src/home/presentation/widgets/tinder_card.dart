@@ -22,7 +22,6 @@ class TinderCard extends StatelessWidget {
           padding: EdgeInsets.only(
             left: cardPadding,
             right: cardPadding,
-            bottom: cardPadding / 2,
           ),
           decoration: BoxDecoration(
             gradient: isFirst
@@ -44,12 +43,9 @@ class TinderCard extends StatelessWidget {
             ],
           ),
           child: isFirst
-              ? Align(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      top: cardPadding * 2,
-                    ),
+              ? Center(
+                child: Align(
+                    alignment: Alignment.centerLeft,
                     child: Text(
                       _splitTitle(context.courseOfTheDay?.title ?? '______'),
                       textAlign: TextAlign.left,
@@ -60,7 +56,7 @@ class TinderCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                )
+              )
               : null,
         ),
         if (isFirst)

@@ -27,19 +27,28 @@ class _ChatAppBarState extends State<ChatAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      actionsIconTheme: IconThemeData(color: Colors.white),
-      centerTitle: true,
+      actionsIconTheme: const IconThemeData(color: Colors.white),
+      centerTitle: false,
       titleSpacing: 0,
+      leading: IconButton(
+        icon: const Icon(Icons.arrow_back),
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+      ),
       title: Row(
         children: [
-          CircleAvatar(
-            backgroundImage: NetworkImage(widget.group.groupImageUrl!),
-            backgroundColor: Colors.white,
-          ),
           const SizedBox(width: 7),
-          Text(
-            "${widget.group.name}",
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
+          Expanded(
+            child: Text(
+              widget.group.name,
+              style: const TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 15,
+                overflow: TextOverflow.ellipsis,
+              ),
+              maxLines: 1,
+            ),
           ),
         ],
       ),
