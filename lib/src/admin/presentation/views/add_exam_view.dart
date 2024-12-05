@@ -158,27 +158,29 @@ class _AddExamViewState extends State<AddExamView> {
                       const SizedBox(height: 10),
                     ],
                     const SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ElevatedButton(
-                          onPressed: pickExamFile,
-                          child: Text(
-                            examFile == null
-                                ? 'Selectionner un fichier'
-                                : 'Changer de fichier',
-                            style: TextStyle(color: Colours.secondaryColour),
+                    SingleChildScrollView(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            onPressed: pickExamFile,
+                            child: Text(
+                              examFile == null
+                                  ? 'Selectionner un fichier'
+                                  : 'Changer de fichier',
+                              style: TextStyle(color: Colours.secondaryColour),
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 10),
-                        ElevatedButton(
-                          onPressed: uploadExam,
-                          child: const Text(
-                            'Confirmer',
-                            style: TextStyle(color: Colours.secondaryColour),
+                          const SizedBox(width: 10),
+                          ElevatedButton(
+                            onPressed: uploadExam,
+                            child: const Text(
+                              'Confirmer',
+                              style: TextStyle(color: Colours.secondaryColour),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
