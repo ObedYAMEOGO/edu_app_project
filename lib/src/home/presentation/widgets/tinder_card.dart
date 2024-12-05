@@ -44,7 +44,7 @@ class TinderCard extends StatelessWidget {
           ),
           child: isFirst
               ? Center(
-                child: Align(
+                  child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       _splitTitle(context.courseOfTheDay?.title ?? '______'),
@@ -56,7 +56,7 @@ class TinderCard extends StatelessWidget {
                       ),
                     ),
                   ),
-              )
+                )
               : null,
         ),
         if (isFirst)
