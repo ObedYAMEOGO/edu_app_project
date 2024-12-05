@@ -68,7 +68,6 @@ class _HomeBodyState extends State<HomeBody> {
                 height: 20,
               ),
               HomeVideos(),
-              
             ],
           );
         }

@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:edu_app_project/core/extensions/context_extension.dart';
 import 'package:edu_app_project/core/res/colours.dart';
 import 'package:edu_app_project/core/services/injection_container.dart';
@@ -18,19 +16,9 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        // Background layer with gradient and opacity
         Container(
-          decoration: BoxDecoration(
-              // gradient: LinearGradient(
-              //   colors: Colours.gradient
-              //       .map((color) => color.withOpacity(0.5))
-              //       .toList(),
-              //   begin: Alignment.topLeft,
-              //   end: Alignment.bottomRight,
-              // ),
-              ),
+          decoration: BoxDecoration(),
         ),
-        // Transparent AppBar to show the gradient background
         AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
@@ -44,84 +32,88 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           actions: [
             PopupMenuButton(
-                offset: Offset(0, 60),
-                icon: Icon(Icons.more_horiz_outlined),
-                itemBuilder: (_) => [
-                      PopupMenuItem<void>(
-                        child: PopupItem(
-                          title: 'Modifier',
-                          icon: Icon(
-                            Icons.edit_outlined,
-                            color: Colours.primaryColour,
-                            size: 15,
-                          ),
-                        ),
-                        onTap: () => context.push(BlocProvider(
-                          create: (_) => sl<AuthBloc>(),
-                          child: const EditProfileView(),
-                        )),
-                      ),
-                      PopupMenuItem<void>(
-                          height: 1,
-                          padding: EdgeInsets.zero,
-                          child: Divider(
-                            height: .0,
-                            color: Colors.grey.shade100,
-                            endIndent: 0,
-                            indent: 0,
-                          )),
-                      PopupMenuItem<void>(
-                        child: PopupItem(
-                          title: 'Notifications',
-                          icon: Icon(
-                            Icons.notification_add_rounded,
-                            size: 15,
-                            color: Colors.red,
-                          ),
-                        ),
-                      ),
-                      PopupMenuItem<void>(
-                          height: 1,
-                          padding: EdgeInsets.zero,
-                          child: Divider(
-                            height: .0,
-                            color: Colors.grey.shade100,
-                            endIndent: 0,
-                            indent: 0,
-                          )),
-                      PopupMenuItem<void>(
-                        child: PopupItem(
-                          title: 'Aide',
-                          icon: Icon(
-                            IconlyBroken.info_circle,
-                            size: 15,
-                          ),
-                        ),
-                      ),
-                      PopupMenuItem<void>(
-                          height: 1,
-                          padding: EdgeInsets.zero,
-                          child: Divider(
-                            height: .0,
-                            color: Colors.grey.shade100,
-                            endIndent: 0,
-                            indent: 0,
-                          )),
-                      PopupMenuItem<void>(
-                          child: PopupItem(
-                            title: 'Déconnexion',
-                            icon: Icon(
-                              IconlyBroken.logout,
-                              size: 15,
-                            ),
-                          ),
-                          onTap: () async {
-                            final navigator = Navigator.of(context);
-                            await FirebaseAuth.instance.signOut();
-                            unawaited(navigator.pushNamedAndRemoveUntil(
-                                '/', (route) => false));
-                          }),
-                    ]),
+              offset: Offset(0, 60),
+              icon: Icon(Icons.more_horiz_outlined),
+              itemBuilder: (_) => [
+                PopupMenuItem<void>(
+                  child: PopupItem(
+                    title: 'Modifier',
+                    icon: Icon(
+                      Icons.edit_outlined,
+                      color: Colours.primaryColour,
+                      size: 15,
+                    ),
+                  ),
+                  onTap: () => context.push(BlocProvider(
+                    create: (_) => sl<AuthBloc>(),
+                    child: const EditProfileView(),
+                  )),
+                ),
+                PopupMenuItem<void>(
+                    height: 1,
+                    padding: EdgeInsets.zero,
+                    child: Divider(
+                      height: .0,
+                      color: Colors.grey.shade100,
+                      endIndent: 0,
+                      indent: 0,
+                    )),
+                PopupMenuItem<void>(
+                  child: PopupItem(
+                    title: 'Notifications',
+                    icon: Icon(
+                      Icons.notification_add_rounded,
+                      size: 15,
+                      color: Colors.red,
+                    ),
+                  ),
+                ),
+                PopupMenuItem<void>(
+                    height: 1,
+                    padding: EdgeInsets.zero,
+                    child: Divider(
+                      height: .0,
+                      color: Colors.grey.shade100,
+                      endIndent: 0,
+                      indent: 0,
+                    )),
+                PopupMenuItem<void>(
+                  child: PopupItem(
+                    title: 'Aide',
+                    icon: Icon(
+                      IconlyBroken.info_circle,
+                      size: 15,
+                    ),
+                  ),
+                ),
+                PopupMenuItem<void>(
+                    height: 1,
+                    padding: EdgeInsets.zero,
+                    child: Divider(
+                      height: .0,
+                      color: Colors.grey.shade100,
+                      endIndent: 0,
+                      indent: 0,
+                    )),
+                PopupMenuItem<void>(
+                  child: PopupItem(
+                    title: 'Déconnexion',
+                    icon: Icon(
+                      IconlyBroken.logout,
+                      size: 15,
+                    ),
+                  ),
+                  onTap: () async {
+                    final navigator = Navigator.of(context);
+                    navigator.pushNamedAndRemoveUntil(
+                        '/sign-in', (route) => false);
+
+                    // Déconnecter l'utilisateur après avoir démarré la navigation
+                    await FirebaseAuth.instance.signOut();
+                  },
+                ),
+              ],
+            ),
           ],
         ),
       ],

@@ -10,13 +10,20 @@ class TinderCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double cardHeight = context.height * 0.15;
+    final double cardPadding = context.width * 0.05;
+    final double fontSize = context.width * 0.05;
+
     return Stack(
       children: [
-        // Le contenu principal de la carte
         Container(
           alignment: Alignment.bottomCenter,
-          height: 137,
-          padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+          height: cardHeight,
+          padding: EdgeInsets.only(
+            left: cardPadding,
+            right: cardPadding,
+            bottom: cardPadding / 2,
+          ),
           decoration: BoxDecoration(
             gradient: isFirst
                 ? const LinearGradient(
@@ -30,51 +37,41 @@ class TinderCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(24),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(.005),
+                color: Colors.black.withOpacity(.05),
                 offset: const Offset(0, 5),
                 blurRadius: 10,
               ),
             ],
           ),
           child: isFirst
-              ? Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      '\n${context.courseOfTheDay?.title != null && context.courseOfTheDay!.title.length > 17 ? '${context.courseOfTheDay!.title.substring(0, 17)}...' : context.courseOfTheDay?.title ?? '______'} ',
+              ? Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      top: cardPadding * 2,
+                    ),
+                    child: Text(
+                      _splitTitle(context.courseOfTheDay?.title ?? '______'),
                       textAlign: TextAlign.left,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colours.primaryColour,
-                        fontSize: 22,
+                        fontSize: fontSize,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 10),
-                    const Row(
-                      children: [
-                        Icon(Icons.timer, color: Colours.primaryColour),
-                        SizedBox(width: 8),
-                        Text(
-                          '10 minutes',
-                          style: TextStyle(
-                            color: Colours.secondaryColour,
-                            fontSize: 12,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                  ),
                 )
               : null,
         ),
-        // Le label "Cours du jour"
         if (isFirst)
           Positioned(
-            top: 10,
-            left: 10,
+            top: cardPadding / 2,
+            left: cardPadding / 2,
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              padding: EdgeInsets.symmetric(
+                horizontal: cardPadding / 2,
+                vertical: cardPadding / 4,
+              ),
               decoration: BoxDecoration(
                 color: Colours.primaryColour,
                 borderRadius: BorderRadius.circular(16),
@@ -90,5 +87,13 @@ class TinderCard extends StatelessWidget {
           ),
       ],
     );
+  }
+
+  String _splitTitle(String title) {
+    final parts = title.split(' ');
+    if (parts.length > 1) {
+      return '${parts[0]}\n${parts.sublist(1).join(' ')}';
+    }
+    return title;
   }
 }

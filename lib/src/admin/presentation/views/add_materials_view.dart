@@ -161,11 +161,11 @@ class _AddMaterialsViewState extends State<AddMaterialsView> {
         child: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
-            titleSpacing: 0,
+              titleSpacing: 0,
               title: const Text(
-            'Nouveaux Documents',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-          )),
+                'Nouveaux Documents',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+              )),
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(20),
@@ -229,25 +229,27 @@ class _AddMaterialsViewState extends State<AddMaterialsView> {
                       const SizedBox(height: 10),
                     ],
                     const SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ElevatedButton(
-                          onPressed: pickResources,
-                          child: const Text(
-                            'Ajouter des documents',
-                            style: TextStyle(color: Colours.secondaryColour),
+                    SingleChildScrollView(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            onPressed: pickResources,
+                            child: const Text(
+                              'Ajouter des documents',
+                              style: TextStyle(color: Colours.secondaryColour),
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 10),
-                        ElevatedButton(
-                          onPressed: uploadMaterials,
-                          child: const Text(
-                            'confirmer',
-                            style: TextStyle(color: Colours.secondaryColour),
+                          const SizedBox(width: 10),
+                          ElevatedButton(
+                            onPressed: uploadMaterials,
+                            child: const Text(
+                              'confirmer',
+                              style: TextStyle(color: Colours.secondaryColour),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
