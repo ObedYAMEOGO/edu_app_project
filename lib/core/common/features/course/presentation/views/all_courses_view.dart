@@ -103,22 +103,25 @@ class _AllCoursesViewState extends State<AllCoursesView> {
               ),
             ),
             const SizedBox(height: 15),
-            Center(
-              child: Wrap(
-                spacing: 20,
-                runSpacing: 40,
-                runAlignment: WrapAlignment.spaceEvenly,
-                children: filteredCourses
-                    .map(
-                      (course) => CourseTile(
-                        course: course,
-                        onTap: () => Navigator.of(context).pushNamed(
-                          CourseDetailsScreen.routeName,
-                          arguments: course,
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: Center(
+                child: Wrap(
+                  spacing: 20,
+                  runSpacing: 40,
+                  runAlignment: WrapAlignment.spaceEvenly,
+                  children: filteredCourses
+                      .map(
+                        (course) => CourseTile(
+                          course: course,
+                          onTap: () => Navigator.of(context).pushNamed(
+                            CourseDetailsScreen.routeName,
+                            arguments: course,
+                          ),
                         ),
-                      ),
-                    )
-                    .toList(),
+                      )
+                      .toList(),
+                ),
               ),
             ),
           ],
