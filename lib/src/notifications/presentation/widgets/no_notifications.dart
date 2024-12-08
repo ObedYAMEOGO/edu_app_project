@@ -1,4 +1,3 @@
-import 'package:edu_app_project/core/res/colours.dart';
 import 'package:flutter/material.dart';
 
 class NoNotifications extends StatelessWidget {
@@ -7,8 +6,11 @@ class NoNotifications extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Icon(Icons.notifications_off_outlined,
-          size: 200, color: Colours.secondaryColour),
+      child: Icon(
+        Icons.notifications_off_outlined,
+        size: 200,
+        color: Color.fromARGB(255, 242, 118, 2),
+      ),
     );
   }
 }
