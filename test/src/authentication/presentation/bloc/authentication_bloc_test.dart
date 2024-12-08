@@ -5,6 +5,7 @@ import 'package:edu_app_project/core/errors/failures.dart';
 import 'package:edu_app_project/src/authentication/data/models/user_model.dart';
 import 'package:edu_app_project/src/authentication/domain/usecases/forgot_password.dart';
 import 'package:edu_app_project/src/authentication/domain/usecases/sign_in.dart';
+import 'package:edu_app_project/src/authentication/domain/usecases/sign_out.dart';
 import 'package:edu_app_project/src/authentication/domain/usecases/sign_up.dart';
 import 'package:edu_app_project/src/authentication/domain/usecases/update_user.dart';
 import 'package:edu_app_project/src/authentication/presentation/bloc/authentication_bloc.dart';
@@ -15,6 +16,8 @@ class MockSignIn extends Mock implements SignIn {}
 
 class MockSignUp extends Mock implements SignUp {}
 
+class MockSignOut extends Mock implements SignOut {}
+
 class MockForgotPassword extends Mock implements ForgotPassword {}
 
 class MockUpdateUser extends Mock implements UpdateUser {}
@@ -22,6 +25,9 @@ class MockUpdateUser extends Mock implements UpdateUser {}
 void main() {
   late MockSignIn signIn;
   late MockSignUp signUp;
+
+  late MockSignOut signOut;
+
   late MockForgotPassword forgotPassword;
   late MockUpdateUser updateUser;
   late AuthBloc authBloc;
@@ -53,6 +59,7 @@ void main() {
   setUp(() {
     signIn = MockSignIn();
     signUp = MockSignUp();
+    signOut = MockSignOut();
     forgotPassword = MockForgotPassword();
     updateUser = MockUpdateUser();
     authBloc = AuthBloc(
@@ -60,6 +67,7 @@ void main() {
       signUp: signUp,
       forgotPassword: forgotPassword,
       updateUser: updateUser,
+      signOut: signOut,
     );
   });
 

@@ -30,6 +30,7 @@ import 'package:edu_app_project/src/authentication/data/repos/auth_repo_impl.dar
 import 'package:edu_app_project/src/authentication/domain/repos/auth_repo.dart';
 import 'package:edu_app_project/src/authentication/domain/usecases/forgot_password.dart';
 import 'package:edu_app_project/src/authentication/domain/usecases/sign_in.dart';
+import 'package:edu_app_project/src/authentication/domain/usecases/sign_out.dart';
 import 'package:edu_app_project/src/authentication/domain/usecases/sign_up.dart';
 import 'package:edu_app_project/src/authentication/domain/usecases/update_user.dart';
 import 'package:edu_app_project/src/authentication/presentation/bloc/authentication_bloc.dart';

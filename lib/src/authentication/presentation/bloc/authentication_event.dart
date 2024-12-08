@@ -59,3 +59,10 @@ class UpdateUserEvent extends AuthEvent {
   @override
   List<Object?> get props => [action, userData];
 }
+
+class SignOutEvent extends AuthEvent {
+  const SignOutEvent();
+
+  @override
+  List<Object?> get props => [];
+}

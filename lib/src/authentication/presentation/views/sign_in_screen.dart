@@ -1,4 +1,3 @@
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:edu_app_project/core/common/app/providers/user_provider.dart';
 import 'package:edu_app_project/core/common/views/custom_circular_progress_bar.dart';
 import 'package:edu_app_project/core/common/widgets/gradient_background.dart';
@@ -28,6 +27,7 @@ class _SignInScreenState extends State<SignInScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+
   @override
   void dispose() {
     emailController.dispose();
@@ -52,6 +52,12 @@ class _SignInScreenState extends State<SignInScreen> {
             Utils.showSnackBar(
                 context, "Vous êtes connecté!", ContentType.success,
                 title: "Parfait!");
+          } else if (state is LoggedOut) {
+            Future.delayed(const Duration(milliseconds: 500), () {
+              Utils.showSnackBar(
+                  context, "Déconnexion réussie!", ContentType.success,
+                  title: "Déconnecté");
+            });
           }
         },
         builder: (context, state) {

@@ -13,7 +13,6 @@ import 'package:edu_app_project/src/exams/presentation/app/cubit/exam_cubit.dart
 import 'package:edu_app_project/src/notifications/presentation/widgets/notification_wrapper.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 

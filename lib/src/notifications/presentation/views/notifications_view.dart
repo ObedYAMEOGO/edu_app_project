@@ -1,4 +1,3 @@
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:badges/badges.dart';
 import 'package:edu_app_project/core/common/views/loading_view.dart';
 import 'package:edu_app_project/core/common/widgets/nested_back_button.dart';

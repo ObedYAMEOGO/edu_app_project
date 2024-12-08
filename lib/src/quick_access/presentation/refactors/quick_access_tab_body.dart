@@ -1,4 +1,3 @@
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:edu_app_project/core/common/features/course/presentation/cubit/course_cubit.dart';
 import 'package:edu_app_project/core/common/views/loading_view.dart';
 import 'package:edu_app_project/core/common/widgets/not_found_text.dart';

@@ -1,4 +1,3 @@
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:edu_app_project/core/common/views/custom_circular_progress_bar.dart';
 import 'package:edu_app_project/core/common/widgets/gradient_background.dart';
 import 'package:edu_app_project/core/common/widgets/i_fields.dart';
@@ -39,16 +38,18 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         listener: (_, state) {
           if (state is AuthError) {
             Utils.showSnackBar(
-                context,
-                "Informations incorrects ou soucis d'accès à internet. Veuillez réessayer!",
-                ContentType.failure,
-                title: "Oups!");
+              context,
+              "Informations incorrectes ou soucis d'accès à internet. Veuillez réessayer!",
+              ContentType.failure,
+              title: "Oups!",
+            );
           } else if (state is ForgotPasswordSent) {
             Utils.showSnackBar(
-                context,
-                'Email de réinitialisation envoyé. Veuillez vérifier vos email!',
-                ContentType.success,
-                title: "Parfait!");
+              context,
+              'Email de réinitialisation envoyé. Veuillez vérifier vos emails!',
+              ContentType.success,
+              title: "Parfait!",
+            );
             Navigator.pushReplacementNamed(context, SignInScreen.routeName);
           }
         },
@@ -87,6 +88,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
                                       return 'Veuillez entrer votre email';
+                                    } else if (!RegExp(
+                                            r'^[^@\s]+@[^@\s]+\.[^@\s]+$')
+                                        .hasMatch(value)) {
+                                      return 'Veuillez entrer une adresse email valide';
                                     }
                                     return null;
                                   },

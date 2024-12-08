@@ -1,7 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:edu_app_project/core/common/features/videos/data/models/video_model.dart';
 import 'package:edu_app_project/core/common/features/videos/domain/entities/video.dart';
 import 'package:edu_app_project/core/common/views/custom_circular_progress_bar.dart';
@@ -20,34 +18,95 @@ class Utils {
   const Utils();
 
   static void showSnackBar(
-      BuildContext context, String message, ContentType contentType,
-      {String? title} // Paramètre optionnel pour personnaliser le titre
-      ) {
+    BuildContext context,
+    String message,
+    ContentType contentType, {
+    String? title,
+  }) {
+    final IconData icon = _getIcon(contentType);
+    final Color iconColor = _getIconColor(contentType);
+    final Color backgroundColor = Colors.white;
+    const Color textColor = Colours.primaryColour;
+
     ScaffoldMessenger.of(context)
       ..removeCurrentSnackBar()
       ..showSnackBar(
         SnackBar(
-          content: AwesomeSnackbarContent(
-            title: title ??
-                _getTitle(
-                    contentType), // Utiliser le titre personnalisé si fourni
-            message: message,
-            messageTextStyle: const TextStyle(
-              fontSize: 12,
-            ),
-            contentType: contentType,
-            inMaterialBanner: true,
+          content: Row(
+            children: [
+              Icon(
+                icon,
+                color: iconColor,
+                size: 24,
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title ?? _getTitle(contentType),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: textColor,
+                        fontSize: 13,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      message,
+                      style: const TextStyle(
+                        color: textColor,
+                        fontSize: 10,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
           behavior: SnackBarBehavior.floating,
-          backgroundColor: Colors.transparent,
-          elevation: 0, // Enlève l'effet d'ombre
-          dismissDirection:
-              DismissDirection.horizontal, // Permet de glisser pour fermer
+          backgroundColor: backgroundColor,
+          elevation: 0.2,
+          dismissDirection: DismissDirection.startToEnd,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+              side: BorderSide(color: Colours.chatFieldColour)),
         ),
       );
   }
 
-  // Fonction privée pour retourner un titre basé sur le ContentType si aucun titre personnalisé n'est fourni
+  static IconData _getIcon(ContentType contentType) {
+    switch (contentType) {
+      case ContentType.success:
+        return Icons.check_circle;
+      case ContentType.warning:
+        return Icons.warning_amber_rounded;
+      case ContentType.failure:
+        return Icons.error;
+      case ContentType.help:
+        return Icons.info;
+      default:
+        return Icons.notifications;
+    }
+  }
+
+  static Color _getIconColor(ContentType contentType) {
+    switch (contentType) {
+      case ContentType.success:
+        return Colors.green;
+      case ContentType.warning:
+        return Colors.orange;
+      case ContentType.failure:
+        return Colors.red;
+      case ContentType.help:
+        return Colors.blue;
+      default:
+        return Colours.primaryColour;
+    }
+  }
+
   static String _getTitle(ContentType contentType) {
     switch (contentType) {
       case ContentType.success:
@@ -196,3 +255,5 @@ class Utils {
         );
   }
 }
+
+enum ContentType { success, warning, failure, help }

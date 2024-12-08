@@ -1,4 +1,3 @@
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:dartz/dartz.dart' hide State;
 import 'package:edu_app_project/core/common/views/custom_circular_progress_bar.dart';
 import 'package:edu_app_project/core/res/colours.dart';

@@ -8,7 +8,7 @@ class ScholarshipView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Color(0xFFE4E6EA),
+      backgroundColor: Colors.white,
       appBar: ScholarshipViewAppBar(),
       body: ScholarshipViewBody(),
     );

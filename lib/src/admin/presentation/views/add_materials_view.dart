@@ -15,7 +15,6 @@ import 'package:edu_app_project/core/utils/core_utils.dart';
 import 'package:edu_app_project/src/notifications/presentation/widgets/notification_wrapper.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart ' hide MaterialState, Material;
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AddMaterialsView extends StatefulWidget {

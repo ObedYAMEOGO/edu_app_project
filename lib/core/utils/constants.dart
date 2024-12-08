@@ -1,6 +1,6 @@
 const kDefaultImage =
-    'https://firebasestorage.googleapis.com/v0/b/education-app-f3e01.appspot.com/o/digitalBook.png?alt=media&token=d8fa407d-416f-4377-8ade-5d7088e99528';
-
+    "https://firebasestorage.googleapis.com/v0/b/education-app-f3e01.appspot.com/o/book.png?alt=media&token=1c0bda01-2830-43b9-811d-59e79ba86a3f";
+    
 const kAdmins = [
   'obedyameogo4@gmail.com',
   'kofrathur@gmail.com',

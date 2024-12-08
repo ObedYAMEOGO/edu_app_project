@@ -1,4 +1,3 @@
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:edu_app_project/core/common/features/course/domain/entities/course.dart';
 import 'package:edu_app_project/core/common/features/videos/data/models/video_model.dart';
 import 'package:edu_app_project/core/common/features/videos/presentation/app/cubit/video_cubit.dart';

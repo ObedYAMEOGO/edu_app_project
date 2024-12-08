@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 
 class ChatMessages extends StatefulWidget {
   const ChatMessages({super.key});

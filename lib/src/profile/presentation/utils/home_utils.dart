@@ -1,4 +1,3 @@
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:edu_app_project/src/home/presentation/views/video_player_view.dart';
 import 'package:edu_app_project/core/extensions/string_extensions.dart';
 import 'package:edu_app_project/core/utils/core_utils.dart';

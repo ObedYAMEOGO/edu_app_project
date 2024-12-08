@@ -1,4 +1,3 @@
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:edu_app_project/core/common/app/providers/message_reply_notifier.dart';
 import 'package:edu_app_project/core/common/app/providers/tab_navigator.dart';
 import 'package:edu_app_project/core/common/features/user/cubit/user_cubit.dart';

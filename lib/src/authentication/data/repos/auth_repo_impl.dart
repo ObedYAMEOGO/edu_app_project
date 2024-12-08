@@ -10,6 +10,7 @@ import 'package:edu_app_project/src/authentication/domain/repos/auth_repo.dart';
 class AuthRepoImpl implements AuthRepo {
   const AuthRepoImpl(this._remoteDataSource);
   final AuthRemoteDataSource _remoteDataSource;
+
   @override
   ResultFuture<void> forgotPassword(String email) async {
     try {
@@ -30,7 +31,6 @@ class AuthRepoImpl implements AuthRepo {
         email: email,
         password: password,
       );
-
       return Right(result);
     } on ServerException catch (e) {
       return Left(ServerFailure(message: e.message, statusCode: e.statusCode));
@@ -62,6 +62,16 @@ class AuthRepoImpl implements AuthRepo {
   }) async {
     try {
       await _remoteDataSource.updateUser(action: action, userData: userData);
+      return const Right(null);
+    } on ServerException catch (e) {
+      return Left(ServerFailure(message: e.message, statusCode: e.statusCode));
+    }
+  }
+
+  @override
+  ResultFuture<void> signOut() async {
+    try {
+      await _remoteDataSource.signOut(); // Sign out via the remote data source
       return const Right(null);
     } on ServerException catch (e) {
       return Left(ServerFailure(message: e.message, statusCode: e.statusCode));

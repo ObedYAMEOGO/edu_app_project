@@ -8,10 +8,10 @@ import 'package:edu_app_project/src/authentication/domain/usecases/forgot_passwo
 import 'package:edu_app_project/src/authentication/domain/usecases/sign_in.dart';
 import 'package:edu_app_project/src/authentication/domain/usecases/sign_up.dart';
 import 'package:edu_app_project/src/authentication/domain/usecases/update_user.dart';
+import 'package:edu_app_project/src/authentication/domain/usecases/sign_out.dart'; // Import the SignOut use case
 import 'package:equatable/equatable.dart';
 
 part 'authentication_event.dart';
-
 part 'authentication_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
@@ -20,10 +20,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     required SignUp signUp,
     required ForgotPassword forgotPassword,
     required UpdateUser updateUser,
+    required SignOut signOut,
   })  : _signIn = signIn,
         _signUp = signUp,
         _forgotPassword = forgotPassword,
         _updateUser = updateUser,
+        _signOut = signOut,
         super(const AuthInitial()) {
     on<AuthEvent>((event, emit) {
       emit(const AuthLoading());
@@ -32,12 +34,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<SignUpEvent>(_signUpHandler);
     on<ForgotPasswordEvent>(_forgotPasswordHandler);
     on<UpdateUserEvent>(_updateUserHandler);
+    on<SignOutEvent>(_signOutHandler); // Add event handler for SignOutEvent
   }
 
   final SignIn _signIn;
   final SignUp _signUp;
   final ForgotPassword _forgotPassword;
   final UpdateUser _updateUser;
+  final SignOut _signOut; // Declare SignOut use case
 
   Future<void> _signInHandler(
     SignInEvent event,
@@ -101,5 +105,20 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           emit(AuthError(message: '${failure.statusCode}: ${failure.message}')),
       (_) => emit(const UserUpdated()),
     );
+  }
+
+  Future<void> _signOutHandler(
+    SignOutEvent event,
+    Emitter<AuthState> emit,
+  ) async {
+    emit(const AuthLoading());
+
+    try {
+      await _signOut();
+      emit(const LoggedOut());
+    } catch (e) {
+      emit(AuthError(
+          message: "Erreur lors de la déconnexion : ${e.toString()}"));
+    }
   }
 }

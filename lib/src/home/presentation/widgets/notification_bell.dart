@@ -1,5 +1,4 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:badges/badges.dart';
 import 'package:edu_app_project/core/common/app/providers/notifications_notifier.dart';
 import 'package:edu_app_project/core/extensions/context_extension.dart';

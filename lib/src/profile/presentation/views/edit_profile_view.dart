@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:edu_app_project/core/common/app/providers/tab_navigator.dart';
 import 'package:edu_app_project/core/common/app/providers/user_provider.dart';
 import 'package:edu_app_project/core/common/views/custom_circular_progress_bar.dart';

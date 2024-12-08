@@ -11,7 +11,6 @@ import 'package:edu_app_project/src/scholarship/data/models/scholarship_model.da
 import 'package:edu_app_project/src/scholarship/presentation/app/cubit/scholarship_cubit.dart';
 import 'package:edu_app_project/src/scholarship/presentation/app/cubit/scholarship_state.dart';
 import 'package:flutter/material.dart';
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 
@@ -139,7 +138,7 @@ class _AddScholarshipSheetState extends State<AddScholarshipSheet> {
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+            borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
           ),
           child: Form(
             key: formKey,

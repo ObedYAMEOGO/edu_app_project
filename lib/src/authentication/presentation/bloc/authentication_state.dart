@@ -46,3 +46,7 @@ class ForgotPasswordSent extends AuthState {
 class UserUpdated extends AuthState {
   const UserUpdated();
 }
+
+class LoggedOut extends AuthState {
+  const LoggedOut();
+}

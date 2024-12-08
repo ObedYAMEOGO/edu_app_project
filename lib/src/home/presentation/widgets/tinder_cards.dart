@@ -55,6 +55,7 @@ class _TinderCardsState extends State<TinderCards>
             final colorByIndex =
                 index == 1 ? Colours.secondaryColour : Color(0xFFE4E6EA);
             return Stack(
+              clipBehavior: Clip.antiAlias,
               children: [
                 Positioned(
                   bottom: 110,
@@ -67,12 +68,12 @@ class _TinderCardsState extends State<TinderCards>
                 ),
                 if (isFirst)
                   Positioned(
-                    bottom: 100,
+                    bottom: 50,
                     right: 0,
                     child: Image.asset(
                       Res.digitalbook,
-                      height: 200,
-                      width: 149,
+                      height: 220,
+                      width: 185,
                     ),
                   ),
               ],

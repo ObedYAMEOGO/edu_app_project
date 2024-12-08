@@ -31,6 +31,8 @@ abstract class AuthRemoteDataSource {
     required UpdateUserAction action,
     dynamic userData,
   });
+
+  Future<void> signOut();
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -192,6 +194,19 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       debugPrint(s.toString());
       throw ServerException(
         message: e.toString(),
+        statusCode: '500',
+      );
+    }
+  }
+
+  @override
+  Future<void> signOut() async {
+    try {
+      await _authClient.signOut();
+    } catch (e, s) {
+      debugPrint(s.toString());
+      throw ServerException(
+        message: 'Error during sign-out process',
         statusCode: '500',
       );
     }
