@@ -52,12 +52,6 @@ class _SignInScreenState extends State<SignInScreen> {
             Utils.showSnackBar(
                 context, "Vous êtes connecté!", ContentType.success,
                 title: "Parfait!");
-          } else if (state is LoggedOut) {
-            Future.delayed(const Duration(milliseconds: 500), () {
-              Utils.showSnackBar(
-                  context, "Déconnexion réussie!", ContentType.success,
-                  title: "Déconnecté");
-            });
           }
         },
         builder: (context, state) {

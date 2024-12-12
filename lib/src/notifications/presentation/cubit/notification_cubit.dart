@@ -12,6 +12,7 @@ import 'package:edu_app_project/src/notifications/domain/usecases/send_notificat
 import 'package:equatable/equatable.dart';
 
 part 'notification_state.dart';
+
 class NotificationCubit extends Cubit<NotificationState> {
   NotificationCubit({
     required Clear clear,
@@ -31,7 +32,6 @@ class NotificationCubit extends Cubit<NotificationState> {
   final GetNotifications _getNotifications;
   final MarkAsRead _markAsRead;
   final SendNotification _sendNotification;
-
   Future<void> clear(String notificationId) async {
     emit(const ClearingNotifications());
     final result = await _clear(notificationId);
@@ -46,7 +46,7 @@ class NotificationCubit extends Cubit<NotificationState> {
     final result = await _clearAll();
     result.fold(
       (failure) => emit(NotificationError(failure.errorMessage)),
-      (_) => emit(const NotificationInitial()),
+      (_) => emit(NotificationsLoaded([])),
     );
   }
 

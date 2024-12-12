@@ -10,12 +10,8 @@ extension StringExt on String {
     return '$username@$domain';
   }
 
-  bool get isYouTubeVideo {
-    final youtubeRegex = RegExp(
-      r'^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$',
-    );
-    return youtubeRegex.hasMatch(this);
-  }
+  bool get isYouTubeVideo =>
+      contains('youtube.com/watch?v=') || contains('youtu.be/');
 
   String get capitalize {
     if (trim().isEmpty) return this;
@@ -27,4 +23,3 @@ extension StringExt on String {
     return split(' ').map<String>((e) => e.capitalize).toList().join(' ');
   }
 }
-

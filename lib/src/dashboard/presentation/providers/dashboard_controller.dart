@@ -76,7 +76,7 @@ class DashboardController extends ChangeNotifier {
   ];
 
   List<Widget> get screens => _screens;
-  int _currentIndex = 4;
+  int _currentIndex = 0;
 
   int get currentIndex => _currentIndex;
 

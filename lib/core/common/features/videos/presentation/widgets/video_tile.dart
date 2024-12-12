@@ -58,9 +58,8 @@ class VideoTile extends StatelessWidget {
                     height: 108,
                     width: 130,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(24),
-                      color:  Colors.black.withOpacity(0.4)
-                    ),
+                        borderRadius: BorderRadius.circular(24),
+                        color: Colors.black.withOpacity(0.4)),
                     child: Center(
                       child: video.videoURL.isYouTubeVideo
                           ? Image.asset(Res.youtube, height: 40)
@@ -120,6 +119,7 @@ class VideoTile extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
+                      color: Colours.primaryColour,
                     ),
                   ),
                 ),

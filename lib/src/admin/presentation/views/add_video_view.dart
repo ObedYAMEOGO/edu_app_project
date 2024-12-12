@@ -283,7 +283,11 @@ class _AddVideoViewState extends State<AddVideoView> {
                     if (formKey.currentState!.validate()) {
                       if (courseNotifier.value != null && video != null) {
                         video = video!.copyWith(
-                          title: videoTitleController.text.trim(),
+                          title: isYouTube
+                              ? videoTitleController.text.trim().isNotEmpty
+                                  ? videoTitleController.text.trim()
+                                  : video!.title
+                              : videoTitleController.text.trim(),
                           tutor: tutorNameController.text.trim().isNotEmpty
                               ? tutorNameController.text.trim()
                               : video!.tutor,

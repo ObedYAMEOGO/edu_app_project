@@ -37,7 +37,7 @@ class NotificationsOptions extends StatelessWidget {
           onTap: context.read<NotificationCubit>().clearAll,
           child: const PopupItem(
             title: 'Tout suppimer',
-            icon: Icon(IconlyBold.delete, color: Colours.primaryColour),
+            icon: Icon(IconlyBold.delete, color: Colours.secondaryColour),
           ),
         ),
       ],
