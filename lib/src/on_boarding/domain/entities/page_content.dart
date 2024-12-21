@@ -17,14 +17,14 @@ class PageContent extends Equatable {
 
   const PageContent.second()
       : this(
-            image: Res.pageContentFirst,
+            image: Res.pageContentSecond,
             title: "Une large Communauté",
             description:
-                "Échangez avec d'autres apprenants et experts dans votre domaine via notre chat intégré.");
+                "Échangez avec d'autres apprenants et experts qui partagent vos centres d'interêts");
 
   const PageContent.third()
       : this(
-            image: Res.pageContentFirst,
+            image: Res.pageContentThird,
             title: "Opportunités de Bourses",
             description:
                 "Découvrez des offres de bourses d'études et de financement pour soutenir votre parcours éducatif.");

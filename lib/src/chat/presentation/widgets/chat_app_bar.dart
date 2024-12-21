@@ -1,3 +1,4 @@
+import 'package:edu_app_project/core/common/widgets/nested_back_button.dart';
 import 'package:edu_app_project/core/res/colours.dart';
 import 'package:edu_app_project/core/utils/core_utils.dart';
 import 'package:edu_app_project/src/chat/domain/entities/group.dart';
@@ -27,15 +28,10 @@ class _ChatAppBarState extends State<ChatAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      actionsIconTheme: const IconThemeData(color: Colors.white),
       centerTitle: false,
       titleSpacing: 0,
-      leading: IconButton(
-        icon: const Icon(Icons.arrow_back),
-        onPressed: () {
-          Navigator.of(context).pop();
-        },
-      ),
+      leading: NestedBackButton(),
+      backgroundColor: Colors.white,
       title: Row(
         children: [
           const SizedBox(width: 7),
@@ -52,14 +48,7 @@ class _ChatAppBarState extends State<ChatAppBar> {
           ),
         ],
       ),
-      foregroundColor: Colors.white,
-      flexibleSpace: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colours.primaryColour, Colours.primaryColour],
-          ),
-        ),
-      ),
+      foregroundColor: Colours.primaryColour,
       actions: [
         PopupMenuButton(
           offset: const Offset(0, 60),
@@ -70,7 +59,7 @@ class _ChatAppBarState extends State<ChatAppBar> {
           itemBuilder: (context) => [
             PopupMenuItem<void>(
               child: const PopupItem(
-                title: 'Quitter le groupe',
+                title: 'Quitter',
                 icon: Icon(
                   IconlyBroken.logout,
                   color: Colors.red,

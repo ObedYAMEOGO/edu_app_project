@@ -100,10 +100,7 @@ class ScholarshipDetailsScreen extends StatelessWidget {
                         child: CircleAvatar(
                           radius: 25,
                           backgroundColor: Colors.white,
-                          child: Image.asset(
-                            Res.youtubeVideoIcon,
-                            width: 50
-                          ),
+                          child: Image.asset(Res.youtubeVideoIcon, width: 50),
                         ),
                       ),
                     ),
@@ -140,27 +137,11 @@ class ScholarshipDetailsScreen extends StatelessWidget {
                     Text(
                       ' ${scholarship.country}',
                       style: const TextStyle(
-                          fontSize: 13, color: Colours.secondaryColour),
+                          fontSize: 12, color: Colours.secondaryColour),
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      'Description: ',
-                      style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w700,
-                          color: Colours.secondaryColour),
-                    ),
-                    ExpandableText(
-                        text: ' ${scholarship.description}', context),
-                  ],
-                ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 10),
                 Row(
                   children: [
                     const Text(
@@ -173,7 +154,7 @@ class ScholarshipDetailsScreen extends StatelessWidget {
                     Text(
                       ' ${scholarship.numberOfRecipients}',
                       style: const TextStyle(
-                          fontSize: 13, color: Colours.secondaryColour),
+                          fontSize: 12, color: Colours.secondaryColour),
                     ),
                   ],
                 ),
@@ -190,7 +171,7 @@ class ScholarshipDetailsScreen extends StatelessWidget {
                     Text(
                       ' ${DateFormat('dd MMM yyyy').format(scholarship.applicationDeadline)}',
                       style: const TextStyle(
-                        fontSize: 13,
+                        fontSize: 12,
                         color: Colours.secondaryColour,
                       ),
                     ),
@@ -223,7 +204,7 @@ class ScholarshipDetailsScreen extends StatelessWidget {
                           child: Text(
                             ' $field',
                             style: const TextStyle(
-                              fontSize: 13,
+                              fontSize: 12,
                               color: Colours.secondaryColour,
                             ),
                           ),

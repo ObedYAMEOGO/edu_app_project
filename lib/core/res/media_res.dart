@@ -40,10 +40,9 @@ class Res {
   static const whatsapp = '$_baseIcons/communication.png';
   static const youtubeVideoIcon = '$_baseIcons/ytb.png';
 
-  static const pageContentFirst =
-      "$_baseVectors/beautiful_girl_reading_books.png";
-  static const pageContentSecond = "$_baseVectors/black_man_with_phone.png";
-  static const pageContentThird = "$_baseVectors/black_student.png";
+  static const pageContentFirst = "$_baseVectors/1.png";
+  static const pageContentSecond = "$_baseVectors/2.png";
+  static const pageContentThird = "$_baseVectors/3.png";
   static const pageUnderConstruction =
       "$_baseVectors/pageUnderConstruction.png";
   static const digitalbook = "$_baseVectors/digitalBook.png";
