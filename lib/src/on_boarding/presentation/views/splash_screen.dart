@@ -34,8 +34,8 @@ class _SplashScreenState extends State<SplashScreen> {
           const Center(
             child: Image(
               image: AssetImage(Res.logoImage),
-              width: 130, // Adjust logo width
-              height: 130, // Adjust logo height
+              width: 210, // Adjust logo width
+              height: 210, // Adjust logo height
             ),
           ),
           const Spacer(),

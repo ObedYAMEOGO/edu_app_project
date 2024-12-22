@@ -49,5 +49,5 @@ class Res {
 
   // Lotties
   static const steamCup = '$_baseVectors/steam_cup.png';
-  static const logoImage = "$_baseVectors/logo.png";
+  static const logoImage = "$_baseVectors/logo2.png";
 }
