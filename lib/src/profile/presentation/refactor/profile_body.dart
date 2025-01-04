@@ -1,4 +1,6 @@
 import 'package:edu_app_project/core/common/app/providers/user_provider.dart';
+import 'package:edu_app_project/core/common/features/category/presentation/cubit/category_cubit.dart';
+import 'package:edu_app_project/core/common/features/category/presentation/widgets/add_category_sheet.dart';
 import 'package:edu_app_project/core/common/features/course/presentation/cubit/course_cubit.dart';
 import 'package:edu_app_project/core/common/features/course/presentation/widgets/add_course_sheet.dart';
 import 'package:edu_app_project/src/admin/presentation/views/add_materials_view.dart';
@@ -117,6 +119,35 @@ class ProfileBody extends StatelessWidget {
                                 ),
                               ],
                               child: AddCourseSheet(),
+                            ));
+                  }),
+              AdminButton(
+                  label: 'Nouvelle Catégorie',
+                  icon: IconlyBold.paper_download,
+                  onPressed: () {
+                    showModalBottomSheet(
+                        context: context,
+                        backgroundColor: Colors.white,
+                        isScrollControlled: true,
+                        showDragHandle: true,
+                        elevation: 0,
+                        useSafeArea: true,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(
+                                0), // Définit un rayon de 0 pour les coins
+                          ),
+                        ),
+                        builder: (_) => MultiBlocProvider(
+                              providers: [
+                                BlocProvider(
+                                  create: (_) => sl<CategoryCubit>(),
+                                ),
+                                BlocProvider(
+                                  create: (_) => sl<NotificationCubit>(),
+                                ),
+                              ],
+                              child: AddCategorySheet(),
                             ));
                   }),
               AdminButton(

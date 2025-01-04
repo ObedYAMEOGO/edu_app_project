@@ -15,6 +15,23 @@ Future<void> init() async {
   await _initMaterial();
   await _initSubscription();
   await _initScholarship();
+  await _initCategory();
+}
+
+Future<void> _initCategory() async {
+  sl
+    ..registerFactory(
+      () => CategoryCubit(
+        addCategory: sl(),
+        getCategories: sl(),
+      ),
+    )
+    ..registerLazySingleton(() => AddCategory(sl()))
+    ..registerLazySingleton(() => GetCategories(sl()))
+    ..registerLazySingleton<CategoryRepo>(() => CategoryRepoImpl(sl()))
+    ..registerLazySingleton<CategoryRemoteDataSource>(() =>
+        CategoryRemoteDataSourceImpl(
+            firestore: sl(), auth: sl(), storage: sl()));
 }
 
 Future<void> _initScholarship() async {

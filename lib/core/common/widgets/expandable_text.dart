@@ -1,6 +1,5 @@
 import 'package:edu_app_project/core/extensions/context_extension.dart';
 import 'package:edu_app_project/core/res/colours.dart';
-import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -46,10 +45,10 @@ class _ExpandableTextState extends State<ExpandableText> {
   @override
   Widget build(BuildContext context) {
     const defaultStyle = TextStyle(
-        color: Colours.secondaryColour,
-        height: 1.9,
-        fontSize: 12,
-        fontFamily: Fonts.montserrat);
+      height: 1.9,
+      fontSize: 14,
+      color: Colours.secondaryColour,
+    );
     return Container(
       child: textPainter.didExceedMaxLines
           ? RichText(
@@ -77,10 +76,9 @@ class _ExpandableTextState extends State<ExpandableText> {
                           expanded = !expanded;
                         });
                       },
-                    style:  TextStyle(
+                    style: TextStyle(
                       color: Colours.successColor,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
+                      fontSize: 14,
                     ),
                   ),
                 ],

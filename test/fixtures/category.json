@@ -1,0 +1,10 @@
+{
+    "categoryId": "1",
+    "categoryTitle": "Test Category",
+    "categoryImage": "Test Image",
+    "isImageFile": false,
+    "categoryCourseIds": [
+        "1",
+        "2"
+    ]
+}

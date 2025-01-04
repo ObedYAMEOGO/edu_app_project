@@ -49,12 +49,26 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final FirebaseStorage _dbClient;
 
   @override
+  @override
   Future<void> forgotPassword(String email) async {
     try {
+      final querySnapshot = await _cloudStoreClient
+          .collection('users')
+          .where('email', isEqualTo: email)
+          .limit(1)
+          .get();
+
+      if (querySnapshot.docs.isEmpty) {
+        throw ServerException(
+          message: 'Aucun utilisateur trouvé avec cet e-mail',
+          statusCode: '404',
+        );
+      }
+
       await _authClient.sendPasswordResetEmail(email: email);
     } on FirebaseAuthException catch (e) {
       throw ServerException(
-        message: e.message ?? 'Error Occurred',
+        message: e.message ?? 'Une erreur s\'est produite',
         statusCode: e.code,
       );
     } catch (e, s) {
@@ -80,8 +94,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       final user = result.user;
       if (user == null) {
         throw const ServerException(
-          message: 'Please try again later',
-          statusCode: 'Unknown Error',
+          message: 'Une erreur s\'est produite',
+          statusCode: 'Erreur inconnue',
         );
       }
 
@@ -96,7 +110,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       return LocalUserModel.fromMap(userData.data()!);
     } on FirebaseAuthException catch (e) {
       throw ServerException(
-        message: e.message ?? 'Error Occurred',
+        message: e.message ?? 'Une erreur s\'est produite',
         statusCode: e.code,
       );
     } on ServerException {
@@ -187,7 +201,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       }
     } on FirebaseAuthException catch (e) {
       throw ServerException(
-        message: e.message ?? 'Error Occurred',
+        message: e.message ?? 'Une erreur s\'est produite',
         statusCode: e.code,
       );
     } catch (e, s) {
@@ -206,7 +220,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     } catch (e, s) {
       debugPrint(s.toString());
       throw ServerException(
-        message: 'Error during sign-out process',
+        message: 'Une erreur s\'est produite pendant la connexion',
         statusCode: '500',
       );
     }

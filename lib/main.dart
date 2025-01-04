@@ -38,13 +38,11 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => CourseOfTheDayNotifier()),
         ChangeNotifierProvider(create: (_) => MessageReplyNotifier()),
         ChangeNotifierProvider(
-            create: (_) => NotificationsNotifier(
-                  sl<SharedPreferences>(),
-                )),
+            create: (_) => NotificationsNotifier(sl<SharedPreferences>())),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Education App',
+        title: 'Eduritio',
         theme: ThemeData(
           useMaterial3: true,
           visualDensity: VisualDensity.adaptivePlatformDensity,

@@ -1,4 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:edu_app_project/core/common/features/category/data/datasources/category_remote_data_source.dart';
+import 'package:edu_app_project/core/common/features/category/data/repos/category_repo_impl.dart';
+import 'package:edu_app_project/core/common/features/category/domain/repos/category_repo.dart';
+import 'package:edu_app_project/core/common/features/category/domain/usecases/add_category.dart';
+import 'package:edu_app_project/core/common/features/category/domain/usecases/get_categories.dart';
+import 'package:edu_app_project/core/common/features/category/presentation/cubit/category_cubit.dart';
 import 'package:edu_app_project/core/common/features/course/data/datasources/course_remote_data_src.dart';
 import 'package:edu_app_project/core/common/features/course/data/repos/course_repo_impl.dart';
 import 'package:edu_app_project/core/common/features/course/domain/repos/course_repo.dart';

@@ -71,7 +71,8 @@ class IField extends StatelessWidget {
         prefixIcon: prefixIcon != null
             ? Container(
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colours.primaryColour.withOpacity(0.3),
+                  border: Border.all(
+                    color: Colours.primaryColour.withOpacity(0.3),
                   ),
                   color: Colors.white, // Background primary color
                   borderRadius: const BorderRadius.only(
