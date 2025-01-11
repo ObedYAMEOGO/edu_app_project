@@ -31,12 +31,27 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const SizedBox(height: 250), // Space from the top
+          const SizedBox(height: 200), // Space from the top
           const Center(
             child: Image(
               image: AssetImage(Res.logoImage),
               width: 200, // Adjust logo width
               height: 200, // Adjust logo height
+            ),
+          ),
+
+          SizedBox(
+            height: 100,
+            child: Center(
+              child: Text(
+                "eruditio".toUpperCase(),
+                style: TextStyle(
+                  color: Colours.primaryColour,
+                  fontFamily: Fonts.merriweather,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 40,
+                ),
+              ),
             ),
           ),
           const Spacer(),
