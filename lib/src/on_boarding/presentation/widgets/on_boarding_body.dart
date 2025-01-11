@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/src/authentication/presentation/views/sign_in_screen.dart';
 import 'package:edu_app_project/src/dashboard/presentation/views/dashboard.dart';
 import 'package:edu_app_project/src/on_boarding/domain/entities/page_content.dart';
@@ -36,7 +37,8 @@ class OnBoardingBody extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.w700,
-                  color: Colours.primaryColour,
+                  fontFamily: Fonts.merriweather,
+                  color: Colours.darkColour,
                 ),
               ),
               SizedBox(height: mq.height * .02),
@@ -46,7 +48,8 @@ class OnBoardingBody extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
-                  color: Colours.secondaryColour,
+                  fontFamily: Fonts.merriweather,
+                  color: Colours.darkColour,
                 ),
               ),
               SizedBox(height: mq.height * .05),

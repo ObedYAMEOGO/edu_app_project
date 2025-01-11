@@ -4,6 +4,7 @@ import 'package:edu_app_project/core/common/features/videos/domain/entities/vide
 import 'package:edu_app_project/core/common/widgets/time_tile.dart';
 import 'package:edu_app_project/core/extensions/string_extensions.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/res/media_res.dart';
 import 'package:edu_app_project/src/profile/presentation/utils/home_utils.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +51,7 @@ class VideoTile extends StatelessWidget {
                               : NetworkImage(video.thumbnail!) as ImageProvider,
                       fit: BoxFit.cover,
                     ),
-                    borderRadius: BorderRadius.circular(24),
+                    borderRadius: BorderRadius.circular(0),
                   ),
                 ),
                 if (tappable)
@@ -58,7 +59,7 @@ class VideoTile extends StatelessWidget {
                     height: 108,
                     width: 130,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(24),
+                        borderRadius: BorderRadius.circular(0),
                         color: Colors.black.withOpacity(0.4)),
                     child: Center(
                       child: video.videoURL.isYouTubeVideo
@@ -119,7 +120,8 @@ class VideoTile extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      color: Colours.primaryColour,
+                      fontFamily: Fonts.merriweather,
+                      color: Colours.darkColour,
                     ),
                   ),
                 ),
@@ -129,7 +131,8 @@ class VideoTile extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      color: Colours.secondaryColour,
+                      fontFamily: Fonts.merriweather,
+                      color: Colours.darkColour,
                     ),
                   ),
                 ),

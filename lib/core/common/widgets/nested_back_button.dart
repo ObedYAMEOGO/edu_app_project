@@ -35,8 +35,8 @@ class NestedBackButton extends StatelessWidget {
           }
         },
         icon: Theme.of(context).platform == TargetPlatform.iOS
-            ? Icon(Icons.arrow_back_ios_new, color: Colours.primaryColour)
-            : Icon(Icons.arrow_back, color: Colours.primaryColour),
+            ? Icon(Icons.arrow_back_ios_new, color: Colours.darkColour)
+            : Icon(Icons.arrow_back, color: Colours.darkColour),
       ),
     );
   }

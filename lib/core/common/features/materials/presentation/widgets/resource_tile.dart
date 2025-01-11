@@ -1,5 +1,6 @@
 import 'package:edu_app_project/core/common/features/materials/presentation/app/providers/resource_controller.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:file_icon/file_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -29,7 +30,7 @@ class ResourceTile extends StatelessWidget {
             color: Colors.white, // Icon color for contrast
           ),
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colours.successColor, // Vibrant Green
+            backgroundColor: Colours.redColour, // Vibrant Green
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(90),
             ),
@@ -38,7 +39,7 @@ class ResourceTile extends StatelessWidget {
         );
 
         return ExpansionTile(
-          iconColor: Colours.primaryColour,
+          iconColor: Colours.darkColour,
           shape: const OutlineInputBorder(
             borderSide: BorderSide.none,
           ),
@@ -49,8 +50,9 @@ class ResourceTile extends StatelessWidget {
           title: Text(
             resource.title!,
             style: TextStyle(
-                color: Colours.primaryColour,
+                color: Colours.darkColour,
                 fontWeight: FontWeight.w500,
+                fontFamily: Fonts.merriweather,
                 letterSpacing: -0.5,
                 fontSize: 14),
           ),
@@ -71,15 +73,18 @@ class ResourceTile extends StatelessWidget {
                             const Text(
                               'Auteur',
                               style: TextStyle(
-                                  color: Colours.primaryColour,
+                                  color: Colours.redColour,
                                   fontWeight: FontWeight.w500,
+                                  fontFamily: Fonts.merriweather,
                                   fontSize: 12),
                             ),
                             const SizedBox(height: 5),
                             Text(
                               resource.author!,
                               style: const TextStyle(
-                                  fontSize: 10, color: Colours.secondaryColour),
+                                  fontFamily: Fonts.merriweather,
+                                  fontSize: 10,
+                                  color: Colours.darkColour),
                             ),
                           ],
                         ),
@@ -100,7 +105,8 @@ class ResourceTile extends StatelessWidget {
                             const Text(
                               'Description',
                               style: TextStyle(
-                                  color: Colours.primaryColour,
+                                  color: Colours.redColour,
+                                  fontFamily: Fonts.merriweather,
                                   fontWeight: FontWeight.w500,
                                   fontSize: 12),
                             ),
@@ -108,7 +114,9 @@ class ResourceTile extends StatelessWidget {
                             Text(
                               resource.description!,
                               style: const TextStyle(
-                                  fontSize: 10, color: Colours.secondaryColour),
+                                  fontFamily: Fonts.merriweather,
+                                  fontSize: 10,
+                                  color: Colours.darkColour),
                             ),
                           ],
                         ),

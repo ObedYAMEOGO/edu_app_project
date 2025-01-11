@@ -1,5 +1,6 @@
 import 'package:edu_app_project/core/common/features/user/cubit/user_cubit.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/src/authentication/data/models/user_model.dart';
 import 'package:edu_app_project/src/authentication/domain/entities/user.dart';
 import 'package:edu_app_project/src/chat/domain/entities/message.dart';
@@ -88,6 +89,8 @@ class _ChatReplyTileState extends State<ChatReplyTile> {
                     : replier?.fullName ?? 'En cours de chargement...',
                 style: TextStyle(
                   fontSize: 12,
+                  fontFamily: Fonts.merriweather, // Texte légèrement plus clair
+
                   color: isMyMessage
                       ? Colours.successColor
                       : Colours.primaryColour,
@@ -100,6 +103,8 @@ class _ChatReplyTileState extends State<ChatReplyTile> {
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontSize: 10,
+                  fontFamily: Fonts.merriweather, // Texte légèrement plus clair
+
                   color:
                       isMyMessage ? Color(0xFFE4E6EA) : Colours.primaryColour,
                 ),

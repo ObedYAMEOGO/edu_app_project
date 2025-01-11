@@ -1,3 +1,4 @@
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:flutter/material.dart' hide Notification;
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,8 +33,9 @@ class NotificationTile extends StatelessWidget {
           notification.title,
           style: TextStyle(
             fontWeight: FontWeight.w500,
-            fontSize: 12,
-            color: Colours.primaryColour,
+            fontSize: 14,
+            color: Colours.darkColour,
+            fontFamily: Fonts.merriweather,
           ),
         ),
         subtitle: Column(
@@ -41,7 +43,11 @@ class NotificationTile extends StatelessWidget {
           children: [
             Text(
               notification.body, // Affiche le contenu de la notification
-              style: TextStyle(fontSize: 12, color: Colours.primaryColour),
+              style: TextStyle(
+                fontSize: 11,
+                color: Colours.darkColour.withOpacity(0.8),
+                fontFamily: Fonts.merriweather,
+              ),
             ),
             TimeText(notification.sentAt), // Affiche l'heure
           ],
@@ -67,7 +73,7 @@ class NotificationTile extends StatelessWidget {
   /// Construit l'arrière-plan de suppression pour le glissement
   Widget _buildDismissBackground() {
     return Container(
-      color: Colors.red,
+      color: Colours.redColour,
       alignment: Alignment.centerRight,
       padding: const EdgeInsets.only(right: 16),
       child: const Icon(Icons.delete, color: Colors.white),

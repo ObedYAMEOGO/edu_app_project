@@ -8,7 +8,7 @@ class NoNotifications extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Icon(Icons.notifications_off_outlined,
-          size: 200, color: Colours.secondaryColour),
+          size: 200, color: Colours.darkColour.withOpacity(0.2)),
     );
   }
 }

@@ -33,15 +33,18 @@ class TitledInputField extends StatelessWidget {
               text: TextSpan(
                 text: title,
                 style: const TextStyle(
-                  fontFamily: Fonts.montserrat,
                   fontSize: 15,
                   fontWeight: FontWeight.w300,
+                  fontFamily: Fonts.merriweather,
                   color: Colours.neutralTextColour,
                 ),
                 children: [
                   TextSpan(
                     text: required ? ' *' : '',
-                    style: const TextStyle(color: Colours.redColour),
+                    style: const TextStyle(
+                      color: Colours.redColour,
+                      fontFamily: Fonts.merriweather,
+                    ),
                   ),
                 ],
               ),

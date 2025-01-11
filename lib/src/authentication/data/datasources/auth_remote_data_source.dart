@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:edu_app_project/core/enums/update_user.dart';
 import 'package:edu_app_project/core/errors/exceptions.dart';

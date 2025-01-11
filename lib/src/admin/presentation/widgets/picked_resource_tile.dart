@@ -1,3 +1,4 @@
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/src/admin/presentation/models/resource.dart';
 import 'package:edu_app_project/src/admin/presentation/widgets/picked_resource_horizontal_text.dart';
 import 'package:edu_app_project/core/res/colours.dart';
@@ -20,6 +21,10 @@ class PickedResourceTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 2,
+      shape: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.all(Radius.circular(0))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -31,6 +36,9 @@ class PickedResourceTile extends StatelessWidget {
             title: Text(
               resource.path.split('/').last,
               maxLines: 1,
+              style: TextStyle(
+                fontFamily: Fonts.merriweather,
+              ),
             ),
             contentPadding: const EdgeInsets.only(left: 16, right: 5),
             trailing: Row(

@@ -43,6 +43,10 @@ class Res {
   static const pageContentFirst = "$_baseVectors/1.png";
   static const pageContentSecond = "$_baseVectors/2.png";
   static const pageContentThird = "$_baseVectors/3.png";
+  static const historic = '$_baseVectors/historic.png';
+  static const documents = '$_baseVectors/docs.png';
+  static const quiz = '$_baseVectors/quiz.png';
+
   static const pageUnderConstruction =
       "$_baseVectors/pageUnderConstruction.png";
   static const digitalbook = "$_baseVectors/digitalBook.png";

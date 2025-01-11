@@ -32,14 +32,14 @@ class UserInfoCard extends StatelessWidget {
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(right:8.0),
+                padding: const EdgeInsets.only(right: 8.0),
                 child: infoIcon,
               ),
               Text(
                 infoTitle,
                 style: const TextStyle(
                   fontWeight: FontWeight.w300,
-                  fontFamily: Fonts.montserrat,
+                  fontFamily: Fonts.merriweather,
                   fontSize: 12,
                 ),
               ),
@@ -49,7 +49,7 @@ class UserInfoCard extends StatelessWidget {
             infoValue,
             style: const TextStyle(
               fontWeight: FontWeight.w400,
-              fontFamily: Fonts.montserrat,
+              fontFamily: Fonts.merriweather,
               fontSize: 15,
             ),
           ),

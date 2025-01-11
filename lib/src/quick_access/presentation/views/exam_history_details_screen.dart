@@ -1,4 +1,5 @@
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/src/exams/domain/entities/user_exam.dart';
 import 'package:edu_app_project/src/quick_access/presentation/widgets/exam_history_answer_tile.dart';
 import 'package:edu_app_project/src/quick_access/presentation/widgets/exam_history_tile.dart';
@@ -23,14 +24,14 @@ class _ExamHistoryDetailsScreenState extends State<ExamHistoryDetailsScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-          iconTheme: IconThemeData(color: Colours.primaryColour),
           titleSpacing: 0,
           title: Text(
             'Historique',
             style: TextStyle(
-              fontSize: 15,
+              fontSize: 18,
+              fontFamily: Fonts.merriweather,
               fontWeight: FontWeight.w600,
-              color: Colours.primaryColour,
+              color: Colours.darkColour,
             ),
           )),
       body: SafeArea(
@@ -45,7 +46,7 @@ class _ExamHistoryDetailsScreenState extends State<ExamHistoryDetailsScreen> {
                 text: TextSpan(
                   text: 'Date de soumission : ',
                   style: TextStyle(
-                    color: Colours.primaryColour,
+                    color: Colours.darkColour,
                     fontWeight: FontWeight.w600,
                   ),
                   children: [
@@ -53,7 +54,7 @@ class _ExamHistoryDetailsScreenState extends State<ExamHistoryDetailsScreen> {
                       text: DateFormat.yMMMMd('fr_FR')
                           .format(widget.exam.dateSubmitted),
                       style: TextStyle(
-                        color: Colours.secondaryColour,
+                        color: Colours.darkColour,
                         fontWeight: FontWeight.normal,
                       ),
                     ),

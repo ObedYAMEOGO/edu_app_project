@@ -1,5 +1,4 @@
 import 'package:edu_app_project/core/common/features/category/domain/entities/category.dart';
-import 'package:edu_app_project/core/common/features/category/presentation/views/all_courses_categories_view.dart';
 import 'package:edu_app_project/core/common/features/course/domain/entities/course.dart';
 import 'package:edu_app_project/core/common/features/course/presentation/views/all_courses_view.dart';
 import 'package:edu_app_project/core/common/features/course/presentation/views/course_details_screen.dart';
@@ -24,12 +23,12 @@ class HomeSubjects extends StatelessWidget {
             sectionTitle: 'Cours',
             seeAll: courses.length >= 4,
             onSeeAll: () =>
-                context.push(AllCoursesCategoriesView(categories!))),
+                context.push(AllCoursesView(courses))),
         const Text(
           'Explorer nos cours',
           style: TextStyle(
             fontSize: 12,
-            color: Colours.secondaryColour,
+            color: Colours.darkColour,
           ),
         ),
         const SizedBox(

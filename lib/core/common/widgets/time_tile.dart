@@ -21,7 +21,7 @@ class TimeTile extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(0),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -31,7 +31,7 @@ class TimeTile extends StatelessWidget {
               time,
               prefixText: prefixText,
               style: TextStyle(
-                color: Colours.primaryColour,
+                color: Colours.darkColour,
                 fontSize: 9,
               ),
               maxLines: 1,

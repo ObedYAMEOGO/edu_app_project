@@ -22,10 +22,11 @@ class EditProfileFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const titleStyle = TextStyle(
-        fontWeight: FontWeight.w500,
-        fontSize: 14,
-        color: Colours.primaryColour,
-        fontFamily: Fonts.montserrat);
+      fontWeight: FontWeight.w500,
+      fontSize: 14,
+      color: Colours.darkColour,
+      fontFamily: Fonts.merriweather,
+    );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

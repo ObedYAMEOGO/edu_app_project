@@ -12,7 +12,7 @@ class ExamHistoryAnswerTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
-      iconColor: Colours.primaryColour,
+      iconColor: Colours.darkColour,
       shape: const OutlineInputBorder(
         borderSide: BorderSide.none,
       ),
@@ -23,26 +23,27 @@ class ExamHistoryAnswerTile extends StatelessWidget {
         style: TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.w600,
-          color: Colours.primaryColour,
+          fontFamily: Fonts.merriweather,
+          color: Colours.darkColour,
         ),
       ),
       subtitle: Text(
         answer.isCorrect ? 'Vrai' : 'Faux',
         style: TextStyle(
-          fontSize: 12,
-          fontFamily: Fonts.montserrat,
-          color: answer.isCorrect ? Colours.successColor : Colours.redColour,
-          fontWeight: FontWeight.w400,
-        ),
+            fontSize: 12,
+            color: answer.isCorrect ? Colours.successColor : Colours.redColour,
+            fontWeight: FontWeight.w400,
+            fontFamily: Fonts.merriweather),
       ),
       children: [
         Text(
           'Ma reponse: ${answer.userChoice}',
           style: TextStyle(
-            color: answer.isCorrect ? Colours.successColor : Colours.redColour,
-            fontSize: 12,
-            fontWeight: FontWeight.w500,
-          ),
+              color:
+                  answer.isCorrect ? Colours.successColor : Colours.redColour,
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+              fontFamily: Fonts.merriweather),
         ),
       ],
     );

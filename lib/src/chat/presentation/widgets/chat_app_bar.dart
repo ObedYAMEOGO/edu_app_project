@@ -1,5 +1,6 @@
 import 'package:edu_app_project/core/common/widgets/nested_back_button.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/utils/core_utils.dart';
 import 'package:edu_app_project/src/chat/domain/entities/group.dart';
 import 'package:edu_app_project/src/chat/presentation/app/cubit/chat_cubit.dart';
@@ -40,7 +41,9 @@ class _ChatAppBarState extends State<ChatAppBar> {
               widget.group.name,
               style: const TextStyle(
                 fontWeight: FontWeight.w600,
-                fontSize: 15,
+                fontSize: 17,
+                fontFamily: Fonts.merriweather, // Texte légèrement plus clair
+
                 overflow: TextOverflow.ellipsis,
               ),
               maxLines: 1,
@@ -48,7 +51,7 @@ class _ChatAppBarState extends State<ChatAppBar> {
           ),
         ],
       ),
-      foregroundColor: Colours.primaryColour,
+      foregroundColor: Colours.darkColour,
       actions: [
         PopupMenuButton(
           offset: const Offset(0, 60),

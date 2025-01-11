@@ -1,5 +1,6 @@
 import 'package:edu_app_project/core/extensions/context_extension.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -47,7 +48,9 @@ class _ExpandableTextState extends State<ExpandableText> {
     const defaultStyle = TextStyle(
       height: 1.9,
       fontSize: 14,
-      color: Colours.secondaryColour,
+      fontWeight: FontWeight.w300,
+      fontFamily: Fonts.merriweather,
+      color: Colours.darkColour,
     );
     return Container(
       child: textPainter.didExceedMaxLines
@@ -77,7 +80,8 @@ class _ExpandableTextState extends State<ExpandableText> {
                         });
                       },
                     style: TextStyle(
-                      color: Colours.successColor,
+                      fontFamily: Fonts.merriweather,
+                      color: Colours.primaryColour,
                       fontSize: 14,
                     ),
                   ),

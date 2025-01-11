@@ -1,4 +1,5 @@
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:flutter/material.dart';
 
 class AdminButton extends StatelessWidget {
@@ -19,8 +20,8 @@ class AdminButton extends StatelessWidget {
       width: MediaQuery.of(context).size.width, // Full screen width
       child: ElevatedButton.icon(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colours.primaryColour,
-          foregroundColor: Colors.white,
+          backgroundColor: const Color(0xFFE4E6EA),
+          foregroundColor: Colours.darkColour,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
@@ -28,7 +29,10 @@ class AdminButton extends StatelessWidget {
         onPressed: onPressed,
         label: Text(
           label,
-          style: const TextStyle(fontSize: 12),
+          style: const TextStyle(
+            fontSize: 12,
+            fontFamily: Fonts.merriweather,
+          ),
         ),
         icon: Icon(icon),
       ),

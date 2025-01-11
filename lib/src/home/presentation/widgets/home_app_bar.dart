@@ -1,5 +1,6 @@
 import 'package:edu_app_project/core/common/app/providers/user_provider.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/res/media_res.dart';
 import 'package:edu_app_project/src/home/presentation/widgets/notification_bell.dart';
 import 'package:flutter/material.dart';
@@ -32,9 +33,10 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           title: Text(
             "Mes Cours",
             style: TextStyle(
-              fontSize: 15,
+              fontSize: 17,
               fontWeight: FontWeight.w600,
-              color: Colours.primaryColour,
+              fontFamily: Fonts.merriweather,
+              color: Colours.darkColour,
             ),
           ),
           actions: [

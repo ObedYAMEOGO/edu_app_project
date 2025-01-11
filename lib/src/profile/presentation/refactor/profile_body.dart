@@ -39,7 +39,7 @@ class ProfileBody extends StatelessWidget {
                   infoValue: provider.user!.enrolledCourseIds.length.toString(),
                   infoIcon: const Icon(
                     Icons.document_scanner,
-                    color: Colours.primaryColour,
+                    color: Colours.darkColour ,
                     size: 24,
                   ),
                   infoThemeColour: Colours.inforThemeColor3,
@@ -52,7 +52,7 @@ class ProfileBody extends StatelessWidget {
                   infoValue: provider.user!.points.toString(),
                   infoIcon: const Icon(
                     Icons.score,
-                    color: Colours.primaryColour,
+                    color: Colours.darkColour,
                     size: 24,
                   ),
                   infoThemeColour: Colours.inforThemeColor3,
@@ -65,7 +65,7 @@ class ProfileBody extends StatelessWidget {
                   infoValue: provider.user!.followers.length.toString(),
                   infoIcon: const Icon(
                     Icons.people_alt,
-                    color: Colours.primaryColour,
+                    color: Colours.darkColour,
                     size: 24,
                   ),
                   infoThemeColour: Colours.inforThemeColor3,
@@ -78,7 +78,7 @@ class ProfileBody extends StatelessWidget {
                   infoValue: provider.user!.following.length.toString(),
                   infoIcon: const Icon(
                     Icons.person,
-                    color: Colours.primaryColour,
+                    color: Colours.darkColour,
                     size: 24,
                   ),
                   infoThemeColour: Colours.inforThemeColor4,

@@ -1,5 +1,6 @@
 import 'package:edu_app_project/core/extensions/context_extension.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:flutter/material.dart';
 
 class TinderCard extends StatelessWidget {
@@ -27,13 +28,13 @@ class TinderCard extends StatelessWidget {
             gradient: isFirst
                 ? LinearGradient(
                     colors: [
-                      const Color.fromARGB(255, 255, 224, 178),
-                      Color.fromARGB(255, 242, 118, 2),
+                      Colours.primaryColour,
+                      Colours.secondaryColour,
                     ],
                   )
                 : null,
             color: colour,
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.circular(0),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(.05),
@@ -57,13 +58,14 @@ class TinderCard extends StatelessWidget {
                             vertical: cardPadding / 4,
                           ),
                           decoration: BoxDecoration(
-                            color: Colours.primaryColour,
-                            borderRadius: BorderRadius.circular(16),
+                            color: Colours.whiteColour,
+                            borderRadius: BorderRadius.circular(0),
                           ),
                           child: const Text(
                             'Cours du jour',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colours.darkColour,
+                              fontWeight: FontWeight.w500,
                               fontSize: 10,
                             ),
                           ),
@@ -80,7 +82,8 @@ class TinderCard extends StatelessWidget {
                                 context.courseOfTheDay?.title ?? '______'),
                             textAlign: TextAlign.left,
                             style: TextStyle(
-                              color: Colours.primaryColour,
+                              color: Colours.whiteColour,
+                              fontFamily: Fonts.merriweather,
                               fontSize: fontSize * 1.3,
                               fontWeight: FontWeight.w600,
                             ),

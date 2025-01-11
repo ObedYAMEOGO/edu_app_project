@@ -1,4 +1,5 @@
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/src/scholarship/domain/entities/scholarship.dart';
 import 'package:edu_app_project/src/scholarship/presentation/views/scholarship_details_screen.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class ScholarshipItems extends StatelessWidget {
               ),
               child: Card(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(0),
                   side: BorderSide(
                     color: Colors.grey.withOpacity(0.2), // Bordure subtile
                     width: 1,
@@ -34,7 +35,7 @@ class ScholarshipItems extends StatelessWidget {
                 shadowColor: Colors.black.withOpacity(0.1),
                 margin: const EdgeInsets.symmetric(horizontal: 16),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -43,9 +44,9 @@ class ScholarshipItems extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             vertical: 10, horizontal: 16),
                         decoration: BoxDecoration(
-                          color: Colours.primaryColour.withOpacity(0.1),
+                          color: Colours.redColour,
                           border: Border(
-                            bottom: BorderSide(color: Colors.grey[200]!),
+                            bottom: BorderSide(color: Colours.whiteColour),
                           ),
                         ),
                         child: Row(
@@ -53,15 +54,16 @@ class ScholarshipItems extends StatelessWidget {
                             const Icon(
                               Icons.calendar_today_outlined,
                               size: 16,
-                              color: Colours.secondaryColour,
+                              color: Colours.whiteColour,
                             ),
                             const SizedBox(width: 8),
                             Text(
                               'Date limite: ${DateFormat('dd MMM yyyy').format(scholarship.applicationDeadline)}',
                               style: const TextStyle(
                                 fontSize: 12,
+                                fontFamily: Fonts.merriweather,
                                 fontWeight: FontWeight.w500,
-                                color: Colours.secondaryColour,
+                                color: Colours.whiteColour,
                               ),
                             ),
                           ],
@@ -84,7 +86,8 @@ class ScholarshipItems extends StatelessWidget {
                                     style: const TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
-                                      color: Colours.primaryColour,
+                                      color: Colours.darkColour,
+                                      fontFamily: Fonts.merriweather,
                                     ),
                                   ),
                                   const SizedBox(height: 8),
@@ -96,14 +99,15 @@ class ScholarshipItems extends StatelessWidget {
                                     ),
                                     decoration: BoxDecoration(
                                       color: const Color(0xFFE4E6EA),
-                                      borderRadius: BorderRadius.circular(12),
+                                      borderRadius: BorderRadius.circular(0),
                                     ),
                                     child: Text(
                                       scholarship.category,
                                       style: const TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w500,
-                                        color: Colours.primaryColour,
+                                        fontFamily: Fonts.merriweather,
+                                        color: Colours.darkColour,
                                       ),
                                     ),
                                   ),
@@ -114,15 +118,16 @@ class ScholarshipItems extends StatelessWidget {
                                       const Icon(
                                         Icons.location_on_outlined,
                                         size: 16,
-                                        color: Colours.primaryColour,
+                                        color: Colours.darkColour,
                                       ),
                                       const SizedBox(width: 8),
                                       Text(
                                         scholarship.country.toUpperCase(),
                                         style: const TextStyle(
                                           fontSize: 14,
+                                          fontFamily: Fonts.merriweather,
                                           fontWeight: FontWeight.w600,
-                                          color: Colours.primaryColour,
+                                          color: Colours.darkColour,
                                         ),
                                       ),
                                     ],
@@ -136,7 +141,7 @@ class ScholarshipItems extends StatelessWidget {
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(0),
                                 border: Border.all(
                                   color: Colors.grey
                                       .withOpacity(0.2), // Bordure subtile
@@ -169,7 +174,7 @@ class ScholarshipItems extends StatelessWidget {
                               arguments: scholarship,
                             ),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colours.successColor,
+                              backgroundColor: Colours.primaryColour,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
@@ -183,6 +188,7 @@ class ScholarshipItems extends StatelessWidget {
                               'Voir les détails',
                               style: TextStyle(
                                 fontWeight: FontWeight.w600,
+                                fontFamily: Fonts.merriweather,
                                 fontSize: 14,
                                 color: Colors.white,
                               ),

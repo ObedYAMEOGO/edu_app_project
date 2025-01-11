@@ -89,14 +89,15 @@ class _NotificationBellState extends State<NotificationBell> {
                     fontSize: 8,
                   ),
                 ),
-                child: Icon(Icons.notifications, color: Colours.primaryColour),
+                child: Icon(Icons.notifications, color: Colours.darkColour),
               ),
             ),
           );
         }
         return Padding(
           padding: const EdgeInsets.only(right: 8.0),
-          child: const Icon(Icons.notifications_outlined),
+          child: const Icon(Icons.notifications_outlined,
+              color: Colours.darkColour),
         );
       },
     );

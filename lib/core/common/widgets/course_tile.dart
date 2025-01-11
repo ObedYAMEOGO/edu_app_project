@@ -1,4 +1,5 @@
 import 'package:edu_app_project/core/common/features/course/domain/entities/course.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:flutter/material.dart';
 
 class CourseTile extends StatelessWidget {
@@ -18,7 +19,7 @@ class CourseTile extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 color: Color(0xFFE4E6EA),
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: BorderRadius.circular(0),
               ),
               height: 54,
               width: 54,
@@ -36,6 +37,7 @@ class CourseTile extends StatelessWidget {
               course.title,
               textAlign: TextAlign.center,
               style: const TextStyle(
+                fontFamily: Fonts.merriweather,
                 fontSize: 11,
                 fontWeight: FontWeight.w600,
               ),

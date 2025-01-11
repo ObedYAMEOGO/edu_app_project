@@ -1,3 +1,4 @@
+import 'package:edu_app_project/core/common/widgets/nested_back_button.dart';
 import 'package:edu_app_project/core/res/colours.dart';
 import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/res/media_res.dart';
@@ -46,7 +47,7 @@ class _ExamViewState extends State<ExamView> {
             content: Text(
               'Il vous reste ${examController.remainingTime} $timeLeftText.\n'
               'Êtes-vous sûr(e) de vouloir soumettre?',
-              style: TextStyle(color: Colours.primaryColour),
+              style: TextStyle(color: Colours.darkColour),
             ),
             actions: [
               CupertinoDialogAction(
@@ -56,7 +57,7 @@ class _ExamViewState extends State<ExamView> {
                 child: const Text(
                   'Annuler',
                   style: TextStyle(
-                    color: Colours.primaryColour,
+                    color: Colours.darkColour,
                   ),
                 ),
               ),
@@ -149,7 +150,7 @@ class _ExamViewState extends State<ExamView> {
                     ),
                     content: const Text(
                       'Êtes-vous sûr(e) de vouloir quitter?',
-                      style: TextStyle(color: Colours.primaryColour),
+                      style: TextStyle(color: Colours.darkColour),
                     ),
                     actions: [
                       CupertinoDialogAction(
@@ -158,7 +159,7 @@ class _ExamViewState extends State<ExamView> {
                         },
                         child: const Text(
                           'Annuler',
-                          style: TextStyle(color: Colours.primaryColour),
+                          style: TextStyle(color: Colours.darkColour),
                         ),
                       ),
                       CupertinoDialogAction(
@@ -178,32 +179,36 @@ class _ExamViewState extends State<ExamView> {
               return result ?? false;
             },
             child: Scaffold(
-              backgroundColor: Colours.primaryColour,
+              backgroundColor: Colours.whiteColour,
               appBar: AppBar(
-                iconTheme: IconThemeData(color: Colors.white),
                 centerTitle: true,
                 title: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Icon(
                       Icons.timer,
-                      color: Colours.greenColour,
+                      color: Colours.redColour,
                     ),
                     const SizedBox(width: 10),
                     Text(
                       controller.remainingTime,
                       style: const TextStyle(
-                        color: Colors.white,
+                        color: Colours.darkColour,
+                        fontSize: 17,
+                        fontFamily: Fonts.merriweather,
                       ),
                     ),
                   ],
                 ),
+                leading: NestedBackButton(),
                 actions: [
                   TextButton(
                     onPressed: submitExam,
                     child: const Text('J\'ai fini',
                         style: TextStyle(
-                            color: Colours.greenColour,
+                            color: Colours.primaryColour,
+                            fontSize: 17,
+                            fontFamily: Fonts.merriweather,
                             fontWeight: FontWeight.bold)),
                   ),
                 ],
@@ -213,53 +218,54 @@ class _ExamViewState extends State<ExamView> {
                   padding: const EdgeInsets.all(20),
                   child: Column(
                     children: [
-                      Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(16),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Question ${controller.currentIndex + 1}',
-                                style: const TextStyle(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colours.primaryColour,
-                                ),
+                      Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Question ${controller.currentIndex + 1}',
+                              style: const TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: Fonts.merriweather,
+                                color: Colours.darkColour,
                               ),
-                              const SizedBox(height: 12),
-                              DecoratedBox(
-                                decoration: BoxDecoration(
-                                  color: Colours.secondaryColour,
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
+                            ),
+                            const SizedBox(height: 12),
+                            DecoratedBox(
+                              decoration: BoxDecoration(
+                                color: Colours.whiteColour,
+                                borderRadius: BorderRadius.circular(0),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(20.0),
                                 child: controller.exam.imageUrl == null
                                     ? Image.asset(
                                         Res.test,
-                                        height: 200,
+                                        height: 150,
                                         width: double.infinity,
-                                        fit: BoxFit.cover,
+                                        fit: BoxFit.contain,
                                       )
                                     : Image.network(
                                         controller.exam.imageUrl!,
-                                        height: 200,
+                                        height: 150,
                                         width: double.infinity,
                                         fit: BoxFit.cover,
                                       ),
                               ),
-                              const SizedBox(height: 12),
-                              Text(
-                                controller.currentQuestion.questionText,
-                                style: const TextStyle(
-                                  color: Colours.primaryColour,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                            ),
+                            const SizedBox(height: 12),
+                            Text(
+                              controller.currentQuestion.questionText,
+                              style: const TextStyle(
+                                color: Colours.darkColour,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                fontFamily: Fonts.merriweather,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                       const SizedBox(height: 16),
@@ -271,15 +277,15 @@ class _ExamViewState extends State<ExamView> {
                                 controller.currentQuestion.choices[index];
                             return ListTile(
                               leading: Radio(
-                                activeColor: Colours.greenColour,
+                                activeColor: Colours.darkColour,
                                 fillColor:
                                     WidgetStateProperty.resolveWith<Color>(
                                         (states) {
                                   if (states.contains(WidgetState.selected)) {
                                     return Colours
-                                        .greenColour; // Couleur si sélectionné
+                                        .darkColour; // Couleur si sélectionné
                                   }
-                                  return Colours.greenColour.withOpacity(
+                                  return Colours.darkColour.withOpacity(
                                       0.5); // Bordure verte par défaut
                                 }),
                                 value: choice.identifier,
@@ -291,8 +297,8 @@ class _ExamViewState extends State<ExamView> {
                               title: Text(
                                 '${choice.identifier}. ${choice.choiceAnswer}',
                                 style: const TextStyle(
-                                    color: Colors.white,
-                                    fontFamily: Fonts.montserrat,
+                                    color: Colours.darkColour,
+                                    fontFamily: Fonts.merriweather,
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500),
                               ),

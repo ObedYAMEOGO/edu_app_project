@@ -3,6 +3,7 @@ import 'package:edu_app_project/core/common/features/course/presentation/views/c
 import 'package:edu_app_project/core/common/widgets/course_tile.dart';
 import 'package:edu_app_project/core/common/widgets/nested_back_button.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:flutter/material.dart';
 
 class AllCoursesView extends StatefulWidget {
@@ -57,7 +58,7 @@ class _AllCoursesViewState extends State<AllCoursesView> {
             height: 36,
             decoration: BoxDecoration(
               color: const Color(0xFFE4E6EA),
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(0),
             ),
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: TextField(
@@ -79,7 +80,7 @@ class _AllCoursesViewState extends State<AllCoursesView> {
           IconButton(
             icon: Icon(
               Icons.search_outlined,
-              color: Colours.primaryColour,
+              color: Colours.darkColour,
             ),
             onPressed: () {
               FocusScope.of(context).requestFocus(FocusNode());
@@ -94,12 +95,37 @@ class _AllCoursesViewState extends State<AllCoursesView> {
             const SizedBox(height: 12),
             Padding(
               padding: EdgeInsets.only(left: 20),
-              child: Text(
-                'Tous les cours',
-                style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 15,
-                    color: Colours.primaryColour),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Tous les cours',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontFamily: Fonts.merriweather,
+                        fontSize: 15,
+                        color: Colours.darkColour),
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        'Filtrer',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontFamily: Fonts.merriweather,
+                            fontSize: 15,
+                            color: Colours.darkColour),
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.filter_list,
+                          color: Colours.darkColour,
+                        ),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 15),

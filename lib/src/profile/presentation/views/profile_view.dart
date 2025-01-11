@@ -1,6 +1,7 @@
 import 'package:edu_app_project/core/common/app/providers/user_provider.dart';
 import 'package:edu_app_project/core/enums/notification_enum.dart';
 import 'package:edu_app_project/core/extensions/context_extension.dart';
+import 'package:edu_app_project/core/res/colours.dart';
 import 'package:edu_app_project/core/services/injection_container.dart';
 import 'package:edu_app_project/src/notifications/data/models/notification_model.dart';
 import 'package:edu_app_project/src/notifications/presentation/cubit/notification_cubit.dart';
@@ -29,10 +30,8 @@ class ProfileView extends StatelessWidget {
               ? FloatingActionButton(
                   backgroundColor: Colors.white,
                   elevation: 0,
-                  child: Icon(
-                    Icons.notifications,
-                    color: Color.fromARGB(255, 224, 148, 34),
-                  ),
+                  child:
+                      Icon(Icons.notifications, color: Colours.primaryColour),
                   onPressed: () {
                     sl<NotificationCubit>().sendNotification(
                       NotificationModel.empty().copyWith(

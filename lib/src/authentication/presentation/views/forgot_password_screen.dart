@@ -66,8 +66,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       const Text(
                         'Réinitialiser le mot de passe',
                         style: TextStyle(
-                          fontFamily: Fonts.montserrat,
-                          color: Colours.primaryColour,
+                          fontFamily: Fonts.merriweather,
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
                         ),
@@ -131,16 +130,16 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                 Text(
                                   'Mot de passe?   ',
                                   style: TextStyle(
-                                    fontFamily: Fonts.montserrat,
+                                    fontFamily: Fonts.merriweather,
                                     fontSize: 12,
-                                    color: Colours.secondaryColour,
+                                    color: Colours.darkColour,
                                   ),
                                 ),
                                 Text(
                                   'Se Connecter',
                                   style: TextStyle(
                                     color: Colours.primaryColour,
-                                    fontFamily: Fonts.montserrat,
+                                    fontFamily: Fonts.merriweather,
                                     fontSize: 12,
                                     fontWeight: FontWeight.bold,
                                   ),

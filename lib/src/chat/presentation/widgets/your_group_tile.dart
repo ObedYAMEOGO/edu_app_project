@@ -1,4 +1,6 @@
 import 'package:edu_app_project/core/common/app/providers/tab_navigator.dart';
+import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/services/injection_container.dart';
 import 'package:edu_app_project/src/chat/domain/entities/group.dart';
 import 'package:edu_app_project/src/chat/presentation/app/cubit/chat_cubit.dart';
@@ -55,7 +57,10 @@ class YourGroupTile extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w400,
-                      color: Colors.black, // Texte noir
+                      fontFamily:
+                          Fonts.merriweather, // Texte légèrement plus clair
+
+                      color: Colours.darkColour, // Texte noir
                     ),
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -64,8 +69,9 @@ class YourGroupTile extends StatelessWidget {
                       ? Text(
                           '~ ${group.lastMessageSenderName}: ${group.lastMessage}',
                           style: TextStyle(
-                            color:
-                                Colors.black54, // Texte légèrement plus clair
+                            color: Colors.black54,
+                            fontFamily: Fonts
+                                .merriweather, // Texte légèrement plus clair
                             fontSize: 12,
                           ),
                           maxLines: 1,
@@ -74,6 +80,9 @@ class YourGroupTile extends StatelessWidget {
                       : Text(
                           'Pas encore de message',
                           style: TextStyle(
+                            fontFamily: Fonts
+                                .merriweather, // Texte légèrement plus clair
+
                             color:
                                 Colors.black54, // Texte légèrement plus clair
                             fontSize: 12,
@@ -88,6 +97,9 @@ class YourGroupTile extends StatelessWidget {
                     '${group.lastMessageTimestamp}', // Affiche l'heure du dernier message
                     style: TextStyle(
                       color: Colors.black,
+                      fontFamily:
+                          Fonts.merriweather, // Texte légèrement plus clair
+
                       fontSize: 8,
                     ),
                   )

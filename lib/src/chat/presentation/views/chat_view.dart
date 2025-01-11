@@ -125,8 +125,9 @@ class _ChatViewState extends State<ChatView>
                 title: const Text('Discussions',
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontSize: 15,
-                        color: Colours.primaryColour)),
+                        fontFamily: Fonts.merriweather,
+                        fontSize: 17,
+                        color: Colours.darkColour)),
                 bottom: PreferredSize(
                   preferredSize:
                       const Size.fromHeight(50), // Adjust height as needed
@@ -136,21 +137,23 @@ class _ChatViewState extends State<ChatView>
                     child: TabBar(
                       controller: _tabController,
                       indicator: const BoxDecoration(),
-                      labelColor: Colours.primaryColour,
+                      labelColor: Colours.darkColour,
                       unselectedLabelColor:
                           Colors.grey[500], // Adjust text color for contrast
                       labelStyle: const TextStyle(
                         fontWeight: FontWeight.w500,
-                        fontFamily: Fonts.montserrat,
+                        fontFamily: Fonts.merriweather,
                         fontSize: 14,
                       ),
                       unselectedLabelStyle: const TextStyle(
                         fontWeight: FontWeight.w500,
-                        fontFamily: Fonts.montserrat,
+                        fontFamily: Fonts.merriweather,
                         fontSize: 14,
                       ),
                       tabs: const [
-                        Tab(text: 'Mes Groupes'),
+                        Tab(
+                          text: 'Mes Groupes',
+                        ),
                         Tab(text: 'Autres Groupes'),
                       ],
                     ),

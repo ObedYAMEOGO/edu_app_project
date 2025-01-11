@@ -1,5 +1,6 @@
 import 'package:edu_app_project/core/extensions/context_extension.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/src/chat/domain/entities/group.dart';
 import 'package:edu_app_project/src/chat/presentation/app/cubit/chat_cubit.dart';
 // import 'package:edu_app_project/src/subscription/presentation/views/subscription_screen.dart';
@@ -47,7 +48,8 @@ class OtherGroupTile extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
-                  color: Colours.primaryColour,
+                  color: Colours.darkColour,
+                  fontFamily: Fonts.merriweather, // Texte légèrement plus clair
                 ),
                 overflow: TextOverflow.ellipsis,
               ),
@@ -74,7 +76,11 @@ class OtherGroupTile extends StatelessWidget {
               },
               child: const Text(
                 'Intégrer',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                  fontFamily: Fonts.merriweather, // Texte légèrement plus clair
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
           ],

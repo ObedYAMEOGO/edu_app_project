@@ -1,5 +1,6 @@
 import 'package:edu_app_project/core/common/app/providers/message_reply_notifier.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
@@ -44,6 +45,9 @@ class ReplyPreview extends StatelessWidget {
                             : notifier.reply!.messageBeingRepliedToSenderName ??
                                 'Supprimer cet utilisateur',
                         style: TextStyle(
+                          fontFamily:
+                              Fonts.merriweather, // Texte légèrement plus clair
+
                           fontWeight: FontWeight.bold,
                           color: isMe
                               ? Colours.successColor
@@ -63,6 +67,10 @@ class ReplyPreview extends StatelessWidget {
                   notifier.reply!.message,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontFamily:
+                        Fonts.merriweather, // Texte légèrement plus clair
+                  ),
                 ),
               ],
             ),

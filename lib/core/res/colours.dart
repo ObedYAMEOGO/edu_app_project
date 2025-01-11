@@ -17,12 +17,12 @@ class Colours {
     Color(0xFFAADFA4),
     Color(0xFFB191E1),
   ];
-  static const primaryColour = Color(0xFF13273C);
-  static const secondaryColour = Color.fromARGB(255, 27, 55, 84);
+  static const primaryColour = Color.fromARGB(255, 2, 82, 201);
+  static const secondaryColour = Color(0xFF136DD8);
   static const greenColour = Color(0xFF4EB26A);
   static const whiteColour = Color.fromARGB(255, 255, 255, 255);
   static const secondaryWhiteColour = Color.fromARGB(255, 221, 220, 220);
-  static const darkColour = Color(0xFF020304);
+  static const darkColour = Colors.black;
   static const successColor = Color(0xFF4EB26A);
 
   static const lightGoldenColor = Color(0xFFE6EE9C);
@@ -30,7 +30,7 @@ class Colours {
   static const inforThemeColor2 = Color(0xFFDAFFD6);
   static const inforThemeColor3 = Color(0xFFCFE5FC);
   static const inforThemeColor4 = Color(0xFFFFE4F1);
-  static const redColour = Colors.red;
+  static const redColour = Color(0xFFb53c26);
   static const neutralTextColour = Color(0xFF757C8E);
   static const favoriteYellow = Color(0xFFFEC55E);
 

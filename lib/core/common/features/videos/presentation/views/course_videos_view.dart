@@ -6,6 +6,7 @@ import 'package:edu_app_project/core/common/views/loading_view.dart';
 import 'package:edu_app_project/core/common/widgets/nested_back_button.dart';
 import 'package:edu_app_project/core/common/widgets/not_found_text.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/utils/core_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -68,7 +69,7 @@ class _CourseVideosViewState extends State<CourseVideosView> {
           child: Container(
             decoration: BoxDecoration(
               color: const Color(0xFFE4E6EA),
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(0),
             ),
             padding: const EdgeInsets.symmetric(horizontal: 10),
             width: MediaQuery.of(context).size.width * 0.8,
@@ -76,12 +77,15 @@ class _CourseVideosViewState extends State<CourseVideosView> {
             child: TextField(
               controller: searchController,
               onChanged: _filterVideos,
-              style:
-                  const TextStyle(color: Colours.primaryColour, fontSize: 14),
+              style: const TextStyle(color: Colours.darkColour, fontSize: 14),
               decoration: InputDecoration(
                 hintText: 'Recherche...',
                 border: InputBorder.none,
-                hintStyle: TextStyle(color: Colors.grey[600], fontSize: 14),
+                hintStyle: TextStyle(
+                  color: Colors.grey[600],
+                  fontSize: 1,
+                  fontFamily: Fonts.merriweather,
+                ),
                 contentPadding: EdgeInsets.symmetric(vertical: 10),
               ),
             ),
@@ -89,7 +93,7 @@ class _CourseVideosViewState extends State<CourseVideosView> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.search, color: Colours.primaryColour),
+            icon: const Icon(Icons.search, color: Colours.darkColour),
             onPressed: () {
               _filterVideos(searchController.text);
             },
@@ -123,7 +127,8 @@ class _CourseVideosViewState extends State<CourseVideosView> {
                       style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
-                        color: Colours.primaryColour,
+                        color: Colours.darkColour,
+                        fontFamily: Fonts.merriweather,
                       ),
                     ),
                     Text(
@@ -131,7 +136,8 @@ class _CourseVideosViewState extends State<CourseVideosView> {
                       style: const TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w500,
-                        color: Colours.secondaryColour,
+                        color: Colours.primaryColour,
+                        fontFamily: Fonts.merriweather,
                       ),
                     ),
                     const SizedBox(height: 20),

@@ -7,6 +7,7 @@ import 'package:edu_app_project/core/common/widgets/nested_back_button.dart';
 import 'package:edu_app_project/core/extensions/context_extension.dart';
 import 'package:edu_app_project/core/extensions/int_extensions.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/res/media_res.dart';
 import 'package:edu_app_project/src/exams/presentation/views/course_exams_view.dart';
 import 'package:flutter/material.dart';
@@ -33,8 +34,9 @@ class CourseDetailsScreen extends StatelessWidget
               : course.title,
           style: const TextStyle(
             fontWeight: FontWeight.w600,
-            fontSize: 15,
-            color: Colours.primaryColour,
+            fontSize: 17,
+            color: Colours.darkColour,
+            fontFamily: Fonts.merriweather,
           ),
         ),
         flexibleSpace: Container(
@@ -71,10 +73,11 @@ class CourseDetailsScreen extends StatelessWidget
                   style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
-                      color: Colours.primaryColour),
+                      fontFamily: Fonts.merriweather,
+                      color: Colours.darkColour),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 if (course.description != null)
                   ExpandableText(text: course.description!, context),
@@ -88,8 +91,9 @@ class CourseDetailsScreen extends StatelessWidget
                     "Details de ce cours",
                     style: TextStyle(
                         fontSize: 14,
+                        fontFamily: Fonts.merriweather,
                         fontWeight: FontWeight.w600,
-                        color: Colours.primaryColour),
+                        color: Colours.darkColour),
                   ),
                   if (course.numberOfVideos > 0) ...[
                     const SizedBox(

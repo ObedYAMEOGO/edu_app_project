@@ -6,6 +6,7 @@ import 'package:edu_app_project/core/common/views/loading_view.dart';
 import 'package:edu_app_project/core/common/widgets/nested_back_button.dart';
 import 'package:edu_app_project/core/common/widgets/not_found_text.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/services/injection_container.dart';
 import 'package:edu_app_project/core/utils/core_utils.dart';
 import 'package:flutter/material.dart' hide MaterialState;
@@ -41,9 +42,10 @@ class _CourseMaterialsViewState extends State<CourseMaterialsView> {
         title: Text(
           'Supports ${widget.course.title}',
           style: TextStyle(
-            fontSize: 15,
+            fontSize: 17,
             fontWeight: FontWeight.w600,
-            color: Colours.primaryColour,
+            fontFamily: Fonts.merriweather,
+            color: Colours.darkColour,
           ),
         ),
         leading: const NestedBackButton(),

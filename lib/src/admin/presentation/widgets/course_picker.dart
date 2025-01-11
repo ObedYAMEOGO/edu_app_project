@@ -1,6 +1,7 @@
 import 'package:edu_app_project/core/common/features/course/domain/entities/course.dart';
 import 'package:edu_app_project/core/common/features/course/presentation/cubit/course_cubit.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/utils/core_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -52,14 +53,17 @@ class _CoursePickerState extends State<CoursePicker> {
             readOnly: true,
             decoration: InputDecoration(
               labelText: 'Choisir Cours',
+              hintStyle: TextStyle(
+                fontFamily: Fonts.merriweather,
+              ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: Colours.primaryColour,
+                  color: Colours.redColour,
                 ),
               ),
               border: const OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: Colours.primaryColour,
+                  color: Colours.redColour,
                 ),
               ),
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
@@ -72,7 +76,12 @@ class _CoursePickerState extends State<CoursePicker> {
                         return state.courses
                             .map(
                               (course) => PopupMenuItem<String>(
-                                child: Text(course.title),
+                                child: Text(
+                                  course.title,
+                                  style: TextStyle(
+                                      fontFamily: Fonts.merriweather,
+                                      fontWeight: FontWeight.w300),
+                                ),
                                 onTap: () {
                                   widget.controller.text = course.title;
                                   widget.notifier.value = course;
@@ -84,7 +93,12 @@ class _CoursePickerState extends State<CoursePicker> {
                     )
                   : const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 8),
-                      child: Text('Entrain de charger...'),
+                      child: Text(
+                        'Entrain de charger...',
+                        style: TextStyle(
+                          fontFamily: Fonts.merriweather,
+                        ),
+                      ),
                     ),
             ),
             validator: (value) {

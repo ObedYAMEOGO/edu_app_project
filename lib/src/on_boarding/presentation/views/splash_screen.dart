@@ -34,8 +34,8 @@ class _SplashScreenState extends State<SplashScreen> {
           const Center(
             child: Image(
               image: AssetImage(Res.logoImage),
-              width: 210, // Adjust logo width
-              height: 210, // Adjust logo height
+              width: 150, // Adjust logo width
+              height: 150, // Adjust logo height
             ),
           ),
           const Spacer(),
@@ -44,11 +44,11 @@ class _SplashScreenState extends State<SplashScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  '| By Bassyam Education Team',
+                  '| Eduritio Team',
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
-                    color: Colours.primaryColour,
+                    color: Colours.darkColour,
                   ),
                 ),
                 const SizedBox(height: 5),

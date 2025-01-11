@@ -2,6 +2,7 @@ import 'package:edu_app_project/core/common/features/course/domain/entities/cour
 import 'package:edu_app_project/core/common/features/materials/data/models/material_model.dart';
 import 'package:edu_app_project/core/common/features/materials/domain/entities/material.dart';
 import 'package:edu_app_project/core/common/features/materials/presentation/app/cubit/material_cubit.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/src/admin/presentation/models/resource.dart';
 import 'package:edu_app_project/src/admin/presentation/widgets/edit_resource_dialog.dart';
 import 'package:edu_app_project/src/admin/presentation/widgets/picked_resource_tile.dart';
@@ -163,7 +164,12 @@ class _AddMaterialsViewState extends State<AddMaterialsView> {
               titleSpacing: 0,
               title: const Text(
                 'Nouveaux Documents',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w600,
+                  color: Colours.darkColour,
+                  fontFamily: Fonts.merriweather,
+                ),
               )),
           body: SafeArea(
             child: Padding(
@@ -183,6 +189,9 @@ class _AddMaterialsViewState extends State<AddMaterialsView> {
                       controller: authorController,
                       border: true,
                       hintText: 'Auteur',
+                      hintStyle: TextStyle(
+                        fontFamily: Fonts.merriweather,
+                      ),
                       onChanged: (_) {
                         if (authorSet) setState(() => authorSet = false);
                       },
@@ -201,6 +210,7 @@ class _AddMaterialsViewState extends State<AddMaterialsView> {
                       'Vous pouvez téléchager plusieurs documents à la fois.',
                       style: context.theme.textTheme.bodySmall?.copyWith(
                         color: Colours.neutralTextColour,
+                        fontFamily: Fonts.merriweather,
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -236,7 +246,10 @@ class _AddMaterialsViewState extends State<AddMaterialsView> {
                             onPressed: pickResources,
                             child: const Text(
                               'Ajouter des documents',
-                              style: TextStyle(color: Colours.secondaryColour),
+                              style: TextStyle(
+                                color: Colours.darkColour,
+                                fontFamily: Fonts.merriweather,
+                              ),
                             ),
                           ),
                           const SizedBox(width: 10),
@@ -244,7 +257,10 @@ class _AddMaterialsViewState extends State<AddMaterialsView> {
                             onPressed: uploadMaterials,
                             child: const Text(
                               'confirmer',
-                              style: TextStyle(color: Colours.secondaryColour),
+                              style: TextStyle(
+                                fontFamily: Fonts.merriweather,
+                                color: Colours.darkColour,
+                              ),
                             ),
                           ),
                         ],

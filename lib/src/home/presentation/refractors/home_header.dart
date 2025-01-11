@@ -25,18 +25,18 @@ class HomeHeader extends StatelessWidget {
                     text: 'Hello!\n',
                     style: TextStyle(
                       fontSize: 25,
-                      fontFamily: Fonts.montserrat,
+                      fontFamily: Fonts.merriweather,
                       fontWeight: FontWeight.w500,
-                      color: Colours.secondaryColour,
+                      color: Colours.darkColour.withOpacity(0.5),
                     ),
                   ),
                   TextSpan(
                     text: context.watch<UserProvider>().user!.fullName,
                     style: const TextStyle(
                       fontSize: 30,
-                      fontFamily: Fonts.montserrat,
+                      fontFamily: Fonts.merriweather,
                       fontWeight: FontWeight.w500,
-                      color: Colours.primaryColour,
+                      color: Colours.darkColour,
                     ),
                   ),
                 ],

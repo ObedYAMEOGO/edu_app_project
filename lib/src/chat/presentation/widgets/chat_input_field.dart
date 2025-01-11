@@ -1,5 +1,6 @@
 import 'package:edu_app_project/core/common/app/providers/message_reply_notifier.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/src/chat/data/models/message_model.dart';
 import 'package:edu_app_project/src/chat/presentation/app/cubit/chat_cubit.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -46,6 +47,7 @@ class _ChatInputFieldState extends State<ChatInputField> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: TextField(
+        cursorColor: Colours.darkColour,
         controller: controller,
         focusNode: focusNode,
         // text-field should expand and collapse based on the content
@@ -55,6 +57,8 @@ class _ChatInputFieldState extends State<ChatInputField> {
           hintText: 'Message',
           hintStyle: TextStyle(
             color: Colors.grey[600],
+            fontFamily: Fonts.merriweather, // Texte légèrement plus clair
+
             fontSize: 14,
             fontWeight: FontWeight.w400,
           ),
@@ -94,7 +98,7 @@ class _ChatInputFieldState extends State<ChatInputField> {
               },
               style: IconButton.styleFrom(
                 backgroundColor:
-                    Colours.successColor, // Set the background color to green
+                    Colours.primaryColour, // Set the background color to green
                 shape: RoundedRectangleBorder(
                   borderRadius:
                       BorderRadius.circular(50), // Optional: make it circular

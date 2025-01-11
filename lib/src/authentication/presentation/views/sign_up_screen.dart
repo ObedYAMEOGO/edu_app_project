@@ -82,10 +82,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       'Inscription',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontFamily: Fonts.montserrat,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 20,
-                          color: Colours.primaryColour),
+                        fontFamily: Fonts.merriweather,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                      ),
                     ),
                     const SizedBox(height: 25),
                     SignUpForm(
@@ -135,17 +135,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               Text(
                                 'Déjà un compte?   ',
                                 style: TextStyle(
-                                    color: Colours.secondaryColour,
-                                    fontSize: 12,
-                                    fontFamily: Fonts.montserrat),
+                                  fontSize: 12,
+                                  fontFamily: Fonts.merriweather,
+                                  color: Colours.darkColour
+                                ),
                               ),
                               Text(
                                 '  Se connecter',
                                 style: TextStyle(
-                                    color: Colours.primaryColour,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: Fonts.montserrat),
+                                  color: Colours.primaryColour,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: Fonts.merriweather,
+                                ),
                               )
                             ],
                           ),

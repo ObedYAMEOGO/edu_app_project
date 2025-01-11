@@ -51,10 +51,11 @@ class ScholarshipDetailsScreen extends StatelessWidget {
         title: Text(
           scholarship.name,
           style: const TextStyle(
-            fontFamily: Fonts.montserrat,
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
-            color: Colours.primaryColour,
+            fontSize: 17,
+            fontWeight: FontWeight.w600,
+            fontFamily: Fonts.merriweather, // Texte légèrement plus clair
+
+            color: Colours.darkColour,
           ),
         ),
         leading: const NestedBackButton(),
@@ -72,19 +73,19 @@ class ScholarshipDetailsScreen extends StatelessWidget {
                 children: [
                   Center(
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(0),
                       // ignore: unnecessary_null_comparison
                       child: scholarship.image != null
                           ? Image.network(
                               scholarship.image,
-                              height: 400,
+                              height: 250,
                               width: double.infinity,
                               fit: BoxFit.cover,
                             )
                           : Image.asset(
                               Res.user,
-                              height: 400,
-                              width: 400,
+                              height: 250,
+                              width: 250,
                               fit: BoxFit.cover,
                             ),
                     ),
@@ -98,7 +99,7 @@ class ScholarshipDetailsScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(0),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.1),
@@ -109,8 +110,8 @@ class ScholarshipDetailsScreen extends StatelessWidget {
                         ),
                         child: Image.asset(
                           Res.youtubeVideoIcon,
-                          width: 30,
-                          height: 30,
+                          width: 40,
+                          height: 40,
                         ),
                       ),
                     ),
@@ -124,9 +125,10 @@ class ScholarshipDetailsScreen extends StatelessWidget {
             Text(
               scholarship.name,
               style: const TextStyle(
-                fontSize: 18,
+                fontSize: 15,
                 fontWeight: FontWeight.w700,
-                color: Colours.primaryColour,
+                color: Colours.darkColour,
+                fontFamily: Fonts.merriweather,
               ),
             ),
             const SizedBox(height: 10),
@@ -142,7 +144,7 @@ class ScholarshipDetailsScreen extends StatelessWidget {
             Card(
               elevation: 2,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(0),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(16),
@@ -182,9 +184,10 @@ class ScholarshipDetailsScreen extends StatelessWidget {
             const Text(
               'Filières disponibles:',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 14,
                 fontWeight: FontWeight.w600,
-                color: Colours.primaryColour,
+                color: Colours.darkColour,
+                fontFamily: Fonts.merriweather,
               ),
             ),
             const SizedBox(height: 10),
@@ -197,16 +200,18 @@ class ScholarshipDetailsScreen extends StatelessWidget {
                       width: 6,
                       height: 6,
                       decoration: BoxDecoration(
-                        color: Colours.primaryColour,
+                        color: Colours.darkColour,
                         borderRadius: BorderRadius.circular(50),
                       ),
                     ),
                     const SizedBox(width: 8),
                     Text(
                       field,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 14,
-                        color: Colours.secondaryColour,
+                        color: Colours.darkColour,
+                        fontWeight: FontWeight.w300,
+                        fontFamily: Fonts.merriweather,
                       ),
                     ),
                   ],
@@ -219,12 +224,12 @@ class ScholarshipDetailsScreen extends StatelessWidget {
       // WhatsApp Floating Action Button
       floatingActionButton: FloatingActionButton(
         onPressed: _launchWhatsApp,
-        backgroundColor: Colours.successColor,
-        elevation: 4,
+        backgroundColor: Colors.white,
+        elevation: 0,
         child: Image.asset(
           Res.whatsapp,
-          width: 24,
-          height: 24,
+          width: 30,
+          height: 35,
         ),
       ),
     );
@@ -241,7 +246,7 @@ class ScholarshipDetailsScreen extends StatelessWidget {
         Icon(
           icon,
           size: 18,
-          color: Colours.primaryColour,
+          color: Colours.darkColour,
         ),
         const SizedBox(width: 8),
         Text(
@@ -249,7 +254,8 @@ class ScholarshipDetailsScreen extends StatelessWidget {
           style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w600,
-            color: Colours.primaryColour,
+            color: Colours.darkColour,
+            fontFamily: Fonts.merriweather,
           ),
         ),
         const Spacer(),
@@ -257,7 +263,8 @@ class ScholarshipDetailsScreen extends StatelessWidget {
           value,
           style: const TextStyle(
             fontSize: 14,
-            color: Colours.secondaryColour,
+            color: Colours.darkColour,
+            fontFamily: Fonts.merriweather,
           ),
         ),
       ],

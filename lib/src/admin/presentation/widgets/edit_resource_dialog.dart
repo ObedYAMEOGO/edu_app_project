@@ -1,3 +1,5 @@
+import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/src/admin/presentation/models/resource.dart';
 import 'package:edu_app_project/src/admin/presentation/widgets/info_field.dart';
 import 'package:flutter/material.dart';
@@ -53,18 +55,27 @@ class _EditResourceDialogState extends State<EditResourceDialog> {
                 controller: titleController,
                 border: true,
                 hintText: 'Titre',
+                hintStyle: TextStyle(
+                  fontFamily: Fonts.merriweather,
+                ),
               ),
               const SizedBox(height: 10),
               InfoField(
                 controller: descriptionController,
                 border: true,
                 hintText: 'Description',
+                hintStyle: TextStyle(
+                  fontFamily: Fonts.merriweather,
+                ),
               ),
               const SizedBox(height: 10),
               InfoField(
                 controller: authorController,
                 border: true,
                 hintText: 'Auteur',
+                hintStyle: TextStyle(
+                  fontFamily: Fonts.merriweather,
+                ),
               ),
               const SizedBox(height: 10),
               Row(
@@ -81,14 +92,24 @@ class _EditResourceDialogState extends State<EditResourceDialog> {
                       );
                       Navigator.pop(context, newResource);
                     },
-                    child: const Text('Confirmer'),
+                    child: const Text(
+                      'Confirmer',
+                      style: TextStyle(
+                          fontFamily: Fonts.merriweather,
+                          color: Colours.darkColour),
+                    ),
                   ),
                   const SizedBox(width: 10),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: const Text('Annuler'),
+                    child: const Text(
+                      'Annuler',
+                      style: TextStyle(
+                          fontFamily: Fonts.merriweather,
+                          color: Colours.darkColour),
+                    ),
                   ),
                 ],
               ),

@@ -1,4 +1,5 @@
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/src/quick_access/presentation/providers/quick_access_tab_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -21,18 +22,21 @@ class TabTile extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50),
+                    borderRadius: BorderRadius.circular(0),
                     color: Color(0xFFE4E6EA),
                   ),
                   child: Text(
                     title,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(color: Colours.primaryColour),
+                    style: const TextStyle(
+                        color: Colours.darkColour,
+                        fontFamily: Fonts.merriweather),
                   ),
                 )
               : Text(
                   title,
-                  style: const TextStyle(color: Colors.grey),
+                  style: const TextStyle(
+                      color: Colors.grey, fontFamily: Fonts.merriweather),
                 ),
         );
       },

@@ -6,6 +6,7 @@ import 'package:edu_app_project/core/common/widgets/reactive_button.dart';
 import 'package:edu_app_project/core/enums/notification_enum.dart';
 import 'package:edu_app_project/core/extensions/string_extensions.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/services/injection_container.dart';
 import 'package:edu_app_project/core/utils/core_utils.dart';
 import 'package:edu_app_project/src/admin/presentation/utils/admin_utils.dart';
@@ -154,9 +155,10 @@ class _AddVideoViewState extends State<AddVideoView> {
           title: Text(
             'Ajouter une vidéo',
             style: TextStyle(
-                color: Colours.primaryColour,
+                color: Colours.darkColour,
                 fontWeight: FontWeight.w600,
-                fontSize: 15),
+                fontFamily: Fonts.merriweather,
+                fontSize: 17),
           ),
         ),
         body: Padding(
@@ -176,10 +178,13 @@ class _AddVideoViewState extends State<AddVideoView> {
                 border: true,
                 controller: urlController,
                 hintText: 'Entrez l’URL de la vidéo',
+                hintStyle: TextStyle(
+                  fontFamily: Fonts.merriweather,
+                ),
                 onEditingComplete: fetchVideo,
                 focusNode: urlFocusNode,
                 onTapOutside: (_) => urlFocusNode.unfocus(),
-                autoFocus: true,
+                autoFocus: false,
                 keyboardType: TextInputType.url,
               ),
               ListenableBuilder(
@@ -193,7 +198,10 @@ class _AddVideoViewState extends State<AddVideoView> {
                           onPressed: fetchVideo,
                           child: const Text(
                             'Rechercher la vidéo',
-                            style: TextStyle(color: Colours.secondaryColour),
+                            style: TextStyle(
+                              color: Colours.secondaryColour,
+                              fontFamily: Fonts.merriweather,
+                            ),
                           ),
                         ),
                       ],
@@ -258,6 +266,9 @@ class _AddVideoViewState extends State<AddVideoView> {
                   autoFocus: true,
                   focusNode: tutorNameFocusNode,
                   labelText: 'Nom du tuteur',
+                  hintStyle: TextStyle(
+                    fontFamily: Fonts.merriweather,
+                  ),
                   onEditingComplete: () {
                     setState(() {});
                     videoTitleFocusNode.requestFocus();
@@ -266,6 +277,9 @@ class _AddVideoViewState extends State<AddVideoView> {
                 InfoField(
                   controller: videoTitleController,
                   labelText: 'Titre de la vidéo',
+                  hintStyle: TextStyle(
+                    fontFamily: Fonts.merriweather,
+                  ),
                   focusNode: videoTitleFocusNode,
                   onEditingComplete: () {
                     FocusManager.instance.primaryFocus?.unfocus();
@@ -338,7 +352,10 @@ class _AddVideoViewState extends State<AddVideoView> {
                       urlController.text.trim().isNotEmpty
                           ? 'Remplacer la vidéo par URL'
                           : 'Ajouter une vidéo depuis la galerie',
-                      style: const TextStyle(color: Colors.white),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontFamily: Fonts.merriweather,
+                      ),
                     ),
                   ],
                 ),

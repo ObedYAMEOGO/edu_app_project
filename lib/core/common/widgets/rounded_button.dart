@@ -1,4 +1,5 @@
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:flutter/material.dart';
 
 class RoundedButton extends StatelessWidget {
@@ -26,7 +27,7 @@ class RoundedButton extends StatelessWidget {
       width: width,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            backgroundColor: buttonColour ?? Colours.greenColour,
+            backgroundColor: buttonColour ?? Colours.primaryColour,
             foregroundColor: labelColour ?? Colors.white,
             minimumSize: const Size(double.maxFinite, 50),
             shape:
@@ -35,7 +36,9 @@ class RoundedButton extends StatelessWidget {
         child: Text(
           label,
           style: TextStyle(
-              fontWeight: FontWeight.w600, color: Colours.primaryColour),
+              fontWeight: FontWeight.w600, 
+              fontFamily: Fonts.merriweather,
+              color: Colours.whiteColour),
         ),
       ),
     );

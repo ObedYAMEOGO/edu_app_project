@@ -113,9 +113,9 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
                     const Text(
                       'Ajouter un nouveau cours',
                       style: TextStyle(
-                        fontFamily: Fonts.montserrat,
                         fontSize: 17,
                         fontWeight: FontWeight.w500,
+                        fontFamily: Fonts.merriweather,
                       ),
                     ),
                     IconButton(
@@ -129,11 +129,17 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
                 TitledInputField(
                   controller: titleController,
                   title: 'Intitulé du cours',
+                  hintStyle: TextStyle(
+                    fontFamily: Fonts.merriweather,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 TitledInputField(
                   controller: descriptionController,
                   title: 'Description du cours',
+                  hintStyle: TextStyle(
+                    fontFamily: Fonts.merriweather,
+                  ),
                   required: false,
                 ),
                 const SizedBox(height: 20),
@@ -145,7 +151,7 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
                   hintStyle: const TextStyle(
                     color: Colors.grey,
                     fontSize: 12,
-                    fontFamily: Fonts.montserrat,
+                    fontFamily: Fonts.merriweather,
                   ),
                   required: false,
                   suffixIcon: IconButton(
@@ -198,6 +204,7 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
                         color: Colors.white,
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
+                        fontFamily: Fonts.merriweather,
                       ),
                     ),
                   ),

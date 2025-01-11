@@ -20,14 +20,14 @@ class PickedResourceHorizontalText extends StatelessWidget {
           text: '$label: ',
           style: const TextStyle(
             fontWeight: FontWeight.w500,
-            fontFamily: Fonts.montserrat,
+            fontFamily: Fonts.merriweather,
             color: Colors.black,
           ),
           children: [
             TextSpan(
               text: value,
               style: const TextStyle(
-                  fontFamily: Fonts.montserrat, fontWeight: FontWeight.w300),
+                  fontFamily: Fonts.merriweather, fontWeight: FontWeight.w300),
             ),
           ],
         ),

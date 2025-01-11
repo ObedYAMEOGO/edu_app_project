@@ -52,8 +52,9 @@ class _ExamDetailsViewState extends State<ExamDetailsView> {
           widget.exam.title,
           style: const TextStyle(
               fontWeight: FontWeight.w600,
-              color: Colours.primaryColour,
-              fontSize: 15),
+              color: Colours.darkColour,
+              fontFamily: Fonts.merriweather,
+              fontSize: 17),
         ),
       ),
       body: BlocConsumer<ExamCubit, ExamState>(
@@ -98,12 +99,13 @@ class _ExamDetailsViewState extends State<ExamDetailsView> {
         Center(
           child: Container(
             width: 100,
+            padding: EdgeInsets.all(20),
             height: 100,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
+              borderRadius: BorderRadius.circular(0),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.3),
+                  color: Colors.white,
                   blurRadius: 10,
                   offset: const Offset(0, 5),
                 )
@@ -111,7 +113,7 @@ class _ExamDetailsViewState extends State<ExamDetailsView> {
               color: Color(0xFFE4E6EA),
             ),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(50),
+              borderRadius: BorderRadius.circular(0),
               child: completeExam.imageUrl != null
                   ? Image.network(
                       completeExam.imageUrl!,
@@ -130,12 +132,13 @@ class _ExamDetailsViewState extends State<ExamDetailsView> {
         ),
         const SizedBox(height: 20),
         Text(
-          completeExam.title,
+          completeExam.title.toUpperCase(),
           textAlign: TextAlign.center,
           style: const TextStyle(
-            fontSize: 24,
+            fontSize: 15,
             fontWeight: FontWeight.bold,
-            color: Colours.primaryColour,
+            color: Colours.redColour,
+            fontFamily: Fonts.merriweather,
           ),
         ),
         const SizedBox(height: 10),
@@ -143,9 +146,10 @@ class _ExamDetailsViewState extends State<ExamDetailsView> {
           completeExam.description,
           textAlign: TextAlign.center,
           style: const TextStyle(
-              fontSize: 13,
-              color: Colours.secondaryColour,
-              fontFamily: Fonts.montserrat),
+            fontSize: 13,
+            color: Colours.darkColour,
+            fontFamily: Fonts.merriweather,
+          ),
         ),
       ],
     );

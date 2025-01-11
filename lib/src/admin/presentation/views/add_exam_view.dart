@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:edu_app_project/core/common/features/course/domain/entities/course.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/src/admin/presentation/widgets/course_picker.dart';
 import 'package:edu_app_project/core/enums/notification_enum.dart';
 import 'package:edu_app_project/core/res/media_res.dart';
@@ -110,8 +111,9 @@ class _AddExamViewState extends State<AddExamView> {
                 'Nouveau Quiz',
                 style: TextStyle(
                     fontWeight: FontWeight.w600,
-                    fontSize: 15,
-                    color: Colours.primaryColour),
+                    fontSize: 17,
+                    fontFamily: Fonts.merriweather,
+                    color: Colours.darkColour),
               )),
           body: SafeArea(
             child: Padding(
@@ -141,7 +143,8 @@ class _AddExamViewState extends State<AddExamView> {
                           title: Text(
                             examFile!.path.split('/').last,
                             style: TextStyle(
-                                color: Colours.primaryColour,
+                                color: Colours.darkColour,
+                                fontFamily: Fonts.merriweather,
                                 fontSize: 12,
                                 fontWeight: FontWeight.w500),
                           ),
@@ -150,7 +153,7 @@ class _AddExamViewState extends State<AddExamView> {
                               examFile = null;
                             }),
                             icon: const Icon(IconlyBroken.close_square,
-                                color: Colors.red, size: 30),
+                                color: Colours.redColour, size: 30),
                           ),
                         ),
                       ),
@@ -167,7 +170,10 @@ class _AddExamViewState extends State<AddExamView> {
                               examFile == null
                                   ? 'Selectionner un fichier'
                                   : 'Changer de fichier',
-                              style: TextStyle(color: Colours.secondaryColour),
+                              style: TextStyle(
+                                color: Colours.darkColour,
+                                fontFamily: Fonts.merriweather,
+                              ),
                             ),
                           ),
                           const SizedBox(width: 10),
@@ -175,7 +181,10 @@ class _AddExamViewState extends State<AddExamView> {
                             onPressed: uploadExam,
                             child: const Text(
                               'Confirmer',
-                              style: TextStyle(color: Colours.secondaryColour),
+                              style: TextStyle(
+                                color: Colours.darkColour,
+                                fontFamily: Fonts.merriweather,
+                              ),
                             ),
                           ),
                         ],

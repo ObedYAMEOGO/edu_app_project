@@ -66,10 +66,10 @@ class _SignInScreenState extends State<SignInScreen> {
                   Text(
                     "Connexion",
                     style: TextStyle(
-                        fontFamily: Fonts.montserrat,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                        color: Colours.primaryColour),
+                      fontFamily: Fonts.merriweather,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -91,7 +91,10 @@ class _SignInScreenState extends State<SignInScreen> {
                         },
                         child: Text(
                           'Mot de passe oublié ?',
-                          style: TextStyle(color: Colors.blue, fontSize: 12),
+                          style: TextStyle(
+                              fontFamily: Fonts.merriweather,
+                              color: Colours.primaryColour,
+                              fontSize: 12),
                         ),
                       )),
                   const SizedBox(
@@ -134,17 +137,19 @@ class _SignInScreenState extends State<SignInScreen> {
                             Text(
                               'Pas de compte?   ',
                               style: TextStyle(
-                                  color: Colours.secondaryColour,
-                                  fontSize: 12,
-                                  fontFamily: Fonts.montserrat),
+                                color: Colours.darkColour,
+                                fontSize: 12,
+                                fontFamily: Fonts.merriweather,
+                              ),
                             ),
                             Text(
                               '  S\'inscrire',
                               style: TextStyle(
-                                  color: Colours.primaryColour,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: Fonts.montserrat),
+                                color: Colours.primaryColour,
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: Fonts.merriweather,
+                              ),
                             )
                           ],
                         ),

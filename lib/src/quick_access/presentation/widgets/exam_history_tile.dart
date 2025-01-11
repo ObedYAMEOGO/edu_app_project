@@ -36,7 +36,7 @@ class ExamHistoryTile extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: Color(0xFFE4E6EA),
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(0),
             ),
             child: exam.examImageUrl == null
                 ? Image.asset(Res.test)
@@ -50,16 +50,17 @@ class ExamHistoryTile extends StatelessWidget {
                 Text(
                   exam.examTitle,
                   style: const TextStyle(
-                      fontSize: 18,
+                      fontSize: 15,
                       fontWeight: FontWeight.w600,
-                      color: Colours.primaryColour),
+                      fontFamily: Fonts.merriweather,
+                      color: Colours.darkColour),
                 ),
                 const SizedBox(height: 4),
-                const Text(
+                Text(
                   'Vous avez terminé',
                   style: TextStyle(
                     fontSize: 12,
-                    color: Colours.secondaryColour,
+                    color: Colours.darkColour.withOpacity(0.5),
                   ),
                 ),
                 const SizedBox(height: 4),
@@ -80,7 +81,7 @@ class ExamHistoryTile extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.w600,
-                            color: Colours.primaryColour),
+                            color: Colours.darkColour),
                       ),
                     ],
                   ),
@@ -107,7 +108,7 @@ class ExamHistoryTile extends StatelessWidget {
                   fontFamily: Fonts.montserrat,
                   color: answeredQuestionsPercentage < .5
                       ? Colours.redColour
-                      : Colours.successColor,
+                      : Colours.darkColour,
                 ),
               ),
             ),

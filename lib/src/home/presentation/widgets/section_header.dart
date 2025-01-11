@@ -24,20 +24,21 @@ class SectionHeader extends StatelessWidget {
           style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w500,
-              color: Colours.primaryColour),
+              fontFamily: Fonts.merriweather,
+              color: Colours.darkColour),
         ),
         if (seeAll)
           TextButton(
             style: TextButton.styleFrom(
                 padding: EdgeInsets.zero,
                 splashFactory: NoSplash.splashFactory,
-                foregroundColor: Colours.secondaryColour),
+                foregroundColor: Colours.darkColour),
             onPressed: onSeeAll,
             child: const Text(
               'Voir plus',
               style: TextStyle(
-                fontFamily: Fonts.montserrat,
-                color: Colours.greenColour,
+                fontFamily: Fonts.merriweather,
+                color: Colours.primaryColour,
                 fontSize: 14,
               ),
             ),

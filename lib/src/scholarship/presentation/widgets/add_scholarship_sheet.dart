@@ -153,7 +153,8 @@ class _AddScholarshipSheetState extends State<AddScholarshipSheet> {
                       style: TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.w500,
-                        fontFamily: Fonts.montserrat,
+                        color: Colours.darkColour,
+                        fontFamily: Fonts.merriweather,
                       ),
                     ),
                     IconButton(
@@ -167,34 +168,52 @@ class _AddScholarshipSheetState extends State<AddScholarshipSheet> {
                 TitledInputField(
                   controller: nameController,
                   title: 'Le nom de l\'université',
+                  hintStyle: TextStyle(
+                    fontFamily: Fonts.merriweather,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 TitledInputField(
                   controller: descriptionController,
                   title: 'La description de la bourse',
+                  hintStyle: TextStyle(
+                    fontFamily: Fonts.merriweather,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 TitledInputField(
                   controller: amountController,
                   title: 'Le montant de la bourse',
                   hintText: 'Saisir le montant de la bourse',
+                  hintStyle: TextStyle(
+                    fontFamily: Fonts.merriweather,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 TitledInputField(
                   controller: countryController,
                   title: 'Le pays d\'acceuil',
+                  hintStyle: TextStyle(
+                    fontFamily: Fonts.merriweather,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 TitledInputField(
                   controller: numberOfRecipientsController,
                   title: 'Nombre de places disponibles',
                   hintText: 'Le nombre de places disponibles',
+                  hintStyle: TextStyle(
+                    fontFamily: Fonts.merriweather,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 TitledInputField(
                   controller: applicationDeadlineController,
                   title: 'La date limite de candidature',
                   hintText: 'Saisir la date limite de candidature',
+                  hintStyle: TextStyle(
+                    fontFamily: Fonts.merriweather,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 Text(
@@ -203,6 +222,7 @@ class _AddScholarshipSheetState extends State<AddScholarshipSheet> {
                     fontSize: 15,
                     fontWeight: FontWeight.w500,
                     color: Colours.primaryColour,
+                    fontFamily: Fonts.merriweather,
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -211,12 +231,18 @@ class _AddScholarshipSheetState extends State<AddScholarshipSheet> {
                   title: 'Catégorie de la bourse',
                   hintText:
                       'Saisir la catégorie (par ex: Sciences, Arts, etc.)',
+                  hintStyle: TextStyle(
+                    fontFamily: Fonts.merriweather,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 TitledInputField(
                   controller: videoUrlController,
                   title: 'Lien vidéo (optionnel)',
                   hintText: 'Saisir un lien vidéo pour la bourse',
+                  hintStyle: TextStyle(
+                    fontFamily: Fonts.merriweather,
+                  ),
                   required: false,
                 ),
                 Column(
@@ -232,13 +258,14 @@ class _AddScholarshipSheetState extends State<AddScholarshipSheet> {
                               hintStyle: TextStyle(
                                 fontSize: 12,
                                 color: Color(0xFF757575),
+                                fontFamily: Fonts.merriweather,
                               ),
                             ),
                           ),
                         ),
                         IconButton(
                           icon: const Icon(Icons.remove_circle_outline,
-                              color: Colours.secondaryColour),
+                              color: Colours.redColour),
                           onPressed: () => removeField(index),
                         ),
                       ],
@@ -247,9 +274,12 @@ class _AddScholarshipSheetState extends State<AddScholarshipSheet> {
                 ),
                 TextButton.icon(
                   onPressed: addField,
-                  icon: const Icon(Icons.add, color: Colours.primaryColour),
+                  icon: const Icon(Icons.add_box, color: Colours.redColour),
                   label: const Text('Ajouter un domaine',
-                      style: TextStyle(color: Colours.primaryColour)),
+                      style: TextStyle(
+                        color: Colours.darkColour,
+                        fontFamily: Fonts.merriweather,
+                      )),
                 ),
                 const SizedBox(height: 20),
                 TitledInputField(
@@ -260,6 +290,7 @@ class _AddScholarshipSheetState extends State<AddScholarshipSheet> {
                       'Saisir le lien de l\'image ou sélectionner depuis votre galerie',
                   hintStyle: const TextStyle(
                     color: Colors.grey,
+                    fontFamily: Fonts.merriweather,
                     fontSize: 12,
                   ),
                   suffixIcon: IconButton(
@@ -285,6 +316,7 @@ class _AddScholarshipSheetState extends State<AddScholarshipSheet> {
                       'Saisir le lien du logo ou sélectionner depuis votre galerie',
                   hintStyle: const TextStyle(
                     color: Colors.grey,
+                    fontFamily: Fonts.merriweather,
                     fontSize: 12,
                   ),
                   suffixIcon: IconButton(
@@ -357,6 +389,7 @@ class _AddScholarshipSheetState extends State<AddScholarshipSheet> {
                       color: Colors.white,
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
+                      fontFamily: Fonts.merriweather,
                     ),
                   ),
                 ),

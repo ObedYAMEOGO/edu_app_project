@@ -110,7 +110,7 @@ class _AddCategorySheetState extends State<AddCategorySheet> {
                     const Text(
                       'Ajouter un nouveau cours',
                       style: TextStyle(
-                        fontFamily: Fonts.montserrat,
+                        fontFamily: Fonts.merriweather,
                         fontSize: 17,
                         fontWeight: FontWeight.w500,
                       ),
@@ -118,7 +118,7 @@ class _AddCategorySheetState extends State<AddCategorySheet> {
                     IconButton(
                       onPressed: () => Navigator.pop(context),
                       icon: Icon(IconlyBroken.close_square,
-                          color: Colors.red, size: 30),
+                          color: Colours.redColour, size: 30),
                     ),
                   ],
                 ),
@@ -126,6 +126,9 @@ class _AddCategorySheetState extends State<AddCategorySheet> {
                 TitledInputField(
                   controller: titleController,
                   title: 'Nom catégorie',
+                  hintStyle: TextStyle(
+                    fontFamily: Fonts.merriweather,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 TitledInputField(
@@ -136,7 +139,7 @@ class _AddCategorySheetState extends State<AddCategorySheet> {
                   hintStyle: const TextStyle(
                     color: Colors.grey,
                     fontSize: 12,
-                    fontFamily: Fonts.montserrat,
+                    fontFamily: Fonts.merriweather,
                   ),
                   required: false,
                   suffixIcon: IconButton(
@@ -185,6 +188,7 @@ class _AddCategorySheetState extends State<AddCategorySheet> {
                         color: Colors.white,
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
+                        fontFamily: Fonts.merriweather,
                       ),
                     ),
                   ),

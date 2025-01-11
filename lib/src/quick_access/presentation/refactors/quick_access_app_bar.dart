@@ -1,5 +1,6 @@
 import 'package:edu_app_project/core/common/app/providers/user_provider.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/res/media_res.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,8 +17,9 @@ class QuickAccessAppBar extends StatelessWidget implements PreferredSizeWidget {
         'Documents',
         style: TextStyle(
             fontWeight: FontWeight.w600,
-            fontSize: 15,
-            color: Colours.primaryColour),
+            fontSize: 17,
+            fontFamily: Fonts.merriweather,
+            color: Colours.darkColour),
       ),
       actions: [
         Consumer<UserProvider>(builder: (_, provider, __) {

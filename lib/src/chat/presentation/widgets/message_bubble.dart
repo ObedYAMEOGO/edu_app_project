@@ -2,6 +2,7 @@ import 'package:edu_app_project/core/common/app/providers/message_reply_notifier
 import 'package:edu_app_project/core/common/features/user/cubit/user_cubit.dart';
 import 'package:edu_app_project/core/extensions/context_extension.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/services/injection_container.dart';
 import 'package:edu_app_project/src/authentication/domain/entities/user.dart';
 import 'package:edu_app_project/src/chat/data/models/message_model.dart';
@@ -97,7 +98,13 @@ class _MessageBubbleState extends State<MessageBubble> {
                           : NetworkImage(user!.profilePic!),
                     ),
                     const SizedBox(width: 8),
-                    Text(user!.fullName),
+                    Text(
+                      user!.fullName,
+                      style: TextStyle(
+                        fontFamily:
+                            Fonts.merriweather, // Texte légèrement plus clair
+                      ),
+                    ),
                   ],
                 ),
               Container(
@@ -131,6 +138,9 @@ class _MessageBubbleState extends State<MessageBubble> {
                     Text(
                       widget.message.message,
                       style: TextStyle(
+                        fontFamily:
+                            Fonts.merriweather, // Texte légèrement plus clair
+
                         color: widget.isCurrentUser
                             ? Colors.white
                             : Colours.primaryColour,

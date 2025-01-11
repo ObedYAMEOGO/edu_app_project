@@ -1,5 +1,4 @@
 import 'package:edu_app_project/core/common/app/providers/notifications_notifier.dart';
-import 'package:edu_app_project/core/res/colours.dart';
 import 'package:edu_app_project/src/notifications/presentation/cubit/notification_cubit.dart';
 import 'package:edu_app_project/src/profile/presentation/widgets/popup_item.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +28,7 @@ class NotificationsOptions extends StatelessWidget {
               notificationNotifier.muteNotifications
                   ? Icons.notifications_off
                   : Icons.notifications_on,
-              color: Colours.secondaryColour,
+              color: Colors.grey,
             ),
           ),
         ),
@@ -37,7 +36,7 @@ class NotificationsOptions extends StatelessWidget {
           onTap: context.read<NotificationCubit>().clearAll,
           child: const PopupItem(
             title: 'Tout suppimer',
-            icon: Icon(IconlyBold.delete, color: Colours.secondaryColour),
+            icon: Icon(IconlyBold.delete, color: Colors.grey),
           ),
         ),
       ],

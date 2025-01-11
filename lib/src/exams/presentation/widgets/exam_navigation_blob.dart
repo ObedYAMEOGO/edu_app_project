@@ -1,7 +1,14 @@
+import 'dart:math';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/src/exams/presentation/app/providers/exam_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+const Color primaryBlue = Colours.primaryColour;
+const Color backgroundColor = Colors.white;
+const Color disabledColor = Color(0xFFCCCCCC);
+const Color lightGreyShadow = Color(0xFFE0E0E0);
 
 class ExamNavigationBlob extends StatelessWidget {
   const ExamNavigationBlob({super.key});
@@ -10,67 +17,110 @@ class ExamNavigationBlob extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<ExamController>(
       builder: (_, controller, __) {
-        return SafeArea(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                '${controller.currentIndex + 1} /'
-                ' ${controller.totalQuestions}',
-                style:
-                    const TextStyle(fontSize: 12, color: Colours.greenColour),
-              ),
-              const SizedBox(height: 5),
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                decoration: BoxDecoration(
-                  color: Colours.greenColour,
-                  borderRadius: BorderRadius.circular(8),
-                  // boxShadow: const [
-                  //   // BoxShadow(
-                  //   //   color: Color(0xFFE8E8E8),
-                  //   //   blurRadius: 20,
-                  //   //   spreadRadius: 5,
-                  //   //   offset: Offset(2, 6),
-                  //   // ),
-                  // ],
+        final progress =
+            controller.currentIndex / (controller.totalQuestions - 1);
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            ElevatedButton(
+              onPressed: controller.currentIndex > 0
+                  ? controller.previousQuestion
+                  : null,
+              style: ElevatedButton.styleFrom(
+                backgroundColor:
+                    controller.currentIndex > 0 ? primaryBlue : disabledColor,
+                iconColor: controller.currentIndex > 0
+                    ? Colors.white
+                    : disabledColor.withOpacity(0.5),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    IconButton(
-                      onPressed: controller.previousQuestion,
-                      icon: Icon(
-                        Icons.arrow_back,
-                        color: controller.currentIndex == 0
-                            ? Colours.secondaryColour.withOpacity(0.5)
-                            : Colours.primaryColour,
-                      ),
-                    ),
-                    Container(
-                      color: Colours.primaryColour,
-                      width: 1,
-                      height: 24,
-                    ),
-                    IconButton(
-                      onPressed: controller.nextQuestion,
-                      icon: Icon(
-                        Icons.arrow_forward,
-                        color: controller.currentIndex ==
-                                controller.totalQuestions - 1
-                            ? Colours.secondaryColour.withOpacity(0.5)
-                            : Colours.primaryColour,
-                      ),
-                    ),
-                  ],
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               ),
-            ],
-          ),
+              child: const Icon(Icons.arrow_back, size: 24),
+            ),
+            Expanded(
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  CustomPaint(
+                    painter: ProgressPainter(progress: progress),
+                    size: const Size(40, 40),
+                  ),
+                  Text(
+                    '${controller.currentIndex + 1}',
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontFamily: Fonts.merriweather,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ElevatedButton(
+              onPressed: controller.currentIndex < controller.totalQuestions - 1
+                  ? controller.nextQuestion
+                  : null,
+              style: ElevatedButton.styleFrom(
+                backgroundColor:
+                    controller.currentIndex < controller.totalQuestions - 1
+                        ? primaryBlue
+                        : disabledColor,
+                iconColor:
+                    controller.currentIndex < controller.totalQuestions - 1
+                        ? Colors.white
+                        : disabledColor.withOpacity(0.5),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              ),
+              child: const Icon(Icons.arrow_forward, size: 24),
+            ),
+          ],
         );
       },
     );
+  }
+}
+
+class ProgressPainter extends CustomPainter {
+  final double progress;
+
+  ProgressPainter({required this.progress});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = primaryBlue
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+
+    final center = Offset(size.width / 2, size.height / 2);
+    final radius = (size.width / 2) - 4;
+
+    canvas.drawCircle(center, radius, paint);
+
+    final progressPaint = Paint()
+      ..color = primaryBlue
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round;
+
+    final progressSweep = 2 * pi * progress;
+    canvas.drawArc(
+      Rect.fromCircle(center: center, radius: radius),
+      -pi / 2,
+      progressSweep,
+      false,
+      progressPaint,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
   }
 }

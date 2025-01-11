@@ -6,6 +6,7 @@ import 'package:edu_app_project/core/common/views/custom_circular_progress_bar.d
 import 'package:edu_app_project/core/enums/notification_enum.dart';
 import 'package:edu_app_project/core/extensions/string_extensions.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/src/notifications/data/models/notification_model.dart';
 import 'package:edu_app_project/src/notifications/presentation/cubit/notification_cubit.dart';
 import 'package:file_picker/file_picker.dart';
@@ -26,7 +27,7 @@ class Utils {
     final IconData icon = _getIcon(contentType);
     final Color iconColor = _getIconColor(contentType);
     final Color backgroundColor = Colors.white;
-    const Color textColor = Colours.primaryColour;
+    const Color textColor = Colours.darkColour;
 
     ScaffoldMessenger.of(context)
       ..removeCurrentSnackBar()
@@ -196,7 +197,11 @@ class Utils {
           ),
           content: Text(
             content ?? 'Êtes-vous sûr de vouloir $text ?',
-            style: TextStyle(color: Colours.primaryColour),
+            style: TextStyle(
+              color: Colours.darkColour,
+
+              fontFamily: Fonts.merriweather, // Texte légèrement plus clair
+            ),
           ),
           actions: [
             CupertinoDialogAction(
@@ -205,7 +210,11 @@ class Utils {
               },
               child: Text(
                 'Annuler',
-                style: TextStyle(color: Colours.primaryColour),
+                style: TextStyle(
+                  color: Colours.darkColour,
+
+                  fontFamily: Fonts.merriweather, // Texte légèrement plus clair
+                ),
               ),
             ),
             CupertinoDialogAction(

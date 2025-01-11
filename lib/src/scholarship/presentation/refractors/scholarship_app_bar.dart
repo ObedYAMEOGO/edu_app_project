@@ -1,4 +1,5 @@
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:flutter/material.dart';
 
 class ScholarshipViewAppBar extends StatelessWidget
@@ -14,8 +15,10 @@ class ScholarshipViewAppBar extends StatelessWidget
         'Bourses d\'études',
         style: TextStyle(
           fontWeight: FontWeight.w600,
-          fontSize: 15,
-          color: Colours.primaryColour,
+          fontFamily: Fonts.merriweather, // Texte légèrement plus clair
+
+          fontSize: 17,
+          color: Colours.darkColour,
         ),
       ),
     );

@@ -98,3 +98,13 @@ flutter:
           weight: 300
         - asset: assets/fonts/montserrat/Montserrat-Thin.ttf
           weight: 300
+          
+    - family: Merriweather
+      fonts:
+        - asset: assets/fonts/merriweather/Merriweather-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/merriweather/Merriweather-Black.ttf
+          weight: 600
+        - asset: assets/fonts/merriweather/Merriweather-Regular.ttf
+          weight: 300
+        - asset: assets/fonts/merriweather/Merriweather-Light.ttf

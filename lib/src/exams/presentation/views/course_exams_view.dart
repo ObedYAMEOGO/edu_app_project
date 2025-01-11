@@ -43,8 +43,9 @@ class _CourseExamsViewState extends State<CourseExamsView> {
           'Quiz ${widget.course.title}',
           style: const TextStyle(
               fontWeight: FontWeight.w600,
-              color: Colours.primaryColour,
-              fontSize: 15),
+              color: Colours.darkColour,
+              fontFamily: Fonts.merriweather,
+              fontSize: 17),
         ),
         leading: const NestedBackButton(),
       ),
@@ -78,7 +79,7 @@ class _CourseExamsViewState extends State<CourseExamsView> {
                     elevation: 2,
                     margin: const EdgeInsets.symmetric(vertical: 10),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(0),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(16),
@@ -90,7 +91,7 @@ class _CourseExamsViewState extends State<CourseExamsView> {
                             children: [
                               Icon(
                                 Icons.quiz_sharp,
-                                color: Colours.secondaryColour,
+                                color: Colours.darkColour,
                                 size: 16,
                               ),
                               const SizedBox(width: 10),
@@ -100,7 +101,8 @@ class _CourseExamsViewState extends State<CourseExamsView> {
                                   style: const TextStyle(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w600,
-                                    color: Colours.primaryColour,
+                                    fontFamily: Fonts.merriweather,
+                                    color: Colours.darkColour,
                                   ),
                                 ),
                               ),
@@ -110,9 +112,10 @@ class _CourseExamsViewState extends State<CourseExamsView> {
                           Text(
                             exam.description,
                             style: TextStyle(
-                                fontSize: 13,
-                                color: Colours.secondaryColour,
-                                fontFamily: Fonts.montserrat),
+                              fontSize: 13,
+                              fontFamily: Fonts.merriweather,
+                              color: Colours.darkColour,
+                            ),
                           ),
                           const SizedBox(height: 15),
                           Row(
@@ -123,7 +126,7 @@ class _CourseExamsViewState extends State<CourseExamsView> {
                                   const Icon(
                                     Icons.timer,
                                     size: 18,
-                                    color: Colours.secondaryColour,
+                                    color: Colours.darkColour,
                                   ),
                                   const SizedBox(width: 5),
                                   Text(
@@ -137,8 +140,8 @@ class _CourseExamsViewState extends State<CourseExamsView> {
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8),
                                   ),
-                                  backgroundColor: Colours.greenColour,
-                                  foregroundColor: Colours.darkColour,
+                                  backgroundColor: Colours.primaryColour,
+                                  foregroundColor: Colours.whiteColour,
                                 ),
                                 onPressed: () {
                                   Navigator.pushNamed(
@@ -147,7 +150,12 @@ class _CourseExamsViewState extends State<CourseExamsView> {
                                     arguments: exam,
                                   );
                                 },
-                                child: const Text('Passer le quiz'),
+                                child: const Text(
+                                  'Passer le quiz',
+                                  style: TextStyle(
+                                    fontFamily: Fonts.merriweather,
+                                  ),
+                                ),
                               ),
                             ],
                           ),

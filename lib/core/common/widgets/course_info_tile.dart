@@ -1,4 +1,5 @@
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:flutter/material.dart';
 
 class CourseInfoTile extends StatelessWidget {
@@ -36,15 +37,17 @@ class CourseInfoTile extends StatelessWidget {
             children: [
               Text(title,
                   style: const TextStyle(
-                    color: Colours.primaryColour,
-                    fontSize: 13,
+                    color: Colours.darkColour,
+                    fontFamily: Fonts.merriweather,
+                    fontSize: 14,
                     fontWeight: FontWeight.w600,
                   )),
               Text(
                 subtitle,
                 style: const TextStyle(
                     fontSize: 10,
-                    color: Colours.secondaryColour,
+                    color: Colours.darkColour,
+                    fontFamily: Fonts.merriweather,
                     fontWeight: FontWeight.w300),
               ),
             ],

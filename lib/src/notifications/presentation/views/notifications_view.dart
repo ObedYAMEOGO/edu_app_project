@@ -3,6 +3,7 @@ import 'package:edu_app_project/core/common/views/loading_view.dart';
 import 'package:edu_app_project/core/common/widgets/nested_back_button.dart';
 import 'package:edu_app_project/core/extensions/context_extension.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/services/injection_container.dart';
 import 'package:edu_app_project/core/utils/core_utils.dart';
 import 'package:edu_app_project/src/notifications/presentation/cubit/notification_cubit.dart';
@@ -36,9 +37,10 @@ class _NotificationsViewState extends State<NotificationsView> {
         title: const Text(
           'Notifications',
           style: TextStyle(
-              fontSize: 15,
+              fontSize: 17,
+              fontFamily: Fonts.merriweather,
               fontWeight: FontWeight.w600,
-              color: Colours.primaryColour),
+              color: Colours.darkColour),
         ),
         centerTitle: false,
         leading: NestedBackButton(),

@@ -127,8 +127,9 @@ class _EditProfileViewState extends State<EditProfileView> {
                     "Modifier",
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontSize: 15,
-                        color: Colours.primaryColour),
+                        fontSize: 17,
+                        fontFamily: Fonts.merriweather,
+                        color: Colours.darkColour),
                   ),
                   leading: NestedBackButton(),
                   actions: [

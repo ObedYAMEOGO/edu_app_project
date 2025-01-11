@@ -1,4 +1,5 @@
 import 'package:edu_app_project/core/common/features/user/cubit/user_cubit.dart';
+import 'package:edu_app_project/core/common/views/custom_circular_progress_bar.dart';
 import 'package:edu_app_project/core/services/injection_container.dart';
 import 'package:edu_app_project/core/utils/core_utils.dart';
 import 'package:edu_app_project/src/chat/domain/entities/message.dart';
@@ -117,7 +118,7 @@ class _ChatMessagesState extends State<ChatMessages> {
               );
             }
             return const Center(
-              child: CircularProgressIndicator(),
+              child: CustomCircularProgressBarIndicator(),
             );
           },
         );

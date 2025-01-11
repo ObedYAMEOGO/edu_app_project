@@ -1,5 +1,6 @@
 import 'package:edu_app_project/core/extensions/context_extension.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/services/injection_container.dart';
 import 'package:edu_app_project/src/authentication/presentation/bloc/authentication_bloc.dart';
 import 'package:edu_app_project/src/profile/presentation/views/edit_profile_view.dart';
@@ -24,8 +25,9 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
             "Mon Profil",
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              fontSize: 15,
-              color: Colours.primaryColour,
+              fontFamily: Fonts.merriweather,
+              fontSize: 17,
+              color: Colours.darkColour,
             ),
           ),
           actions: [
@@ -39,7 +41,7 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
                     title: 'Modifier',
                     icon: Icon(
                       Icons.edit_outlined,
-                      color: Colours.primaryColour,
+                      color: Colors.grey,
                       size: 15,
                     ),
                   ),
@@ -68,7 +70,7 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
                     icon: Icon(
                       Icons.notification_add_rounded,
                       size: 15,
-                      color: Colors.red,
+                      color: Colors.grey,
                     ),
                   ),
                 ),
