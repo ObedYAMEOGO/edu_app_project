@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           useMaterial3: true,
           visualDensity: VisualDensity.adaptivePlatformDensity,
-          fontFamily: Fonts.montserrat,
+          fontFamily: Fonts.merriweather,
           appBarTheme: const AppBarTheme(
             color: Colors.transparent,
           ),

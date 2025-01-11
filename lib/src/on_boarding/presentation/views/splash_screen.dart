@@ -1,4 +1,5 @@
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/res/media_res.dart';
 import 'package:flutter/material.dart';
 
@@ -46,19 +47,19 @@ class _SplashScreenState extends State<SplashScreen> {
                 Text(
                   '| Developpé par Eduritio Team',
                   style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500,
-                    color: Colours.darkColour,
-                  ),
+                      fontSize: 13,
+                      fontWeight: FontWeight.w500,
+                      color: Colours.darkColour,
+                      fontFamily: Fonts.merriweather),
                 ),
                 const SizedBox(height: 5),
                 Text(
                   '© 2024 Tous droits reservés',
                   style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w300,
-                    color: Colours.darkColour,
-                  ),
+                      fontSize: 10,
+                      fontWeight: FontWeight.w300,
+                      color: Colours.darkColour,
+                      fontFamily: Fonts.merriweather),
                 ),
                 SizedBox(
                   height: 30,
