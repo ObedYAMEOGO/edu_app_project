@@ -34,8 +34,8 @@ class _SplashScreenState extends State<SplashScreen> {
           const Center(
             child: Image(
               image: AssetImage(Res.logoImage),
-              width: 150, // Adjust logo width
-              height: 150, // Adjust logo height
+              width: 200, // Adjust logo width
+              height: 200, // Adjust logo height
             ),
           ),
           const Spacer(),
@@ -44,20 +44,20 @@ class _SplashScreenState extends State<SplashScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  '| Eduritio Team',
+                  '| Developpé par Eduritio Team',
                   style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
                     color: Colours.darkColour,
                   ),
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  '© 2024 All Rights Reserved',
+                  '© 2024 Tous droits reservés',
                   style: TextStyle(
                     fontSize: 10,
                     fontWeight: FontWeight.w300,
-                    color: Colours.secondaryColour.withOpacity(0.5),
+                    color: Colours.darkColour,
                   ),
                 ),
                 SizedBox(

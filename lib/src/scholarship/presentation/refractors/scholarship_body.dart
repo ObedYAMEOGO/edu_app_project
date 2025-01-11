@@ -53,7 +53,7 @@ class _ScholarshipViewBodyState extends State<ScholarshipViewBody> {
               (a, b) => b.updatedAt.compareTo(a.updatedAt),
             );
           return ListView(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 6),
             children: [
               const SizedBox(height: 5),
               ScholarshipItems(scholarships: scholarships),

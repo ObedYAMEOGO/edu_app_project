@@ -98,7 +98,7 @@ class YourGroupTile extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.black,
                       fontFamily:
-                          Fonts.merriweather, // Texte légèrement plus clair
+                          Fonts.montserrat, // Texte légèrement plus clair
 
                       fontSize: 8,
                     ),
