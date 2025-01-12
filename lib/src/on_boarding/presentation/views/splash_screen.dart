@@ -35,13 +35,13 @@ class _SplashScreenState extends State<SplashScreen> {
           const Center(
             child: Image(
               image: AssetImage(Res.logoImage),
-              width: 200, // Adjust logo width
-              height: 200, // Adjust logo height
+              width: 150, // Adjust logo width
+              height: 150, // Adjust logo height
             ),
           ),
 
           SizedBox(
-            height: 100,
+            height: 80,
             child: Center(
               child: Text(
                 "eruditio".toUpperCase(),
@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   color: Colours.primaryColour,
                   fontFamily: Fonts.merriweather,
                   fontWeight: FontWeight.w700,
-                  fontSize: 40,
+                  fontSize: 35,
                 ),
               ),
             ),
