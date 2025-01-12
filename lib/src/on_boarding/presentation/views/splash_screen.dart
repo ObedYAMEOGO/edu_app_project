@@ -73,9 +73,9 @@ class _SplashScreenState extends State<SplashScreen>
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  '| Développé par Eduritio Team',
+                  '| Développé par l\'équipe Eruditio',
                   style: TextStyle(
-                    fontSize: 13,
+                    fontSize: 12,
                     fontWeight: FontWeight.w500,
                     color: Colours.darkColour,
                     fontFamily: Fonts.merriweather,
@@ -83,9 +83,9 @@ class _SplashScreenState extends State<SplashScreen>
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  '© 2024 Tous droits réservés',
+                  '© 2024 Tout droit réservé',
                   style: TextStyle(
-                    fontSize: 10,
+                    fontSize: 9,
                     fontWeight: FontWeight.w300,
                     color: Colours.darkColour,
                     fontFamily: Fonts.merriweather,
