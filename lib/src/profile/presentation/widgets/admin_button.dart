@@ -20,8 +20,8 @@ class AdminButton extends StatelessWidget {
       width: MediaQuery.of(context).size.width, // Full screen width
       child: ElevatedButton.icon(
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFFE4E6EA),
-          foregroundColor: Colours.darkColour,
+          backgroundColor:  Colours.primaryColour,
+          foregroundColor: Colours.whiteColour,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
