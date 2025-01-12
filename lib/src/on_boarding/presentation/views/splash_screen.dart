@@ -12,10 +12,29 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<double> _animation;
+
   @override
   void initState() {
     super.initState();
+
+    _animationController = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
+    );
+
+    _animation = Tween<double>(begin: 0.5, end: 1.0).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.easeOut,
+      ),
+    );
+
+    _animationController.forward();
+
     _navigateToNextScreen();
   }
 
@@ -25,32 +44,26 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const SizedBox(height: 200), // Space from the top
-          const Center(
-            child: Image(
-              image: AssetImage(Res.logoImage),
-              width: 150, // Adjust logo width
-              height: 150, // Adjust logo height
-            ),
-          ),
-
-          SizedBox(
-            height: 80,
-            child: Center(
-              child: Text(
-                "eruditio".toUpperCase(),
-                style: TextStyle(
-                  color: Colours.primaryColour,
-                  fontFamily: Fonts.merriweather,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 35,
-                ),
+          const SizedBox(height: 250),
+          Center(
+            child: ScaleTransition(
+              scale: _animation,
+              child: Image(
+                image: AssetImage(Res.logoImage),
+                width: 110,
+                height: 110,
               ),
             ),
           ),
@@ -60,25 +73,25 @@ class _SplashScreenState extends State<SplashScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  '| Developpé par Eduritio Team',
+                  '| Développé par Eduritio Team',
                   style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w500,
-                      color: Colours.darkColour,
-                      fontFamily: Fonts.merriweather),
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                    color: Colours.darkColour,
+                    fontFamily: Fonts.merriweather,
+                  ),
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  '© 2024 Tous droits reservés',
+                  '© 2024 Tous droits réservés',
                   style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w300,
-                      color: Colours.darkColour,
-                      fontFamily: Fonts.merriweather),
+                    fontSize: 10,
+                    fontWeight: FontWeight.w300,
+                    color: Colours.darkColour,
+                    fontFamily: Fonts.merriweather,
+                  ),
                 ),
-                SizedBox(
-                  height: 30,
-                ),
+                const SizedBox(height: 30),
               ],
             ),
           ),
