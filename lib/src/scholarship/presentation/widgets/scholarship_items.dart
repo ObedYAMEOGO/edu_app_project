@@ -44,7 +44,7 @@ class ScholarshipItems extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             vertical: 10, horizontal: 16),
                         decoration: BoxDecoration(
-                          color: Colours.redColour,
+                          color: Colours.primaryColour,
                           border: Border(
                             bottom: BorderSide(color: Colours.whiteColour),
                           ),

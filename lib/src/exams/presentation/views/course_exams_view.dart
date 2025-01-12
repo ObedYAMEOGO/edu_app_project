@@ -138,7 +138,7 @@ class _CourseExamsViewState extends State<CourseExamsView> {
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(0),
                                   ),
                                   backgroundColor: Colours.primaryColour,
                                   foregroundColor: Colours.whiteColour,
