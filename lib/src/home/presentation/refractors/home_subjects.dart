@@ -22,8 +22,7 @@ class HomeSubjects extends StatelessWidget {
         SectionHeader(
             sectionTitle: 'Cours',
             seeAll: courses.length >= 4,
-            onSeeAll: () =>
-                context.push(AllCoursesView(courses))),
+            onSeeAll: () => context.push(AllCoursesView(courses, categories!))),
         const Text(
           'Explorer nos cours',
           style: TextStyle(

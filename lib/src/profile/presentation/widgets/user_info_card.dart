@@ -24,7 +24,7 @@ class UserInfoCard extends StatelessWidget {
         border: Border.all(
           color: const Color(0xFFE4E6EA),
         ),
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(3),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

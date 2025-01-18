@@ -163,7 +163,7 @@ class _AddCategorySheetState extends State<AddCategorySheet> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colours.primaryColour,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(3),
                       ),
                       padding: const EdgeInsets.symmetric(
                           vertical: 15, horizontal: 50),

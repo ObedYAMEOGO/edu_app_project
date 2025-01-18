@@ -236,7 +236,7 @@ class _ExamViewState extends State<ExamView> {
                             DecoratedBox(
                               decoration: BoxDecoration(
                                 color: Colours.whiteColour,
-                                borderRadius: BorderRadius.circular(0),
+                                borderRadius: BorderRadius.circular(3),
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.all(20.0),

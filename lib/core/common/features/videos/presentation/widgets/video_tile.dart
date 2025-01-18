@@ -51,7 +51,7 @@ class VideoTile extends StatelessWidget {
                               : NetworkImage(video.thumbnail!) as ImageProvider,
                       fit: BoxFit.cover,
                     ),
-                    borderRadius: BorderRadius.circular(0),
+                    borderRadius: BorderRadius.circular(3),
                   ),
                 ),
                 if (tappable)
@@ -128,8 +128,10 @@ class VideoTile extends StatelessWidget {
                 Expanded(
                   child: Text(
                     'Auteur: ${video.tutor}',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      fontSize: 12,
+                      fontSize: 9,
                       fontWeight: FontWeight.w400,
                       fontFamily: Fonts.merriweather,
                       color: Colours.darkColour,

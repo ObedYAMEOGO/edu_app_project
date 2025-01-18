@@ -73,7 +73,7 @@ class ScholarshipDetailsScreen extends StatelessWidget {
                 children: [
                   Center(
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(0),
+                      borderRadius: BorderRadius.circular(3),
                       // ignore: unnecessary_null_comparison
                       child: scholarship.image != null
                           ? Image.network(
@@ -99,7 +99,7 @@ class ScholarshipDetailsScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(0),
+                          borderRadius: BorderRadius.circular(3),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.1),
@@ -144,7 +144,7 @@ class ScholarshipDetailsScreen extends StatelessWidget {
             Card(
               elevation: 2,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(0),
+                borderRadius: BorderRadius.circular(3),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(16),

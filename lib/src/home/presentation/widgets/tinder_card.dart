@@ -34,7 +34,7 @@ class TinderCard extends StatelessWidget {
                   )
                 : null,
             color: colour,
-            borderRadius: BorderRadius.circular(0),
+            borderRadius: BorderRadius.circular(3),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(.05),
@@ -59,7 +59,7 @@ class TinderCard extends StatelessWidget {
                           ),
                           decoration: BoxDecoration(
                             color: Colours.whiteColour,
-                            borderRadius: BorderRadius.circular(0),
+                            borderRadius: BorderRadius.circular(3),
                           ),
                           child: const Text(
                             'Cours du jour',

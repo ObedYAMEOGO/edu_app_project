@@ -19,7 +19,7 @@ class CourseTile extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 color: Color(0xFFE4E6EA),
-                borderRadius: BorderRadius.circular(0),
+                borderRadius: BorderRadius.circular(3),
               ),
               height: 54,
               width: 54,

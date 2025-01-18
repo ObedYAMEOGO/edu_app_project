@@ -77,17 +77,14 @@ class _CourseVideosViewState extends State<CourseVideosView> {
             child: TextField(
               controller: searchController,
               onChanged: _filterVideos,
-              style: const TextStyle(color: Colours.darkColour, fontSize: 14),
+              style: const TextStyle(fontSize: 14),
               decoration: InputDecoration(
                 hintText: 'Recherche...',
                 border: InputBorder.none,
-                hintStyle: TextStyle(
-                  color: Colors.grey[600],
-                  fontSize: 1,
-                  fontFamily: Fonts.merriweather,
-                ),
-                contentPadding: EdgeInsets.symmetric(vertical: 10),
+                hintStyle: TextStyle(color: Colors.grey[600], fontSize: 14),
+                contentPadding: const EdgeInsets.symmetric(vertical: 10),
               ),
+              textAlignVertical: TextAlignVertical.center,
             ),
           ),
         ),

@@ -3,6 +3,7 @@ import 'package:equatable/equatable.dart';
 class Course extends Equatable {
   const Course({
     required this.id,
+    required this.courseCategoryId,
     required this.title,
     required this.groupId,
     required this.createdAt,
@@ -18,6 +19,7 @@ class Course extends Equatable {
   Course.empty([DateTime? date])
       : this(
           id: '_empty.id',
+          courseCategoryId:'_empty.courseCategoryId',
           title: '_empty.title',
           description: '_empty.description',
           numberOfExams: 0,
@@ -29,6 +31,7 @@ class Course extends Equatable {
         );
 
   final String id;
+  final String courseCategoryId;
   final String title;
   final String? description;
   final int numberOfExams;

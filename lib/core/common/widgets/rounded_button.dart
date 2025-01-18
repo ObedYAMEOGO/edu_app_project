@@ -31,12 +31,12 @@ class RoundedButton extends StatelessWidget {
             foregroundColor: labelColour ?? Colors.white,
             minimumSize: const Size(double.maxFinite, 50),
             shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(3))),
         onPressed: onPressed,
         child: Text(
           label,
           style: TextStyle(
-              fontWeight: FontWeight.w600, 
+              fontWeight: FontWeight.w600,
               fontFamily: Fonts.merriweather,
               color: Colours.whiteColour),
         ),

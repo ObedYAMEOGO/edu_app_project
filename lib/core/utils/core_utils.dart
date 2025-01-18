@@ -72,7 +72,7 @@ class Utils {
           elevation: 0.2,
           dismissDirection: DismissDirection.startToEnd,
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(3),
               side: BorderSide(color: Colours.chatFieldColour)),
         ),
       );

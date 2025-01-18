@@ -1,17 +1,21 @@
+import 'package:flutter/material.dart';
 import 'package:edu_app_project/core/common/features/course/domain/entities/course.dart';
+import 'package:edu_app_project/core/common/features/category/domain/entities/category.dart';
 import 'package:edu_app_project/core/common/features/course/presentation/views/course_details_screen.dart';
 import 'package:edu_app_project/core/common/widgets/course_tile.dart';
 import 'package:edu_app_project/core/common/widgets/nested_back_button.dart';
 import 'package:edu_app_project/core/res/colours.dart';
 import 'package:edu_app_project/core/res/fonts.dart';
-import 'package:flutter/material.dart';
 
 class AllCoursesView extends StatefulWidget {
   const AllCoursesView(
-    this.courses, {
+    this.courses,
+    this.categories, {
     super.key,
   });
+
   final List<Course> courses;
+  final List<Category> categories;
 
   @override
   _AllCoursesViewState createState() => _AllCoursesViewState();
@@ -20,6 +24,10 @@ class AllCoursesView extends StatefulWidget {
 class _AllCoursesViewState extends State<AllCoursesView> {
   late List<Course> filteredCourses;
   final TextEditingController searchController = TextEditingController();
+  String? selectedCategoryId;
+
+  // Add this key to your Scaffold
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -32,8 +40,19 @@ class _AllCoursesViewState extends State<AllCoursesView> {
     setState(() {
       filteredCourses = widget.courses
           .where(
-              (course) => course.title.toLowerCase().contains(lowerCaseQuery))
+            (course) =>
+                course.title.toLowerCase().contains(lowerCaseQuery) &&
+                (selectedCategoryId == null ||
+                    course.courseCategoryId == selectedCategoryId),
+          )
           .toList();
+    });
+  }
+
+  void _filterByCategory(String? categoryId) {
+    setState(() {
+      selectedCategoryId = categoryId;
+      _filterCourses(searchController.text);
     });
   }
 
@@ -46,6 +65,7 @@ class _AllCoursesViewState extends State<AllCoursesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey, // Assign the scaffold key here
       backgroundColor: Colors.white,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -64,8 +84,7 @@ class _AllCoursesViewState extends State<AllCoursesView> {
             child: TextField(
               controller: searchController,
               onChanged: _filterCourses,
-              style:
-                  const TextStyle(color: Colours.primaryColour, fontSize: 14),
+              style: const TextStyle(fontSize: 14),
               decoration: InputDecoration(
                 hintText: 'Recherche...',
                 border: InputBorder.none,
@@ -88,6 +107,58 @@ class _AllCoursesViewState extends State<AllCoursesView> {
           ),
         ],
       ),
+      endDrawer: Drawer(
+        shape: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(0),
+            borderSide: BorderSide.none),
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Text(
+                  'Filtrer par Catégorie',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 15,
+                  ),
+                ),
+              ),
+              ListTile(
+                title: const Text(
+                  'Tous',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colours.darkColour,
+                  ),
+                ),
+                onTap: () {
+                  Navigator.of(context).pop();
+                  _filterByCategory(null);
+                },
+                selected: selectedCategoryId == null,
+              ),
+              ...widget.categories.map((category) {
+                return ListTile(
+                  title: Text(
+                    category.categoryTitle,
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colours.darkColour,
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    _filterByCategory(category.categoryId);
+                  },
+                  selected: selectedCategoryId == category.categoryId,
+                );
+              }).toList(),
+            ],
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,27 +172,32 @@ class _AllCoursesViewState extends State<AllCoursesView> {
                   Text(
                     'Tous les cours',
                     style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontFamily: Fonts.merriweather,
-                        fontSize: 15,
-                        color: Colours.darkColour),
+                      fontWeight: FontWeight.w400,
+                      fontFamily: Fonts.merriweather,
+                      fontSize: 15,
+                      color: Colours.darkColour,
+                    ),
                   ),
                   Row(
                     children: [
                       Text(
                         'Filtrer',
                         style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontFamily: Fonts.merriweather,
-                            fontSize: 15,
-                            color: Colours.darkColour),
+                          fontWeight: FontWeight.w400,
+                          fontFamily: Fonts.merriweather,
+                          fontSize: 15,
+                          color: Colours.darkColour,
+                        ),
                       ),
                       IconButton(
                         icon: Icon(
                           Icons.filter_list,
                           color: Colours.darkColour,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          scaffoldKey.currentState
+                              ?.openEndDrawer(); // Open the drawer
+                        },
                       ),
                     ],
                   ),
@@ -129,25 +205,22 @@ class _AllCoursesViewState extends State<AllCoursesView> {
               ),
             ),
             const SizedBox(height: 15),
-            Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20),
-              child: Center(
-                child: Wrap(
-                  spacing: 20,
-                  runSpacing: 40,
-                  runAlignment: WrapAlignment.spaceEvenly,
-                  children: filteredCourses
-                      .map(
-                        (course) => CourseTile(
-                          course: course,
-                          onTap: () => Navigator.of(context).pushNamed(
-                            CourseDetailsScreen.routeName,
-                            arguments: course,
-                          ),
+            Center(
+              child: Wrap(
+                spacing: 20,
+                runSpacing: 40,
+                runAlignment: WrapAlignment.spaceEvenly,
+                children: filteredCourses
+                    .map(
+                      (course) => CourseTile(
+                        course: course,
+                        onTap: () => Navigator.of(context).pushNamed(
+                          CourseDetailsScreen.routeName,
+                          arguments: course,
                         ),
-                      )
-                      .toList(),
-                ),
+                      ),
+                    )
+                    .toList(),
               ),
             ),
           ],

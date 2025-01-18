@@ -25,7 +25,7 @@ class ScholarshipItems extends StatelessWidget {
               ),
               child: Card(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(0),
+                  borderRadius: BorderRadius.circular(3),
                   side: BorderSide(
                     color: Colors.grey.withOpacity(0.2), // Bordure subtile
                     width: 1,
@@ -35,7 +35,7 @@ class ScholarshipItems extends StatelessWidget {
                 shadowColor: Colors.black.withOpacity(0.1),
                 margin: const EdgeInsets.symmetric(horizontal: 16),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(0),
+                  borderRadius: BorderRadius.circular(3),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -99,7 +99,7 @@ class ScholarshipItems extends StatelessWidget {
                                     ),
                                     decoration: BoxDecoration(
                                       color: const Color(0xFFE4E6EA),
-                                      borderRadius: BorderRadius.circular(0),
+                                      borderRadius: BorderRadius.circular(3),
                                     ),
                                     child: Text(
                                       scholarship.category,
@@ -141,7 +141,7 @@ class ScholarshipItems extends StatelessWidget {
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.circular(0),
+                                borderRadius: BorderRadius.circular(3),
                                 border: Border.all(
                                   color: Colors.grey
                                       .withOpacity(0.2), // Bordure subtile
@@ -176,7 +176,7 @@ class ScholarshipItems extends StatelessWidget {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colours.primaryColour,
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
+                                borderRadius: BorderRadius.circular(3),
                               ),
                               padding: const EdgeInsets.symmetric(
                                 vertical: 8,

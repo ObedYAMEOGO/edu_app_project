@@ -20,10 +20,10 @@ class AdminButton extends StatelessWidget {
       width: MediaQuery.of(context).size.width, // Full screen width
       child: ElevatedButton.icon(
         style: ElevatedButton.styleFrom(
-          backgroundColor:  Colours.primaryColour,
+          backgroundColor: Colours.primaryColour,
           foregroundColor: Colours.whiteColour,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(3),
           ),
         ),
         onPressed: onPressed,

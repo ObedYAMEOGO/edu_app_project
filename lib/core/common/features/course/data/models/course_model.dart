@@ -5,6 +5,7 @@ import 'package:edu_app_project/core/utils/typedefs.dart';
 class CourseModel extends Course {
   const CourseModel({
     required super.id,
+    required super.courseCategoryId,
     required super.title,
     required super.groupId,
     required super.createdAt,
@@ -20,6 +21,7 @@ class CourseModel extends Course {
   CourseModel.empty([DateTime? date])
       : this(
           id: '_empty.id',
+          courseCategoryId: '_empty.courseCategoryId',
           title: '_empty.title',
           description: '_empty.description',
           numberOfExams: 0,
@@ -33,6 +35,7 @@ class CourseModel extends Course {
   CourseModel.fromMap(DataMap map)
       : super(
           id: map['id'] as String,
+          courseCategoryId: map['courseCategoryId'] as String,
           title: map['title'] as String,
           description: map['description'] as String?,
           groupId: map['groupId'] as String,
@@ -46,6 +49,7 @@ class CourseModel extends Course {
 
   CourseModel copyWith({
     String? id,
+    String? courseCategoryId,
     String? title,
     String? description,
     String? groupId,
@@ -59,6 +63,7 @@ class CourseModel extends Course {
   }) {
     return CourseModel(
       id: id ?? this.id,
+      courseCategoryId: courseCategoryId ?? this.courseCategoryId,
       title: title ?? this.title,
       description: description ?? this.description,
       groupId: groupId ?? this.groupId,
@@ -72,16 +77,19 @@ class CourseModel extends Course {
     );
   }
 
-  DataMap toMap() => {
-        'id': id,
-        'title': title,
-        'description': description,
-        'groupId': groupId,
-        'image': image,
-        'createdAt': FieldValue.serverTimestamp(),
-        'updatedAt': FieldValue.serverTimestamp(),
-        'numberOfVideos': numberOfVideos,
-        'numberOfExams': numberOfExams,
-        'numberOfMaterials': numberOfMaterials,
-      };
+  DataMap toMap({Timestamp? createdAt, Timestamp? updatedAt}) {
+    return {
+      'id': id,
+      'courseCategoryId': courseCategoryId,
+      'title': title,
+      'description': description,
+      'groupId': groupId,
+      'image': image,
+      'createdAt': createdAt ?? FieldValue.serverTimestamp(),
+      'updatedAt': updatedAt ?? FieldValue.serverTimestamp(),
+      'numberOfVideos': numberOfVideos,
+      'numberOfExams': numberOfExams,
+      'numberOfMaterials': numberOfMaterials,
+    };
+  }
 }

@@ -51,16 +51,16 @@ class IField extends StatelessWidget {
       readOnly: readOnly,
       decoration: InputDecoration(
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(3),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(3),
           borderSide: const BorderSide(
             color: Color(0xFFE4E6EA),
           ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(3),
           borderSide: BorderSide(
             color: Colors.black.withOpacity(0.3),
           ),
@@ -76,8 +76,8 @@ class IField extends StatelessWidget {
                   ),
                   color: Colors.white, // Background primary color
                   borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(8),
-                    bottomLeft: Radius.circular(8),
+                    topLeft: Radius.circular(3),
+                    bottomLeft: Radius.circular(3),
                   ),
                 ),
                 padding: const EdgeInsets.all(0),

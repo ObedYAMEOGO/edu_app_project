@@ -102,7 +102,7 @@ class _ExamDetailsViewState extends State<ExamDetailsView> {
             padding: EdgeInsets.all(20),
             height: 100,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(0),
+              borderRadius: BorderRadius.circular(3),
               boxShadow: [
                 BoxShadow(
                   color: Colors.white,
@@ -113,7 +113,7 @@ class _ExamDetailsViewState extends State<ExamDetailsView> {
               color: Color(0xFFE4E6EA),
             ),
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(0),
+              borderRadius: BorderRadius.circular(3),
               child: completeExam.imageUrl != null
                   ? Image.network(
                       completeExam.imageUrl!,

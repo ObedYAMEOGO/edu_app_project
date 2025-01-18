@@ -113,7 +113,7 @@ class CourseDetailsScreen extends StatelessWidget
                     const SizedBox(height: 10),
                     CourseInfoTile(
                       image: Res.courseInfoExam,
-                      title: '${course.numberOfExams} Quiz disponible(s)',
+                      title: '${course.numberOfExams} Quiz disponible (s)',
                       subtitle: 'Passer le quiz de ${course.title}',
                       onTap: () => Navigator.of(context).pushNamed(
                         CourseExamsView.routeName,

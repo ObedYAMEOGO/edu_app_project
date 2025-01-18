@@ -112,6 +112,9 @@ class ProfileBody extends StatelessWidget {
                         builder: (_) => MultiBlocProvider(
                               providers: [
                                 BlocProvider(
+                                  create: (_) => sl<CategoryCubit>(),
+                                ),
+                                BlocProvider(
                                   create: (_) => sl<CourseCubit>(),
                                 ),
                                 BlocProvider(

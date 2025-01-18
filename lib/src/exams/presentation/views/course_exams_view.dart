@@ -79,7 +79,7 @@ class _CourseExamsViewState extends State<CourseExamsView> {
                     elevation: 2,
                     margin: const EdgeInsets.symmetric(vertical: 10),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(0),
+                      borderRadius: BorderRadius.circular(3),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(16),
@@ -138,7 +138,7 @@ class _CourseExamsViewState extends State<CourseExamsView> {
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(0),
+                                    borderRadius: BorderRadius.circular(3),
                                   ),
                                   backgroundColor: Colours.primaryColour,
                                   foregroundColor: Colours.whiteColour,

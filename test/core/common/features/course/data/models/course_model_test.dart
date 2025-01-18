@@ -58,8 +58,23 @@ void main() {
     test(
       'should return a [Map] with the proper data',
       () async {
-        final result = tCourseModel.toMap();
-        expect(result, equals(tMap));
+        final timestamp = Timestamp.fromDate(DateTime(2023, 1, 1));
+        final result =
+            tCourseModel.toMap(createdAt: timestamp, updatedAt: timestamp);
+        final expectedMap = {
+          'id': '_empty.id',
+          'courseCategoryId': '_empty.courseCategoryId',
+          'title': '_empty.title',
+          'description': '_empty.description',
+          'groupId': '_empty.groupId',
+          'image': null,
+          'createdAt': timestamp,
+          'updatedAt': timestamp,
+          'numberOfVideos': 0,
+          'numberOfExams': 0,
+          'numberOfMaterials': 0,
+        };
+        expect(result, equals(expectedMap));
       },
     );
   });

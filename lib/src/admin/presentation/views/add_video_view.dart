@@ -337,7 +337,7 @@ class _AddVideoViewState extends State<AddVideoView> {
                 },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(3),
                   ),
                   backgroundColor: Colours.primaryColour,
                   padding:
