@@ -24,10 +24,9 @@ class AllCoursesView extends StatefulWidget {
 class _AllCoursesViewState extends State<AllCoursesView> {
   late List<Course> filteredCourses;
   final TextEditingController searchController = TextEditingController();
-  String? selectedCategoryId;
-
-  // Add this key to your Scaffold
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+  List<String> selectedCategories = [];
 
   @override
   void initState() {
@@ -42,16 +41,20 @@ class _AllCoursesViewState extends State<AllCoursesView> {
           .where(
             (course) =>
                 course.title.toLowerCase().contains(lowerCaseQuery) &&
-                (selectedCategoryId == null ||
-                    course.courseCategoryId == selectedCategoryId),
+                (selectedCategories.isEmpty ||
+                    selectedCategories.contains(course.courseCategoryId)),
           )
           .toList();
     });
   }
 
-  void _filterByCategory(String? categoryId) {
+  void _toggleCategorySelection(String categoryId) {
     setState(() {
-      selectedCategoryId = categoryId;
+      if (selectedCategories.contains(categoryId)) {
+        selectedCategories.remove(categoryId);
+      } else {
+        selectedCategories.add(categoryId);
+      }
       _filterCourses(searchController.text);
     });
   }
@@ -65,7 +68,7 @@ class _AllCoursesViewState extends State<AllCoursesView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: scaffoldKey, // Assign the scaffold key here
+      key: scaffoldKey,
       backgroundColor: Colors.white,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -108,6 +111,7 @@ class _AllCoursesViewState extends State<AllCoursesView> {
         ],
       ),
       endDrawer: Drawer(
+        width: MediaQuery.of(context).size.width * 0.6, // Reduce drawer width
         shape: OutlineInputBorder(
             borderRadius: BorderRadius.circular(0),
             borderSide: BorderSide.none),
@@ -120,8 +124,8 @@ class _AllCoursesViewState extends State<AllCoursesView> {
                 child: Text(
                   'Filtrer par Catégorie',
                   style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18, // Increase title size
                   ),
                 ),
               ),
@@ -133,11 +137,22 @@ class _AllCoursesViewState extends State<AllCoursesView> {
                     color: Colours.darkColour,
                   ),
                 ),
+                leading: Checkbox(
+                  value: selectedCategories.isEmpty,
+                  onChanged: (value) {
+                    setState(() {
+                      selectedCategories.clear();
+                      _filterCourses(searchController.text);
+                    });
+                  },
+                ),
                 onTap: () {
                   Navigator.of(context).pop();
-                  _filterByCategory(null);
+                  setState(() {
+                    selectedCategories.clear();
+                    _filterCourses(searchController.text);
+                  });
                 },
-                selected: selectedCategoryId == null,
               ),
               ...widget.categories.map((category) {
                 return ListTile(
@@ -148,11 +163,16 @@ class _AllCoursesViewState extends State<AllCoursesView> {
                       color: Colours.darkColour,
                     ),
                   ),
+                  leading: Checkbox(
+                    value: selectedCategories.contains(category.categoryId),
+                    onChanged: (value) {
+                      _toggleCategorySelection(category.categoryId);
+                    },
+                  ),
                   onTap: () {
                     Navigator.of(context).pop();
-                    _filterByCategory(category.categoryId);
+                    _toggleCategorySelection(category.categoryId);
                   },
-                  selected: selectedCategoryId == category.categoryId,
                 );
               }).toList(),
             ],
@@ -195,8 +215,7 @@ class _AllCoursesViewState extends State<AllCoursesView> {
                           color: Colours.darkColour,
                         ),
                         onPressed: () {
-                          scaffoldKey.currentState
-                              ?.openEndDrawer(); // Open the drawer
+                          scaffoldKey.currentState?.openEndDrawer();
                         },
                       ),
                     ],
