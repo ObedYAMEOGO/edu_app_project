@@ -111,7 +111,6 @@ class _AllCoursesViewState extends State<AllCoursesView> {
         ],
       ),
       endDrawer: Drawer(
-        width: MediaQuery.of(context).size.width * 0.6, // Reduce drawer width
         shape: OutlineInputBorder(
             borderRadius: BorderRadius.circular(0),
             borderSide: BorderSide.none),
