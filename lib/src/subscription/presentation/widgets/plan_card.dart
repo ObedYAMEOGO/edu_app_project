@@ -14,16 +14,17 @@ class PlanCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final backgroundColor = Color(0xFFE4E6EA).withOpacity(0.7);
-    final primaryColor = Color(0xFF13273C);
+    //final backgroundColor = Color(0xFFE4E6EA).withOpacity(0.7);
+    //final primaryColor = Color(0xFF13273C);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
         decoration: BoxDecoration(
-          color: primaryColor,
-          borderRadius: BorderRadius.circular(12),
+          color: Colours.whiteColour,
+          borderRadius: BorderRadius.circular(7),
+          border: Border.all(color: Colors.grey.withOpacity(0.2), width: 1, style: BorderStyle.solid)
         ),
         margin: const EdgeInsets.symmetric(vertical: 6),
         child: Column(
@@ -40,7 +41,7 @@ class PlanCard extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 16,
-                      color: Colors.white,
+                      color: Colours.darkColour,
                     ),
                   ),
                   SizedBox(height: 4),
@@ -48,7 +49,7 @@ class PlanCard extends StatelessWidget {
                     '${subscription.code} Mois(s)',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.white70,
+                      color: const Color.fromARGB(171, 0, 0, 0),
                       fontSize: 12,
                     ),
                   ),
@@ -57,7 +58,7 @@ class PlanCard extends StatelessWidget {
             ),
             // Description section
             Container(
-              color: backgroundColor.withOpacity(0.1),
+              color: const Color(0xFFE4E6EA),
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: Center(
                 child: Text(
@@ -65,7 +66,7 @@ class PlanCard extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 12,
-                    color: Colors.white54,
+                    color: Colours.darkColour,
                   ),
                 ),
               ),
@@ -81,7 +82,7 @@ class PlanCard extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 32,
-                      color: Colors.white,
+                      color: Colours.darkColour,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -91,8 +92,8 @@ class PlanCard extends StatelessWidget {
                     height: 45,
                     child: RoundedButton(
                       label: 'Je m\'abonne',
-                      buttonColour: Colours.greenColour,
-                      labelColour: Colours.primaryColour,
+                      buttonColour: Colours.primaryColour,
+                      labelColour: Colours.whiteColour,
                       onPressed: () async {
                         final navigator = Navigator.of(context);
                         final result = await navigator.pushNamed(
