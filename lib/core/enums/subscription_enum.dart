@@ -4,20 +4,20 @@ enum Subscription {
   MONTHLY(
     code: 1,
     title: 'Mensuel',
-    description: 'Un mois d’accès illimité au contenu premium.',
-    price: 5994, // 9.99 USD * 600
+    description: 'Un mois d\’accès illimité au contenu premium.',
+    price: 5994, 
   ),
   QUARTERLY(
     code: 3,
     title: 'Trimestriel',
-    description: 'Trois mois d’apprentissage continu.',
-    price: 14994, // 24.99 USD * 600
+    description: 'Trois mois d\’apprentissage continu.',
+    price: 14994, 
   ),
   ANNUALLY(
     code: 12,
     title: 'Annuel',
-    description: 'Un an d’accès complet au contenu exclusif.',
-    price: 53994, // 89.99 USD * 600
+    description: 'Un an d\’accès complet au contenu exclusif.',
+    price: 53994, 
   );
 
   const Subscription({
