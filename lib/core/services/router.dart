@@ -1,4 +1,3 @@
-
 import 'package:edu_app_project/core/common/features/course/domain/entities/course.dart';
 import 'package:edu_app_project/core/common/features/course/presentation/cubit/course_cubit.dart';
 import 'package:edu_app_project/core/common/features/course/presentation/views/course_details_screen.dart';
@@ -8,7 +7,6 @@ import 'package:edu_app_project/core/common/features/videos/presentation/app/cub
 import 'package:edu_app_project/core/common/features/videos/presentation/views/course_videos_view.dart';
 import 'package:edu_app_project/src/home/presentation/views/video_player_view.dart';
 import 'package:edu_app_project/core/common/views/page_under_construction.dart';
-import 'package:edu_app_project/core/enums/subscription_enum.dart';
 import 'package:edu_app_project/core/extensions/context_extension.dart';
 import 'package:edu_app_project/core/services/injection_container.dart';
 import 'package:edu_app_project/src/admin/presentation/views/add_exam_view.dart';
@@ -35,7 +33,6 @@ import 'package:edu_app_project/src/on_boarding/presentation/views/splash_screen
 import 'package:edu_app_project/src/quick_access/presentation/views/exam_history_details_screen.dart';
 import 'package:edu_app_project/src/scholarship/domain/entities/scholarship.dart';
 import 'package:edu_app_project/src/scholarship/presentation/views/scholarship_details_screen.dart';
-import 'package:edu_app_project/src/subscription/presentation/bloc/subscription_bloc.dart';
 import 'package:edu_app_project/src/subscription/presentation/views/subscription_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
