@@ -28,8 +28,8 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
         title: const Text('Tarifs',
             style: TextStyle(
                 fontWeight: FontWeight.w600,
-                fontSize: 15,
-                color: Colours.primaryColour)),
+                fontSize: 17,
+                color: Colours.darkColour)),
         leading: const NestedBackButton(),
       ),
       body: GradientBackground(

@@ -3,6 +3,7 @@ import 'package:edu_app_project/core/res/colours.dart';
 import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/src/chat/domain/entities/group.dart';
 import 'package:edu_app_project/src/chat/presentation/app/cubit/chat_cubit.dart';
+import 'package:edu_app_project/src/subscription/presentation/views/subscription_screen.dart';
 // import 'package:edu_app_project/src/subscription/presentation/views/subscription_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -65,14 +66,13 @@ class OtherGroupTile extends StatelessWidget {
                 ),
               ),
               onPressed: () async {
-                // if (context.currentUser!.subscribed) {
+                if (context.currentUser!.subscribed) {
                 return context.read<ChatCubit>().joinGroup(
                       groupId: group.id,
                       userId: context.currentUser!.uid,
                     );
-                // }
-                // await Navigator.of(context)
-                //     .pushNamed(SubscriptionScreen.routeName);
+                 }
+                await Navigator.of(context).pushNamed(SubscriptionScreen.routeName);
               },
               child: const Text(
                 'Intégrer',
