@@ -36,7 +36,6 @@ import 'package:edu_app_project/src/quick_access/presentation/views/exam_history
 import 'package:edu_app_project/src/scholarship/domain/entities/scholarship.dart';
 import 'package:edu_app_project/src/scholarship/presentation/views/scholarship_details_screen.dart';
 import 'package:edu_app_project/src/subscription/presentation/bloc/subscription_bloc.dart';
-import 'package:edu_app_project/src/subscription/presentation/views/billing_form_screen.dart';
 import 'package:edu_app_project/src/subscription/presentation/views/subscription_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

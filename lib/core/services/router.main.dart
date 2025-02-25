@@ -169,18 +169,18 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         builder: (_) => const SubscriptionScreen(),
         settings: settings,
       );
-    case BillingFormScreen.routeName:
-      return MaterialPageRoute(
-        builder: (context) {
-          return BlocProvider(
-            create: (_) => sl<SubscriptionBloc>(),
-            child: BillingFormScreen(
-              subscription: settings.arguments! as Subscription,
-            ),
-          );
-        },
-        settings: settings,
-      );
+    // case BillingFormScreen.routeName:
+    //   return MaterialPageRoute(
+    //     builder: (context) {
+    //       return BlocProvider(
+    //         create: (_) => sl<SubscriptionBloc>(),
+    //         child: BillingFormScreen(
+    //           subscription: settings.arguments! as Subscription,
+    //         ),
+    //       );
+    //     },
+    //     settings: settings,
+    //   );
 
     default:
       return _pageBuilder(
