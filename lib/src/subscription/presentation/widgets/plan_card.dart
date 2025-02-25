@@ -1,21 +1,20 @@
 import 'package:edu_app_project/core/common/widgets/rounded_button.dart';
 import 'package:edu_app_project/core/enums/subscription_enum.dart';
 import 'package:edu_app_project/core/res/colours.dart';
-import 'package:edu_app_project/src/subscription/presentation/views/billing_form_screen.dart';
 import 'package:flutter/material.dart';
 
 class PlanCard extends StatelessWidget {
   const PlanCard({
     required this.subscription,
+    required this.onPressed,
     super.key,
   });
 
   final Subscription subscription;
+  final Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
-    //final backgroundColor = Color(0xFFE4E6EA).withOpacity(0.7);
-    //final primaryColor = Color(0xFF13273C);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
@@ -44,6 +43,8 @@ class PlanCard extends StatelessWidget {
                       color: Colours.darkColour,
                     ),
                   ),
+                  SizedBox(height: 4),
+                  Icon(Icons.star, color: Colours.primaryColour, size: 38,),
                   SizedBox(height: 4),
                   Text(
                     '${subscription.code} Mois(s)',
@@ -94,16 +95,7 @@ class PlanCard extends StatelessWidget {
                       label: 'Je m\'abonne',
                       buttonColour: Colours.primaryColour,
                       labelColour: Colours.whiteColour,
-                      onPressed: () async {
-                        final navigator = Navigator.of(context);
-                        final result = await navigator.pushNamed(
-                          BillingFormScreen.routeName,
-                          arguments: subscription,
-                        ) as bool?;
-                        if (result ?? false) {
-                          navigator.pop();
-                        }
-                      },
+                      onPressed: onPressed,
                     ),
                   ),
                 ],
