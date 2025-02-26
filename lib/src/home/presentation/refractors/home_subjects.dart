@@ -5,6 +5,7 @@ import 'package:edu_app_project/core/common/features/course/presentation/views/c
 import 'package:edu_app_project/core/common/widgets/course_tile.dart';
 import 'package:edu_app_project/core/extensions/context_extension.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/src/home/presentation/widgets/section_header.dart';
 import 'package:flutter/material.dart';
 
@@ -21,34 +22,37 @@ class HomeSubjects extends StatelessWidget {
       children: [
         SectionHeader(
             sectionTitle: 'Cours',
-            seeAll: courses.length >= 4,
+            seeAll: courses.length >= 5,
             onSeeAll: () => context.push(AllCoursesView(courses, categories!))),
         const Text(
           'Explorer nos cours',
           style: TextStyle(
             fontSize: 12,
-            color: Colours.darkColour,
+            fontFamily: Fonts.inter,
+            color: Colours.shade,
           ),
         ),
         const SizedBox(
           height: 20,
         ),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          /*children: kSubjects.sublist(0, 4).map((subject) {
-            final (name, icon, colour) = subject;
-            return SubjectTile(name: name, icon: icon, colour: colour);
-          }).toList(),*/
-          children: courses
-              .take(4)
-              .map((course) => CourseTile(
-                    course: course,
-                    onTap: () => Navigator.of(context).pushNamed(
-                        CourseDetailsScreen.routeName,
-                        arguments: course),
-                  ))
-              .toList(),
+        SingleChildScrollView(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            /*children: kSubjects.sublist(0, 4).map((subject) {
+              final (name, icon, colour) = subject;
+              return SubjectTile(name: name, icon: icon, colour: colour);
+            }).toList(),*/
+            children: courses
+                .take(5)
+                .map((course) => CourseTile(
+                      course: course,
+                      onTap: () => Navigator.of(context).pushNamed(
+                          CourseDetailsScreen.routeName,
+                          arguments: course),
+                    ))
+                .toList(),
+          ),
         ),
       ],
     );

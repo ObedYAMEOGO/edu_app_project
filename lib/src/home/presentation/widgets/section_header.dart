@@ -23,8 +23,8 @@ class SectionHeader extends StatelessWidget {
           sectionTitle,
           style: const TextStyle(
               fontSize: 14,
-              fontWeight: FontWeight.w500,
-              fontFamily: Fonts.merriweather,
+              fontWeight: FontWeight.w400,
+              fontFamily: Fonts.inter,
               color: Colours.darkColour),
         ),
         if (seeAll)
@@ -37,7 +37,7 @@ class SectionHeader extends StatelessWidget {
             child: const Text(
               'Voir plus',
               style: TextStyle(
-                fontFamily: Fonts.merriweather,
+                fontFamily: Fonts.inter,
                 color: Colours.primaryColour,
                 fontSize: 14,
               ),

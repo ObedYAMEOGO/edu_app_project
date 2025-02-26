@@ -35,7 +35,7 @@ class NotificationTile extends StatelessWidget {
             fontWeight: FontWeight.w500,
             fontSize: 14,
             color: Colours.darkColour,
-            fontFamily: Fonts.merriweather,
+            fontFamily: Fonts.inter,
           ),
         ),
         subtitle: Column(
@@ -46,7 +46,7 @@ class NotificationTile extends StatelessWidget {
               style: TextStyle(
                 fontSize: 11,
                 color: Colours.darkColour.withOpacity(0.8),
-                fontFamily: Fonts.merriweather,
+                fontFamily: Fonts.inter,
               ),
             ),
             TimeText(notification.sentAt), // Affiche l'heure

@@ -19,7 +19,7 @@ class CourseTile extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 color: Color(0xFFE4E6EA),
-                borderRadius: BorderRadius.circular(3),
+                borderRadius: BorderRadius.circular(10),
               ),
               height: 54,
               width: 54,
@@ -37,7 +37,7 @@ class CourseTile extends StatelessWidget {
               course.title,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                fontFamily: Fonts.merriweather,
+                fontFamily: Fonts.inter,
                 fontSize: 11,
                 fontWeight: FontWeight.w600,
               ),

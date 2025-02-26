@@ -37,7 +37,7 @@ class OnBoardingBody extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.w700,
-                  fontFamily: Fonts.merriweather,
+                  fontFamily: Fonts.inter,
                   color: Colours.darkColour,
                 ),
               ),
@@ -48,21 +48,13 @@ class OnBoardingBody extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
-                  fontFamily: Fonts.merriweather,
+                  fontFamily: Fonts.inter,
                   color: Colours.darkColour,
                 ),
               ),
               SizedBox(height: mq.height * .05),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 50,
-                    vertical: 17,
-                  ),
-                  backgroundColor: Colours.primaryColour,
-                  foregroundColor: Colors.white,
-                ),
-                onPressed: () async {
+              GestureDetector(
+                onTap: () async {
                   final navigator = Navigator.of(context);
                   await context.read<OnBoardingCubit>().cacheFirstTimer();
                   unawaited(
@@ -73,13 +65,25 @@ class OnBoardingBody extends StatelessWidget {
                     ),
                   );
                 },
-                child: const Text(
-                  'Commencer',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700,
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 50, vertical: 17),
+                  decoration: BoxDecoration(
+                    gradient: Colours.primaryGradient,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Commencer',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontFamily: Fonts.inter,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ),
-              ),
+              )
             ],
           ),
         ),

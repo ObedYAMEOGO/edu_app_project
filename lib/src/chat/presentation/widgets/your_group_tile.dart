@@ -22,7 +22,7 @@ class YourGroupTile extends StatelessWidget {
 // Pas de marge horizontale
       elevation: 0, // Pas d'ombre
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(0), // Pas arrondi
+        borderRadius: BorderRadius.circular(10), // Pas arrondi
         side: BorderSide(
           color: Color(0xFFE4E6EA),
         ), // Bord très fin gris
@@ -57,8 +57,7 @@ class YourGroupTile extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w400,
-                      fontFamily:
-                          Fonts.merriweather, // Texte légèrement plus clair
+                      fontFamily: Fonts.inter, // Texte légèrement plus clair
 
                       color: Colours.darkColour, // Texte noir
                     ),
@@ -70,8 +69,8 @@ class YourGroupTile extends StatelessWidget {
                           '~ ${group.lastMessageSenderName}: ${group.lastMessage}',
                           style: TextStyle(
                             color: Colors.black54,
-                            fontFamily: Fonts
-                                .merriweather, // Texte légèrement plus clair
+                            fontFamily:
+                                Fonts.inter, // Texte légèrement plus clair
                             fontSize: 12,
                           ),
                           maxLines: 1,
@@ -80,8 +79,8 @@ class YourGroupTile extends StatelessWidget {
                       : Text(
                           'Pas encore de message',
                           style: TextStyle(
-                            fontFamily: Fonts
-                                .merriweather, // Texte légèrement plus clair
+                            fontFamily:
+                                Fonts.inter, // Texte légèrement plus clair
 
                             color:
                                 Colors.black54, // Texte légèrement plus clair

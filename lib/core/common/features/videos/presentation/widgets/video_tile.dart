@@ -51,7 +51,7 @@ class VideoTile extends StatelessWidget {
                               : NetworkImage(video.thumbnail!) as ImageProvider,
                       fit: BoxFit.cover,
                     ),
-                    borderRadius: BorderRadius.circular(3),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
                 if (tappable)
@@ -59,7 +59,7 @@ class VideoTile extends StatelessWidget {
                     height: 108,
                     width: 130,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(0),
+                        borderRadius: BorderRadius.circular(10),
                         color: Colors.black.withOpacity(0.4)),
                     child: Center(
                       child: video.videoURL.isYouTubeVideo
@@ -120,7 +120,7 @@ class VideoTile extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      fontFamily: Fonts.merriweather,
+                      fontFamily: Fonts.inter,
                       color: Colours.darkColour,
                     ),
                   ),
@@ -133,7 +133,7 @@ class VideoTile extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 9,
                       fontWeight: FontWeight.w400,
-                      fontFamily: Fonts.merriweather,
+                      fontFamily: Fonts.inter,
                       color: Colours.darkColour,
                     ),
                   ),

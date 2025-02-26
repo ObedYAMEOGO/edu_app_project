@@ -25,7 +25,7 @@ class EditProfileFormField extends StatelessWidget {
       fontWeight: FontWeight.w500,
       fontSize: 14,
       color: Colours.darkColour,
-      fontFamily: Fonts.merriweather,
+      fontFamily: Fonts.inter,
     );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

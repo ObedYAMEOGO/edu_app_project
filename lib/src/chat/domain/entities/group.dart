@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:intl/intl.dart';
 
 class Group extends Equatable {
   const Group({
@@ -12,6 +13,24 @@ class Group extends Equatable {
     this.groupImageUrl = '',
   });
 
+  String get formattedLastMessageTimestamp {
+    if (lastMessageTimestamp == null) return "Aucun message";
+
+    final now = DateTime.now();
+    final difference = now.difference(lastMessageTimestamp!);
+
+    if (difference.inDays == 0) {
+      return "Aujourd'hui";
+    } else if (difference.inDays == 1) {
+      return "Hier";
+    } else if (difference.inDays < 7) {
+      return DateFormat('EEEE', 'fr_FR')
+          .format(lastMessageTimestamp!); // Day name in French
+    } else {
+      return DateFormat('dd MMM yyyy', 'fr_FR').format(lastMessageTimestamp!);
+    }
+  }
+
   Group.empty()
       : id = '',
         name = '',
@@ -19,7 +38,7 @@ class Group extends Equatable {
         members = const [],
         lastMessage = '',
         groupImageUrl = '',
-        lastMessageTimestamp = DateTime.now(),
+        lastMessageTimestamp = null, // Set to null instead of DateTime.now()
         lastMessageSenderName = '';
 
   final String id;
@@ -34,9 +53,3 @@ class Group extends Equatable {
   @override
   List<Object?> get props => [id, name, courseId];
 }
-
-// To join a group, we add the user's id to the group's members list.
-// next we add the group's id to the user's groups list.
-
-// To leave a group, we remove the user's id from the group's members list.
-// next we remove the group's id from the user's groups list.

@@ -1,5 +1,7 @@
 import 'package:edu_app_project/core/common/views/loading_view.dart';
+import 'package:edu_app_project/core/common/widgets/gradient_background.dart';
 import 'package:edu_app_project/core/common/widgets/not_found_text.dart';
+import 'package:edu_app_project/core/res/media_res.dart';
 import 'package:edu_app_project/core/utils/core_utils.dart';
 import 'package:edu_app_project/src/scholarship/presentation/app/cubit/scholarship_cubit.dart';
 import 'package:edu_app_project/src/scholarship/presentation/app/cubit/scholarship_state.dart';
@@ -52,12 +54,15 @@ class _ScholarshipViewBodyState extends State<ScholarshipViewBody> {
             ..sort(
               (a, b) => b.updatedAt.compareTo(a.updatedAt),
             );
-          return ListView(
-            padding: const EdgeInsets.symmetric(horizontal: 6),
-            children: [
-              const SizedBox(height: 5),
-              ScholarshipItems(scholarships: scholarships),
-            ],
+          return GradientBackground(
+            image: Res.leaderboardGradientBackground,
+            child: ListView(
+              padding: const EdgeInsets.symmetric(horizontal: 1),
+              children: [
+                const SizedBox(height: 5),
+                ScholarshipItems(scholarships: scholarships),
+              ],
+            ),
           );
         }
         return const SizedBox.shrink();

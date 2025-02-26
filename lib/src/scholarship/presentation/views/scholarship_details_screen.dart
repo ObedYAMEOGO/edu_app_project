@@ -53,10 +53,10 @@ class ScholarshipDetailsScreen extends StatelessWidget {
           style: const TextStyle(
             fontSize: 17,
             fontWeight: FontWeight.w600,
-            fontFamily: Fonts.merriweather, // Texte légèrement plus clair
-
+            fontFamily: Fonts.inter,
             color: Colours.darkColour,
           ),
+          overflow: TextOverflow.ellipsis,
         ),
         leading: const NestedBackButton(),
         elevation: 0,
@@ -66,70 +66,50 @@ class ScholarshipDetailsScreen extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.all(20),
           children: [
-            // Scholarship Image with Video Icon
-            SizedBox(
-              height: context.height * .3,
-              child: Stack(
-                children: [
-                  Center(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(3),
-                      // ignore: unnecessary_null_comparison
-                      child: scholarship.image != null
-                          ? Image.network(
-                              scholarship.image,
-                              height: 250,
-                              width: double.infinity,
-                              fit: BoxFit.cover,
-                            )
-                          : Image.asset(
-                              Res.user,
-                              height: 250,
-                              width: 250,
-                              fit: BoxFit.cover,
-                            ),
+            // Scholarship Image
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              // ignore: unnecessary_null_comparison
+              child: scholarship.image != null
+                  ? Image.network(
+                      scholarship.image,
+                      height: context.height * .3,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    )
+                  : Image.asset(
+                      Res.user,
+                      height: 250,
+                      width: 250,
+                      fit: BoxFit.cover,
                     ),
-                  ),
-                  Positioned(
-                    bottom: 16,
-                    right: 16,
-                    child: GestureDetector(
-                      onTap: _launchURL,
-                      child: Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(3),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.1),
-                              blurRadius: 6,
-                              offset: const Offset(0, 2),
-                            ),
-                          ],
-                        ),
-                        child: Image.asset(
-                          Res.youtubeVideoIcon,
-                          width: 40,
-                          height: 40,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
             ),
             const SizedBox(height: 20),
 
-            // Scholarship Name
-            Text(
-              scholarship.name,
-              style: const TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w700,
-                color: Colours.darkColour,
-                fontFamily: Fonts.merriweather,
-              ),
+            // Scholarship Name & YouTube Icon
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Text(
+                    scholarship.name,
+                    style: const TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w700,
+                      color: Colours.darkColour,
+                      fontFamily: Fonts.inter,
+                    ),
+                  ),
+                ),
+                GestureDetector(
+                  onTap: _launchURL,
+                  child: Image.asset(
+                    Res.youtubeVideoIcon,
+                    width: 40,
+                    height: 40,
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 10),
 
@@ -144,30 +124,25 @@ class ScholarshipDetailsScreen extends StatelessWidget {
             Card(
               elevation: 2,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(3),
+                borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Host Country
                     _buildDetailRow(
                       icon: Icons.location_on_outlined,
                       label: 'Pays d\'accueil',
                       value: scholarship.country,
                     ),
                     const SizedBox(height: 10),
-
-                    // Number of Recipients
                     _buildDetailRow(
                       icon: Icons.people_outline,
                       label: 'Nombre de places',
                       value: scholarship.numberOfRecipients.toString(),
                     ),
                     const SizedBox(height: 10),
-
-                    // Application Deadline
                     _buildDetailRow(
                       icon: Icons.calendar_today_outlined,
                       label: 'Date limite',
@@ -187,7 +162,7 @@ class ScholarshipDetailsScreen extends StatelessWidget {
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
                 color: Colours.darkColour,
-                fontFamily: Fonts.merriweather,
+                fontFamily: Fonts.inter,
               ),
             ),
             const SizedBox(height: 10),
@@ -211,7 +186,7 @@ class ScholarshipDetailsScreen extends StatelessWidget {
                         fontSize: 14,
                         color: Colours.darkColour,
                         fontWeight: FontWeight.w300,
-                        fontFamily: Fonts.merriweather,
+                        fontFamily: Fonts.inter,
                       ),
                     ),
                   ],
@@ -221,7 +196,6 @@ class ScholarshipDetailsScreen extends StatelessWidget {
           ],
         ),
       ),
-      // WhatsApp Floating Action Button
       floatingActionButton: FloatingActionButton(
         onPressed: _launchWhatsApp,
         backgroundColor: Colors.white,
@@ -235,7 +209,6 @@ class ScholarshipDetailsScreen extends StatelessWidget {
     );
   }
 
-  // Helper method to build a detail row
   Widget _buildDetailRow({
     required IconData icon,
     required String label,
@@ -255,7 +228,7 @@ class ScholarshipDetailsScreen extends StatelessWidget {
             fontSize: 14,
             fontWeight: FontWeight.w600,
             color: Colours.darkColour,
-            fontFamily: Fonts.merriweather,
+            fontFamily: Fonts.inter,
           ),
         ),
         const Spacer(),
@@ -264,7 +237,7 @@ class ScholarshipDetailsScreen extends StatelessWidget {
           style: const TextStyle(
             fontSize: 14,
             color: Colours.darkColour,
-            fontFamily: Fonts.merriweather,
+            fontFamily: Fonts.inter,
           ),
         ),
       ],

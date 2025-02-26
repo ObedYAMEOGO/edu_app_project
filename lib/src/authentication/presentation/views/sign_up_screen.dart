@@ -71,7 +71,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         },
         builder: (context, state) {
           return GradientBackground(
-            image: Res.backgroundImg,
+            image: Res.leaderboardGradientBackground,
             child: SafeArea(
               child: Center(
                 child: ListView(
@@ -82,7 +82,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       'Inscription',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontFamily: Fonts.merriweather,
+                        fontFamily: Fonts.inter,
                         fontWeight: FontWeight.w700,
                         fontSize: 20,
                       ),
@@ -135,18 +135,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               Text(
                                 'Déjà un compte?   ',
                                 style: TextStyle(
-                                  fontSize: 12,
-                                  fontFamily: Fonts.merriweather,
-                                  color: Colours.darkColour
+                                  fontSize: 14,
+                                  fontFamily: Fonts.inter,
+                                  color: Colours.shade,
                                 ),
                               ),
                               Text(
                                 '  Se connecter',
                                 style: TextStyle(
                                   color: Colours.primaryColour,
-                                  fontSize: 12,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.bold,
-                                  fontFamily: Fonts.merriweather,
+                                  fontFamily: Fonts.inter,
                                 ),
                               )
                             ],

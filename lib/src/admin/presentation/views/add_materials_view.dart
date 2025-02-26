@@ -168,7 +168,7 @@ class _AddMaterialsViewState extends State<AddMaterialsView> {
                   fontSize: 17,
                   fontWeight: FontWeight.w600,
                   color: Colours.darkColour,
-                  fontFamily: Fonts.merriweather,
+                  fontFamily: Fonts.inter,
                 ),
               )),
           body: SafeArea(
@@ -190,7 +190,7 @@ class _AddMaterialsViewState extends State<AddMaterialsView> {
                       border: true,
                       hintText: 'Auteur',
                       hintStyle: TextStyle(
-                        fontFamily: Fonts.merriweather,
+                        fontFamily: Fonts.inter,
                       ),
                       onChanged: (_) {
                         if (authorSet) setState(() => authorSet = false);
@@ -210,7 +210,7 @@ class _AddMaterialsViewState extends State<AddMaterialsView> {
                       'Vous pouvez téléchager plusieurs documents à la fois.',
                       style: context.theme.textTheme.bodySmall?.copyWith(
                         color: Colours.neutralTextColour,
-                        fontFamily: Fonts.merriweather,
+                        fontFamily: Fonts.inter,
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -248,7 +248,7 @@ class _AddMaterialsViewState extends State<AddMaterialsView> {
                               'Ajouter des documents',
                               style: TextStyle(
                                 color: Colours.darkColour,
-                                fontFamily: Fonts.merriweather,
+                                fontFamily: Fonts.inter,
                               ),
                             ),
                           ),
@@ -258,7 +258,7 @@ class _AddMaterialsViewState extends State<AddMaterialsView> {
                             child: const Text(
                               'confirmer',
                               style: TextStyle(
-                                fontFamily: Fonts.merriweather,
+                                fontFamily: Fonts.inter,
                                 color: Colours.darkColour,
                               ),
                             ),

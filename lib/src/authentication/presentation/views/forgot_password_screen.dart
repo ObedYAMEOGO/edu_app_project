@@ -56,7 +56,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         builder: (context, state) {
           return Scaffold(
             body: GradientBackground(
-              image: Res.backgroundImg,
+              image: Res.leaderboardGradientBackground,
               child: SafeArea(
                 child: Center(
                   child: ListView(
@@ -66,7 +66,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       const Text(
                         'Réinitialiser le mot de passe',
                         style: TextStyle(
-                          fontFamily: Fonts.merriweather,
+                          fontFamily: Fonts.inter,
                           fontSize: 20,
                           fontWeight: FontWeight.w700,
                         ),
@@ -131,8 +131,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                   'Mot de passe?   ',
                                   style: TextStyle(
                                     fontFamily: Fonts.merriweather,
-                                    fontSize: 12,
-                                    color: Colours.darkColour,
+                                    fontSize: 14,
+                                    color: Colours.shade,
                                   ),
                                 ),
                                 Text(
@@ -140,7 +140,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                   style: TextStyle(
                                     color: Colours.primaryColour,
                                     fontFamily: Fonts.merriweather,
-                                    fontSize: 12,
+                                    fontSize: 14,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),

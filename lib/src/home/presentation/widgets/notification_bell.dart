@@ -89,7 +89,8 @@ class _NotificationBellState extends State<NotificationBell> {
                     fontSize: 8,
                   ),
                 ),
-                child: Icon(Icons.notifications, color: Colours.darkColour),
+                child: Icon(Icons.notifications_outlined,
+                    color: Colours.darkColour),
               ),
             ),
           );

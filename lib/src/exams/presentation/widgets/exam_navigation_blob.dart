@@ -52,7 +52,7 @@ class ExamNavigationBlob extends StatelessWidget {
                     style: const TextStyle(
                       color: Colors.black,
                       fontSize: 15,
-                      fontFamily: Fonts.merriweather,
+                      fontFamily: Fonts.inter,
                       fontWeight: FontWeight.w600,
                     ),
                   ),

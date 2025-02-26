@@ -60,32 +60,32 @@ class ProfileBody extends StatelessWidget {
                 const SizedBox(
                   height: 5,
                 ),
-                UserInfoCard(
-                  infoTitle: 'Followers',
-                  infoValue: provider.user!.followers.length.toString(),
-                  infoIcon: const Icon(
-                    Icons.people_alt,
-                    color: Colours.darkColour,
-                    size: 24,
-                  ),
-                  infoThemeColour: Colours.inforThemeColor3,
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                UserInfoCard(
-                  infoTitle: 'Following',
-                  infoValue: provider.user!.following.length.toString(),
-                  infoIcon: const Icon(
-                    Icons.person,
-                    color: Colours.darkColour,
-                    size: 24,
-                  ),
-                  infoThemeColour: Colours.inforThemeColor4,
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
+                // UserInfoCard(
+                //   infoTitle: 'Followers',
+                //   infoValue: provider.user!.followers.length.toString(),
+                //   infoIcon: const Icon(
+                //     Icons.people_alt,
+                //     color: Colours.darkColour,
+                //     size: 24,
+                //   ),
+                //   infoThemeColour: Colours.inforThemeColor3,
+                // ),
+                // const SizedBox(
+                //   height: 5,
+                // ),
+                // UserInfoCard(
+                //   infoTitle: 'Following',
+                //   infoValue: provider.user!.following.length.toString(),
+                //   infoIcon: const Icon(
+                //     Icons.person,
+                //     color: Colours.darkColour,
+                //     size: 24,
+                //   ),
+                //   infoThemeColour: Colours.inforThemeColor4,
+                // ),
+                // const SizedBox(
+                //   height: 5,
+                // ),
               ],
             ),
             const SizedBox(
@@ -124,6 +124,9 @@ class ProfileBody extends StatelessWidget {
                               child: AddCourseSheet(),
                             ));
                   }),
+              SizedBox(
+                height: 5,
+              ),
               AdminButton(
                   label: 'Nouvelle Catégorie',
                   icon: IconlyBold.paper_download,
@@ -153,24 +156,36 @@ class ProfileBody extends StatelessWidget {
                               child: AddCategorySheet(),
                             ));
                   }),
+              SizedBox(
+                height: 5,
+              ),
               AdminButton(
                   label: 'Nouvelle Vidéo',
                   icon: IconlyBold.video,
                   onPressed: () {
                     Navigator.pushNamed(context, AddVideoView.routeName);
                   }),
+              SizedBox(
+                height: 5,
+              ),
               AdminButton(
                   label: 'Nouveaux Documents',
                   icon: Icons.document_scanner,
                   onPressed: () {
                     Navigator.pushNamed(context, AddMaterialsView.routeName);
                   }),
+              SizedBox(
+                height: 5,
+              ),
               AdminButton(
                   label: 'Nouveau Quizz',
                   icon: IconlyBold.paper,
                   onPressed: () {
                     Navigator.pushNamed(context, AddExamView.routeName);
                   }),
+              SizedBox(
+                height: 5,
+              ),
               AdminButton(
                   label: 'Nouvelle Bourse',
                   icon: Icons.school,

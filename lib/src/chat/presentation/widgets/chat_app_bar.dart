@@ -42,7 +42,7 @@ class _ChatAppBarState extends State<ChatAppBar> {
               style: const TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: 17,
-                fontFamily: Fonts.merriweather, // Texte légèrement plus clair
+                fontFamily: Fonts.inter, // Texte légèrement plus clair
 
                 overflow: TextOverflow.ellipsis,
               ),
@@ -57,7 +57,7 @@ class _ChatAppBarState extends State<ChatAppBar> {
           offset: const Offset(0, 60),
           surfaceTintColor: Colors.white,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(10),
           ),
           itemBuilder: (context) => [
             PopupMenuItem<void>(

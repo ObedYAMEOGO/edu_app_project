@@ -18,23 +18,30 @@ class AdminButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width, // Full screen width
-      child: ElevatedButton.icon(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colours.primaryColour,
-          foregroundColor: Colours.whiteColour,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(3),
-          ),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: Colours.primaryGradient, // Apply gradient
+          borderRadius: BorderRadius.circular(10),
         ),
-        onPressed: onPressed,
-        label: Text(
-          label,
-          style: const TextStyle(
-            fontSize: 12,
-            fontFamily: Fonts.merriweather,
+        child: ElevatedButton.icon(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.transparent, // Transparent to show gradient
+            shadowColor: Colors.transparent, // Remove shadow for a clean look
+            foregroundColor: Colours.whiteColour,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
           ),
+          onPressed: onPressed,
+          label: Text(
+            label,
+            style: const TextStyle(
+              fontSize: 12,
+              fontFamily: Fonts.inter,
+            ),
+          ),
+          icon: Icon(icon),
         ),
-        icon: Icon(icon),
       ),
     );
   }

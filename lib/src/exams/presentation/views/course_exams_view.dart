@@ -44,7 +44,7 @@ class _CourseExamsViewState extends State<CourseExamsView> {
           style: const TextStyle(
               fontWeight: FontWeight.w600,
               color: Colours.darkColour,
-              fontFamily: Fonts.merriweather,
+              fontFamily: Fonts.inter,
               fontSize: 17),
         ),
         leading: const NestedBackButton(),
@@ -79,7 +79,7 @@ class _CourseExamsViewState extends State<CourseExamsView> {
                     elevation: 2,
                     margin: const EdgeInsets.symmetric(vertical: 10),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(3),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(16),
@@ -101,7 +101,7 @@ class _CourseExamsViewState extends State<CourseExamsView> {
                                   style: const TextStyle(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w600,
-                                    fontFamily: Fonts.merriweather,
+                                    fontFamily: Fonts.inter,
                                     color: Colours.darkColour,
                                   ),
                                 ),
@@ -113,7 +113,7 @@ class _CourseExamsViewState extends State<CourseExamsView> {
                             exam.description,
                             style: TextStyle(
                               fontSize: 13,
-                              fontFamily: Fonts.merriweather,
+                              fontFamily: Fonts.inter,
                               color: Colours.darkColour,
                             ),
                           ),
@@ -153,7 +153,7 @@ class _CourseExamsViewState extends State<CourseExamsView> {
                                 child: const Text(
                                   'Passer le quiz',
                                   style: TextStyle(
-                                    fontFamily: Fonts.merriweather,
+                                    fontFamily: Fonts.inter,
                                   ),
                                 ),
                               ),

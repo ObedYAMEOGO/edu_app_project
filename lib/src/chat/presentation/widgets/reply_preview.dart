@@ -19,7 +19,7 @@ class ReplyPreview extends StatelessWidget {
         final isMe =
             notifier.reply!.senderId == FirebaseAuth.instance.currentUser!.uid;
         return ClipRRect(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(10),
           child: Container(
             width: 350,
             decoration: BoxDecoration(
@@ -46,7 +46,7 @@ class ReplyPreview extends StatelessWidget {
                                 'Supprimer cet utilisateur',
                         style: TextStyle(
                           fontFamily:
-                              Fonts.merriweather, // Texte légèrement plus clair
+                              Fonts.inter, // Texte légèrement plus clair
 
                           fontWeight: FontWeight.bold,
                           color: isMe
@@ -69,7 +69,7 @@ class ReplyPreview extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontFamily:
-                        Fonts.merriweather, // Texte légèrement plus clair
+                        Fonts.inter, // Texte légèrement plus clair
                   ),
                 ),
               ],

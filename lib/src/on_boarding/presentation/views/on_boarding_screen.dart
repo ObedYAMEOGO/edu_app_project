@@ -1,6 +1,7 @@
 import 'package:edu_app_project/core/common/views/loading_view.dart';
 import 'package:edu_app_project/core/common/widgets/gradient_background.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/media_res.dart';
 import 'package:edu_app_project/src/on_boarding/domain/entities/page_content.dart';
 import 'package:edu_app_project/src/on_boarding/presentation/cubit/on_boarding_cubit.dart';
 import 'package:edu_app_project/src/on_boarding/presentation/widgets/on_boarding_body.dart';
@@ -29,7 +30,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GradientBackground(
-        image: '',
+        image: Res.leaderboardGradientBackground,
         child: BlocConsumer<OnBoardingCubit, OnBoardingState>(
           listener: (context, state) {
             if (state is OnBoardingStatus && !state.isFirstTimer) {
@@ -70,7 +71,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         dotWidth: 8,
                         spacing: 11,
                         activeDotColor: Colours.primaryColour,
-                        dotColor: Color.fromARGB(255, 218, 218, 218),
+                        dotColor: Color.fromARGB(255, 255, 255, 255),
                       ),
                     ),
                   ),

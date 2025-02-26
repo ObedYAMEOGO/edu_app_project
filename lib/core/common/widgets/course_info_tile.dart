@@ -38,7 +38,7 @@ class CourseInfoTile extends StatelessWidget {
               Text(title,
                   style: const TextStyle(
                     color: Colours.darkColour,
-                    fontFamily: Fonts.merriweather,
+                    fontFamily: Fonts.inter,
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                   )),
@@ -47,7 +47,7 @@ class CourseInfoTile extends StatelessWidget {
                 style: const TextStyle(
                     fontSize: 10,
                     color: Colours.darkColour,
-                    fontFamily: Fonts.merriweather,
+                    fontFamily: Fonts.inter,
                     fontWeight: FontWeight.w300),
               ),
             ],

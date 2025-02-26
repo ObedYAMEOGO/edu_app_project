@@ -36,7 +36,7 @@ class ProfileHeader extends StatelessWidget {
               textAlign: TextAlign.center,
               style: const TextStyle(
                   fontSize: 14,
-                  fontFamily: Fonts.merriweather,
+                  fontFamily: Fonts.inter,
                   fontWeight: FontWeight.bold),
             ),
             if (user?.bio != null && user!.bio!.isNotEmpty) ...[
@@ -52,8 +52,8 @@ class ProfileHeader extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 12,
-                      fontFamily: Fonts.merriweather,
-                      color: Colours.darkColour.withOpacity(0.5)),
+                      fontFamily: Fonts.inter,
+                      color: Colours.shade.withOpacity(0.5)),
                 ),
               ),
               const SizedBox(

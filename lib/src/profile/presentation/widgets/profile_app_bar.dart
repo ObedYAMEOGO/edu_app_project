@@ -25,14 +25,14 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
             "Mon Profil",
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              fontFamily: Fonts.merriweather,
+              fontFamily: Fonts.inter,
               fontSize: 17,
               color: Colours.darkColour,
             ),
           ),
           actions: [
             PopupMenuButton(
-              offset: Offset(0, 60),
+              offset: Offset(0, 40),
               icon: const Icon(Icons.more_horiz_outlined),
               itemBuilder: (_) => [
                 // Edit Profile Menu Item
@@ -75,26 +75,26 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ),
                 // Divider
-                const PopupMenuItem<void>(
-                  height: 1,
-                  padding: EdgeInsets.zero,
-                  child: Divider(
-                    height: 0,
-                    color: Colors.grey,
-                    indent: 0,
-                    endIndent: 0,
-                  ),
-                ),
+                // const PopupMenuItem<void>(
+                //   height: 1,
+                //   padding: EdgeInsets.zero,
+                //   child: Divider(
+                //     height: 0,
+                //     color: Colors.grey,
+                //     indent: 0,
+                //     endIndent: 0,
+                //   ),
+                // ),
                 // Help Menu Item
-                PopupMenuItem<void>(
-                  child: PopupItem(
-                    title: 'Aide',
-                    icon: const Icon(
-                      IconlyBroken.info_circle,
-                      size: 15,
-                    ),
-                  ),
-                ),
+                // PopupMenuItem<void>(
+                //   child: PopupItem(
+                //     title: 'Aide',
+                //     icon: const Icon(
+                //       IconlyBroken.info_circle,
+                //       size: 15,
+                //     ),
+                //   ),
+                // ),
                 // Divider
                 const PopupMenuItem<void>(
                   height: 1,

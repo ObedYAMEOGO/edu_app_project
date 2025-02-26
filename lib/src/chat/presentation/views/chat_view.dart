@@ -125,7 +125,7 @@ class _ChatViewState extends State<ChatView>
                 title: const Text('Discussions',
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontFamily: Fonts.merriweather,
+                        fontFamily: Fonts.inter,
                         fontSize: 17,
                         color: Colours.darkColour)),
                 bottom: PreferredSize(
@@ -142,12 +142,12 @@ class _ChatViewState extends State<ChatView>
                           Colors.grey[500], // Adjust text color for contrast
                       labelStyle: const TextStyle(
                         fontWeight: FontWeight.w500,
-                        fontFamily: Fonts.merriweather,
+                        fontFamily: Fonts.inter,
                         fontSize: 14,
                       ),
                       unselectedLabelStyle: const TextStyle(
                         fontWeight: FontWeight.w500,
-                        fontFamily: Fonts.merriweather,
+                        fontFamily: Fonts.inter,
                         fontSize: 14,
                       ),
                       tabs: const [

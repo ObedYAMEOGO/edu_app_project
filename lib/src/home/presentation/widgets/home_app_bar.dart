@@ -34,8 +34,8 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             "Mes Cours",
             style: TextStyle(
               fontSize: 17,
-              fontWeight: FontWeight.w600,
-              fontFamily: Fonts.merriweather,
+              fontWeight: FontWeight.w500,
+              fontFamily: Fonts.inter,
               color: Colours.darkColour,
             ),
           ),
@@ -45,7 +45,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
               return Padding(
                   padding: EdgeInsets.only(right: 20, left: 20),
                   child: CircleAvatar(
-                    radius: 24,
+                    radius:15,
                     backgroundImage: provider.user!.profilePic != null
                         ? NetworkImage(provider.user!.profilePic!)
                         : const AssetImage(Res.user) as ImageProvider,

@@ -56,7 +56,7 @@ class _EditResourceDialogState extends State<EditResourceDialog> {
                 border: true,
                 hintText: 'Titre',
                 hintStyle: TextStyle(
-                  fontFamily: Fonts.merriweather,
+                  fontFamily: Fonts.inter,
                 ),
               ),
               const SizedBox(height: 10),
@@ -65,7 +65,7 @@ class _EditResourceDialogState extends State<EditResourceDialog> {
                 border: true,
                 hintText: 'Description',
                 hintStyle: TextStyle(
-                  fontFamily: Fonts.merriweather,
+                  fontFamily: Fonts.inter,
                 ),
               ),
               const SizedBox(height: 10),
@@ -74,7 +74,7 @@ class _EditResourceDialogState extends State<EditResourceDialog> {
                 border: true,
                 hintText: 'Auteur',
                 hintStyle: TextStyle(
-                  fontFamily: Fonts.merriweather,
+                  fontFamily: Fonts.inter,
                 ),
               ),
               const SizedBox(height: 10),
@@ -95,7 +95,7 @@ class _EditResourceDialogState extends State<EditResourceDialog> {
                     child: const Text(
                       'Confirmer',
                       style: TextStyle(
-                          fontFamily: Fonts.merriweather,
+                          fontFamily: Fonts.inter,
                           color: Colours.darkColour),
                     ),
                   ),
@@ -107,7 +107,7 @@ class _EditResourceDialogState extends State<EditResourceDialog> {
                     child: const Text(
                       'Annuler',
                       style: TextStyle(
-                          fontFamily: Fonts.merriweather,
+                          fontFamily: Fonts.inter,
                           color: Colours.darkColour),
                     ),
                   ),

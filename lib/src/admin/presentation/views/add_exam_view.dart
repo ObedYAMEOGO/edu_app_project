@@ -15,7 +15,6 @@ import 'package:edu_app_project/src/notifications/presentation/widgets/notificat
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iconly/iconly.dart';
 
 class AddExamView extends StatefulWidget {
   const AddExamView({super.key});
@@ -112,7 +111,7 @@ class _AddExamViewState extends State<AddExamView> {
                 style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 17,
-                    fontFamily: Fonts.merriweather,
+                    fontFamily: Fonts.inter,
                     color: Colours.darkColour),
               )),
           body: SafeArea(
@@ -144,7 +143,7 @@ class _AddExamViewState extends State<AddExamView> {
                             examFile!.path.split('/').last,
                             style: TextStyle(
                                 color: Colours.darkColour,
-                                fontFamily: Fonts.merriweather,
+                                fontFamily: Fonts.inter,
                                 fontSize: 12,
                                 fontWeight: FontWeight.w500),
                           ),
@@ -152,7 +151,7 @@ class _AddExamViewState extends State<AddExamView> {
                             onPressed: () => setState(() {
                               examFile = null;
                             }),
-                            icon: const Icon(IconlyBroken.close_square,
+                            icon: const Icon(Icons.close,
                                 color: Colours.redColour, size: 30),
                           ),
                         ),
@@ -172,7 +171,7 @@ class _AddExamViewState extends State<AddExamView> {
                                   : 'Changer de fichier',
                               style: TextStyle(
                                 color: Colours.darkColour,
-                                fontFamily: Fonts.merriweather,
+                                fontFamily: Fonts.inter,
                               ),
                             ),
                           ),
@@ -183,7 +182,7 @@ class _AddExamViewState extends State<AddExamView> {
                               'Confirmer',
                               style: TextStyle(
                                 color: Colours.darkColour,
-                                fontFamily: Fonts.merriweather,
+                                fontFamily: Fonts.inter,
                               ),
                             ),
                           ),

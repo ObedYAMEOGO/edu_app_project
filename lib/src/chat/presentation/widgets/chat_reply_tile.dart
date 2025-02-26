@@ -89,7 +89,7 @@ class _ChatReplyTileState extends State<ChatReplyTile> {
                     : replier?.fullName ?? 'En cours de chargement...',
                 style: TextStyle(
                   fontSize: 12,
-                  fontFamily: Fonts.merriweather, // Texte légèrement plus clair
+                  fontFamily: Fonts.inter, // Texte légèrement plus clair
 
                   color: isMyMessage
                       ? Colours.successColor
@@ -103,7 +103,7 @@ class _ChatReplyTileState extends State<ChatReplyTile> {
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontSize: 10,
-                  fontFamily: Fonts.merriweather, // Texte légèrement plus clair
+                  fontFamily: Fonts.inter, // Texte légèrement plus clair
 
                   color:
                       isMyMessage ? Color(0xFFE4E6EA) : Colours.primaryColour,

@@ -53,7 +53,7 @@ class _ExamDetailsViewState extends State<ExamDetailsView> {
           style: const TextStyle(
               fontWeight: FontWeight.w600,
               color: Colours.darkColour,
-              fontFamily: Fonts.merriweather,
+              fontFamily: Fonts.inter,
               fontSize: 17),
         ),
       ),
@@ -102,7 +102,7 @@ class _ExamDetailsViewState extends State<ExamDetailsView> {
             padding: EdgeInsets.all(20),
             height: 100,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(3),
+              borderRadius: BorderRadius.circular(10),
               boxShadow: [
                 BoxShadow(
                   color: Colors.white,
@@ -138,7 +138,7 @@ class _ExamDetailsViewState extends State<ExamDetailsView> {
             fontSize: 15,
             fontWeight: FontWeight.bold,
             color: Colours.redColour,
-            fontFamily: Fonts.merriweather,
+            fontFamily: Fonts.inter,
           ),
         ),
         const SizedBox(height: 10),
@@ -148,7 +148,7 @@ class _ExamDetailsViewState extends State<ExamDetailsView> {
           style: const TextStyle(
             fontSize: 13,
             color: Colours.darkColour,
-            fontFamily: Fonts.merriweather,
+            fontFamily: Fonts.inter,
           ),
         ),
       ],

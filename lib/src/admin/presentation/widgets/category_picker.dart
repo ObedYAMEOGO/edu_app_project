@@ -53,18 +53,22 @@ class _CategoryPickerState extends State<CategoryPicker> {
             readOnly: true,
             decoration: InputDecoration(
               labelText: 'Choisir Catégorie',
+              labelStyle: TextStyle(
+                fontFamily: Fonts.inter,
+                fontSize: 14,
+              ),
               hintStyle: TextStyle(
-                fontFamily: Fonts.merriweather,
-                fontSize: 12,
+                fontFamily: Fonts.inter,
+                fontSize: 14,
               ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: Colours.redColour,
+                  color: Colours.shade,
                 ),
               ),
               border: const OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: Colours.redColour,
+                  color: Colours.shade,
                 ),
               ),
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
@@ -80,7 +84,7 @@ class _CategoryPickerState extends State<CategoryPicker> {
                                 child: Text(
                                   category.categoryTitle,
                                   style: TextStyle(
-                                      fontFamily: Fonts.merriweather,
+                                      fontFamily: Fonts.inter,
                                       fontWeight: FontWeight.w300),
                                 ),
                                 onTap: () {
@@ -98,7 +102,7 @@ class _CategoryPickerState extends State<CategoryPicker> {
                       child: Text(
                         'Entrain de charger...',
                         style: TextStyle(
-                          fontFamily: Fonts.merriweather,
+                          fontFamily: Fonts.inter,
                         ),
                       ),
                     ),

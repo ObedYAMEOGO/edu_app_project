@@ -1,5 +1,6 @@
 import 'package:edu_app_project/core/common/widgets/time_text.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:flutter/material.dart';
 
 class TimeTile extends StatelessWidget {
@@ -21,7 +22,7 @@ class TimeTile extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        borderRadius: BorderRadius.circular(3),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -32,6 +33,7 @@ class TimeTile extends StatelessWidget {
               prefixText: prefixText,
               style: TextStyle(
                 color: Colours.darkColour,
+                fontFamily: Fonts.inter,
                 fontSize: 9,
               ),
               maxLines: 1,

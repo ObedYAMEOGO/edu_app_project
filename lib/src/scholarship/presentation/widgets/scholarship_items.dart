@@ -25,9 +25,9 @@ class ScholarshipItems extends StatelessWidget {
               ),
               child: Card(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(3),
+                  borderRadius: BorderRadius.circular(10), // Rounded corners
                   side: BorderSide(
-                    color: Colors.grey.withOpacity(0.2), // Bordure subtile
+                    color: Colors.grey.withOpacity(0.2),
                     width: 1,
                   ),
                 ),
@@ -35,33 +35,31 @@ class ScholarshipItems extends StatelessWidget {
                 shadowColor: Colors.black.withOpacity(0.1),
                 margin: const EdgeInsets.symmetric(horizontal: 16),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(3),
+                  borderRadius:
+                      BorderRadius.circular(12), // Consistent rounding
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Application deadline at the top
+                      // Application deadline with gradient
                       Container(
                         padding: const EdgeInsets.symmetric(
                             vertical: 10, horizontal: 16),
                         decoration: BoxDecoration(
-                          color: Colours.primaryColour,
-                          border: Border(
-                            bottom: BorderSide(color: Colours.whiteColour),
-                          ),
+                          gradient:
+                              Colours.primaryGradient, // Apply gradient here
+                          borderRadius: const BorderRadius.vertical(
+                              top: Radius.circular(10)), // Rounded top
                         ),
                         child: Row(
                           children: [
-                            const Icon(
-                              Icons.calendar_today_outlined,
-                              size: 16,
-                              color: Colours.whiteColour,
-                            ),
+                            const Icon(Icons.calendar_today_outlined,
+                                size: 16, color: Colours.whiteColour),
                             const SizedBox(width: 8),
                             Text(
                               'Date limite: ${DateFormat('dd MMM yyyy').format(scholarship.applicationDeadline)}',
                               style: const TextStyle(
                                 fontSize: 12,
-                                fontFamily: Fonts.merriweather,
+                                fontFamily: Fonts.inter,
                                 fontWeight: FontWeight.w500,
                                 color: Colours.whiteColour,
                               ),
@@ -75,7 +73,7 @@ class ScholarshipItems extends StatelessWidget {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // Scholarship details (left side)
+                            // Left side: Scholarship details
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -87,26 +85,24 @@ class ScholarshipItems extends StatelessWidget {
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
                                       color: Colours.darkColour,
-                                      fontFamily: Fonts.merriweather,
+                                      fontFamily: Fonts.inter,
                                     ),
                                   ),
                                   const SizedBox(height: 8),
                                   // Category badge
                                   Container(
                                     padding: const EdgeInsets.symmetric(
-                                      vertical: 4,
-                                      horizontal: 10,
-                                    ),
+                                        vertical: 4, horizontal: 10),
                                     decoration: BoxDecoration(
                                       color: const Color(0xFFE4E6EA),
-                                      borderRadius: BorderRadius.circular(3),
+                                      borderRadius: BorderRadius.circular(10),
                                     ),
                                     child: Text(
                                       scholarship.category,
                                       style: const TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w500,
-                                        fontFamily: Fonts.merriweather,
+                                        fontFamily: Fonts.inter,
                                         color: Colours.darkColour,
                                       ),
                                     ),
@@ -115,17 +111,14 @@ class ScholarshipItems extends StatelessWidget {
                                   // Country
                                   Row(
                                     children: [
-                                      const Icon(
-                                        Icons.location_on_outlined,
-                                        size: 16,
-                                        color: Colours.darkColour,
-                                      ),
+                                      const Icon(Icons.location_on_outlined,
+                                          size: 16, color: Colours.darkColour),
                                       const SizedBox(width: 8),
                                       Text(
                                         scholarship.country.toUpperCase(),
                                         style: const TextStyle(
                                           fontSize: 14,
-                                          fontFamily: Fonts.merriweather,
+                                          fontFamily: Fonts.inter,
                                           fontWeight: FontWeight.w600,
                                           color: Colours.darkColour,
                                         ),
@@ -135,62 +128,68 @@ class ScholarshipItems extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            // Logo (right side)
+                            // Right side: Logo
                             Container(
                               margin: const EdgeInsets.only(left: 12),
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.circular(3),
+                                borderRadius: BorderRadius.circular(10),
                                 border: Border.all(
-                                  color: Colors.grey
-                                      .withOpacity(0.2), // Bordure subtile
+                                  color: Colors.grey.withOpacity(0.2),
                                   width: 1,
                                 ),
                               ),
                               child: Image.network(
                                 scholarship.logoImage,
-                                height: 60, // Logo agrandi
-                                width: 60, // Logo agrandi
+                                height: 60,
+                                width: 60,
                                 fit: BoxFit.contain,
                               ),
                             ),
                           ],
                         ),
                       ),
-                      // Divider for ticket effect
+                      // Divider
                       Container(
                         height: 1,
                         color: Colors.grey[200],
                       ),
-                      // Details button
+                      // Details button with gradient
                       Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: SizedBox(
                           width: double.infinity,
-                          child: ElevatedButton(
-                            onPressed: () => Navigator.of(context).pushNamed(
-                              ScholarshipDetailsScreen.routeName,
-                              arguments: scholarship,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              gradient: Colours
+                                  .primaryGradient, // Apply gradient here
+                              borderRadius: BorderRadius.circular(10),
                             ),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colours.primaryColour,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(3),
+                            child: ElevatedButton(
+                              onPressed: () => Navigator.of(context).pushNamed(
+                                ScholarshipDetailsScreen.routeName,
+                                arguments: scholarship,
                               ),
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 8,
-                                horizontal: 16,
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors
+                                    .transparent, // Transparent to show gradient
+                                shadowColor: Colors.transparent,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 10, horizontal: 16),
+                                elevation: 0,
                               ),
-                              elevation: 0,
-                            ),
-                            child: const Text(
-                              'Voir les détails',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontFamily: Fonts.merriweather,
-                                fontSize: 14,
-                                color: Colors.white,
+                              child: const Text(
+                                'Voir les détails',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: Fonts.inter,
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                ),
                               ),
                             ),
                           ),

@@ -33,9 +33,9 @@ class TitledInputField extends StatelessWidget {
               text: TextSpan(
                 text: title,
                 style: const TextStyle(
-                  fontSize: 15,
+                  fontSize: 14,
                   fontWeight: FontWeight.w300,
-                  fontFamily: Fonts.merriweather,
+                  fontFamily: Fonts.inter,
                   color: Colours.neutralTextColour,
                 ),
                 children: [
@@ -43,7 +43,7 @@ class TitledInputField extends StatelessWidget {
                     text: required ? ' *' : '',
                     style: const TextStyle(
                       color: Colours.redColour,
-                      fontFamily: Fonts.merriweather,
+                      fontFamily: Fonts.inter,
                     ),
                   ),
                 ],

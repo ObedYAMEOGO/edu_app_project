@@ -84,30 +84,32 @@ flutter:
     - assets/.env
 
   fonts:
-    - family: Montserrat
+    - family: Inter
       fonts:
-        - asset: assets/fonts/montserrat/Montserrat-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/montserrat/Montserrat-BoldItalic.ttf
-          style: italic
-          weight: 700
-        - asset: assets/fonts/montserrat/Montserrat-Light.ttf
-          weight: 300
-        - asset: assets/fonts/montserrat/Montserrat-LightItalic.ttf
-          weight: 300
-        - asset: assets/fonts/montserrat/Montserrat-Medium.ttf
+        - asset: assets/fonts/inter/Inter_28pt-Regular.ttf
           weight: 400
-        - asset: assets/fonts/montserrat/Montserrat-Regular.ttf
-          weight: 300
-        - asset: assets/fonts/montserrat/Montserrat-Thin.ttf
-          weight: 300
-          
+        - asset: assets/fonts/inter/Inter_28pt-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/inter/Inter_28pt-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/inter/Inter_28pt-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/inter/Inter_28pt-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/inter/Inter_28pt-Black.ttf
+          weight: 900
+        - asset: assets/fonts/inter/Inter_28pt-Italic.ttf
+          style: italic
+
     - family: Merriweather
       fonts:
+        - asset: assets/fonts/merriweather/Merriweather-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/merriweather/Merriweather-Light.ttf
+          weight: 300
         - asset: assets/fonts/merriweather/Merriweather-Bold.ttf
           weight: 700
         - asset: assets/fonts/merriweather/Merriweather-Black.ttf
-          weight: 600
-        - asset: assets/fonts/merriweather/Merriweather-Regular.ttf
-          weight: 300
-        - asset: assets/fonts/merriweather/Merriweather-Light.ttf
+          weight: 900
+        - asset: assets/fonts/merriweather/Merriweather-Italic.ttf
+          style: italic

@@ -1,3 +1,5 @@
+import 'package:edu_app_project/core/common/widgets/gradient_background.dart';
+import 'package:edu_app_project/core/res/media_res.dart';
 import 'package:flutter/material.dart';
 import 'package:edu_app_project/core/common/features/course/domain/entities/course.dart';
 import 'package:edu_app_project/core/common/features/category/domain/entities/category.dart';
@@ -91,7 +93,11 @@ class _AllCoursesViewState extends State<AllCoursesView> {
               decoration: InputDecoration(
                 hintText: 'Recherche...',
                 border: InputBorder.none,
-                hintStyle: TextStyle(color: Colors.grey[600], fontSize: 14),
+                hintStyle: TextStyle(
+                  color: Colors.grey[600],
+                  fontSize: 14,
+                  fontFamily: Fonts.inter,
+                ),
                 contentPadding: const EdgeInsets.symmetric(vertical: 10),
               ),
               textAlignVertical: TextAlignVertical.center,
@@ -123,7 +129,9 @@ class _AllCoursesViewState extends State<AllCoursesView> {
                 child: Text(
                   'Filtrer par Catégorie',
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: Fonts.inter,
+
                     fontSize: 18, // Increase title size
                   ),
                 ),
@@ -134,6 +142,7 @@ class _AllCoursesViewState extends State<AllCoursesView> {
                   style: TextStyle(
                     fontSize: 15,
                     color: Colours.darkColour,
+                    fontFamily: Fonts.inter,
                   ),
                 ),
                 leading: Checkbox(
@@ -159,6 +168,7 @@ class _AllCoursesViewState extends State<AllCoursesView> {
                     category.categoryTitle,
                     style: TextStyle(
                       fontSize: 15,
+                      fontFamily: Fonts.inter,
                       color: Colours.darkColour,
                     ),
                   ),
@@ -178,70 +188,73 @@ class _AllCoursesViewState extends State<AllCoursesView> {
           ),
         ),
       ),
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 12),
-            Padding(
-              padding: EdgeInsets.only(left: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Tous les cours',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontFamily: Fonts.merriweather,
-                      fontSize: 15,
-                      color: Colours.darkColour,
+      body: GradientBackground(
+        image: Res.leaderboardGradientBackground,
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 12),
+              Padding(
+                padding: EdgeInsets.only(left: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Tous les cours',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontFamily: Fonts.inter,
+                        fontSize: 15,
+                        color: Colours.darkColour,
+                      ),
                     ),
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        'Filtrer',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontFamily: Fonts.merriweather,
-                          fontSize: 15,
-                          color: Colours.darkColour,
+                    Row(
+                      children: [
+                        Text(
+                          'Filtrer',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontFamily: Fonts.inter,
+                            fontSize: 15,
+                            color: Colours.darkColour,
+                          ),
                         ),
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          Icons.filter_list,
-                          color: Colours.darkColour,
+                        IconButton(
+                          icon: Icon(
+                            Icons.filter_list,
+                            color: Colours.darkColour,
+                          ),
+                          onPressed: () {
+                            scaffoldKey.currentState?.openEndDrawer();
+                          },
                         ),
-                        onPressed: () {
-                          scaffoldKey.currentState?.openEndDrawer();
-                        },
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: 15),
-            Center(
-              child: Wrap(
-                spacing: 20,
-                runSpacing: 40,
-                runAlignment: WrapAlignment.spaceEvenly,
-                children: filteredCourses
-                    .map(
-                      (course) => CourseTile(
-                        course: course,
-                        onTap: () => Navigator.of(context).pushNamed(
-                          CourseDetailsScreen.routeName,
-                          arguments: course,
+              const SizedBox(height: 15),
+              Center(
+                child: Wrap(
+                  spacing: 20,
+                  runSpacing: 40,
+                  runAlignment: WrapAlignment.spaceEvenly,
+                  children: filteredCourses
+                      .map(
+                        (course) => CourseTile(
+                          course: course,
+                          onTap: () => Navigator.of(context).pushNamed(
+                            CourseDetailsScreen.routeName,
+                            arguments: course,
+                          ),
                         ),
-                      ),
-                    )
-                    .toList(),
+                      )
+                      .toList(),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

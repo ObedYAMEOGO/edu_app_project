@@ -18,7 +18,7 @@ class QuickAccessAppBar extends StatelessWidget implements PreferredSizeWidget {
         style: TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 17,
-            fontFamily: Fonts.merriweather,
+            fontFamily: Fonts.inter,
             color: Colours.darkColour),
       ),
       actions: [
@@ -26,7 +26,7 @@ class QuickAccessAppBar extends StatelessWidget implements PreferredSizeWidget {
           return Padding(
             padding: const EdgeInsets.only(right: 10),
             child: CircleAvatar(
-              radius: 24,
+              radius: 15,
               backgroundImage: provider.user!.profilePic != null
                   ? NetworkImage(provider.user!.profilePic!)
                   : const AssetImage(Res.user) as ImageProvider,

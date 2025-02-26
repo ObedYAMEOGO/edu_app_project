@@ -128,7 +128,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 17,
-                        fontFamily: Fonts.merriweather,
+                        fontFamily: Fonts.inter,
                         color: Colours.darkColour),
                   ),
                   leading: NestedBackButton(),
@@ -209,6 +209,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w500,
+                                    fontFamily: Fonts.inter,
                                     color: nothingChanged
                                         ? Colors.grey
                                         : Colours.successColor,
@@ -274,16 +275,16 @@ class _EditProfileViewState extends State<EditProfileView> {
                   },
                 ),
                 const SizedBox(height: 10),
-                const Padding(
+                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: Text(
                     'Nous recommendons une image 400x400',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontFamily: Fonts.montserrat,
+                      fontFamily: Fonts.inter,
                       fontSize: 13,
                       fontWeight: FontWeight.w400,
-                      color: Color(0xFF777E90),
+                      color: Colours.shade.withOpacity(0.5),
                     ),
                   ),
                 ),

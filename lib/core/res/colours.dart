@@ -18,12 +18,21 @@ class Colours {
     Color(0xFFB191E1),
   ];
   static const primaryColour = Color.fromARGB(255, 2, 82, 201);
+  static const LinearGradient primaryGradient = LinearGradient(
+    colors: [
+      Color.fromARGB(255, 2, 82, 201), // Primary Blue
+      Color(0xff00c6ff), // Cyan Accent
+    ],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
   static const secondaryColour = Color(0xFF136DD8);
   static const greenColour = Color(0xFF4EB26A);
   static const whiteColour = Color.fromARGB(255, 255, 255, 255);
   static const secondaryWhiteColour = Color.fromARGB(255, 221, 220, 220);
   static const darkColour = Colors.black;
   static const successColor = Color(0xFF4EB26A);
+  static const shade = Color.fromARGB(255, 117, 117, 117);
 
   static const lightGoldenColor = Color(0xFFE6EE9C);
   static const inforThemeColor1 = Color(0xFFD3D5FE);

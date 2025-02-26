@@ -36,7 +36,7 @@ class ExamHistoryTile extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: Color(0xFFE4E6EA),
-              borderRadius: BorderRadius.circular(0),
+              borderRadius: BorderRadius.circular(10),
             ),
             child: exam.examImageUrl == null
                 ? Image.asset(Res.test)
@@ -52,7 +52,7 @@ class ExamHistoryTile extends StatelessWidget {
                   style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
-                      fontFamily: Fonts.merriweather,
+                      fontFamily: Fonts.inter,
                       color: Colours.darkColour),
                 ),
                 const SizedBox(height: 4),

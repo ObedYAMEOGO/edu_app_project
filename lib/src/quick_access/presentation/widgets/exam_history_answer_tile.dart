@@ -23,7 +23,7 @@ class ExamHistoryAnswerTile extends StatelessWidget {
         style: TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.w600,
-          fontFamily: Fonts.merriweather,
+          fontFamily: Fonts.inter,
           color: Colours.darkColour,
         ),
       ),
@@ -33,7 +33,7 @@ class ExamHistoryAnswerTile extends StatelessWidget {
             fontSize: 12,
             color: answer.isCorrect ? Colours.successColor : Colours.redColour,
             fontWeight: FontWeight.w400,
-            fontFamily: Fonts.merriweather),
+            fontFamily: Fonts.inter),
       ),
       children: [
         Text(
@@ -43,7 +43,7 @@ class ExamHistoryAnswerTile extends StatelessWidget {
                   answer.isCorrect ? Colours.successColor : Colours.redColour,
               fontSize: 12,
               fontWeight: FontWeight.w500,
-              fontFamily: Fonts.merriweather),
+              fontFamily: Fonts.inter),
         ),
       ],
     );

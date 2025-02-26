@@ -44,7 +44,7 @@ class _CourseMaterialsViewState extends State<CourseMaterialsView> {
           style: TextStyle(
             fontSize: 17,
             fontWeight: FontWeight.w600,
-            fontFamily: Fonts.merriweather,
+            fontFamily: Fonts.inter,
             color: Colours.darkColour,
           ),
         ),

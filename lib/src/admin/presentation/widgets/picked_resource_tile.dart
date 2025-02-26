@@ -4,7 +4,6 @@ import 'package:edu_app_project/src/admin/presentation/widgets/picked_resource_h
 import 'package:edu_app_project/core/res/colours.dart';
 import 'package:edu_app_project/core/res/media_res.dart';
 import 'package:flutter/material.dart';
-import 'package:iconly/iconly.dart';
 
 class PickedResourceTile extends StatelessWidget {
   const PickedResourceTile(
@@ -24,7 +23,7 @@ class PickedResourceTile extends StatelessWidget {
       elevation: 2,
       shape: OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: BorderRadius.all(Radius.circular(0))),
+          borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -37,7 +36,7 @@ class PickedResourceTile extends StatelessWidget {
               resource.path.split('/').last,
               maxLines: 1,
               style: TextStyle(
-                fontFamily: Fonts.merriweather,
+                fontFamily: Fonts.inter,
               ),
             ),
             contentPadding: const EdgeInsets.only(left: 16, right: 5),
@@ -46,12 +45,12 @@ class PickedResourceTile extends StatelessWidget {
               children: [
                 IconButton(
                   onPressed: onEdit,
-                  icon: const Icon(IconlyBroken.edit),
+                  icon: const Icon(Icons.edit),
                 ),
                 IconButton(
                   onPressed: onDelete,
                   icon: const Icon(
-                    IconlyBroken.close_square,
+                    Icons.close,
                     color: Colours.redColour,
                   ),
                 ),

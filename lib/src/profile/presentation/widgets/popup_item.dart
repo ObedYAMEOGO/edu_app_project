@@ -16,7 +16,7 @@ class PopupItem extends StatelessWidget {
           title,
           style: const TextStyle(
             color: Colors.black,
-            fontFamily: Fonts.merriweather,
+            fontFamily: Fonts.inter,
             fontWeight: FontWeight.w300,
           ),
         ),

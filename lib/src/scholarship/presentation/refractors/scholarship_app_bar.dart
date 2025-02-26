@@ -15,7 +15,7 @@ class ScholarshipViewAppBar extends StatelessWidget
         'Bourses d\'études',
         style: TextStyle(
           fontWeight: FontWeight.w600,
-          fontFamily: Fonts.merriweather, // Texte légèrement plus clair
+          fontFamily: Fonts.inter, // Texte légèrement plus clair
 
           fontSize: 17,
           color: Colours.darkColour,

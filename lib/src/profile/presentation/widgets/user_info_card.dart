@@ -24,7 +24,7 @@ class UserInfoCard extends StatelessWidget {
         border: Border.all(
           color: const Color(0xFFE4E6EA),
         ),
-        borderRadius: BorderRadius.circular(3),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -39,7 +39,7 @@ class UserInfoCard extends StatelessWidget {
                 infoTitle,
                 style: const TextStyle(
                   fontWeight: FontWeight.w300,
-                  fontFamily: Fonts.merriweather,
+                  fontFamily: Fonts.inter,
                   fontSize: 12,
                 ),
               ),
@@ -49,7 +49,7 @@ class UserInfoCard extends StatelessWidget {
             infoValue,
             style: const TextStyle(
               fontWeight: FontWeight.w400,
-              fontFamily: Fonts.merriweather,
+              fontFamily: Fonts.inter,
               fontSize: 15,
             ),
           ),

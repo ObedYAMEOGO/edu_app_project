@@ -102,7 +102,7 @@ class _MessageBubbleState extends State<MessageBubble> {
                       user!.fullName,
                       style: TextStyle(
                         fontFamily:
-                            Fonts.merriweather, // Texte légèrement plus clair
+                            Fonts.inter, // Texte légèrement plus clair
                       ),
                     ),
                   ],
@@ -139,7 +139,7 @@ class _MessageBubbleState extends State<MessageBubble> {
                       widget.message.message,
                       style: TextStyle(
                         fontFamily:
-                            Fonts.merriweather, // Texte légèrement plus clair
+                            Fonts.inter, // Texte légèrement plus clair
 
                         color: widget.isCurrentUser
                             ? Colors.white

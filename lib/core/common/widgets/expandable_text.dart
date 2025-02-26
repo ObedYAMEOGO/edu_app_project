@@ -49,7 +49,7 @@ class _ExpandableTextState extends State<ExpandableText> {
       height: 1.9,
       fontSize: 14,
       fontWeight: FontWeight.w300,
-      fontFamily: Fonts.merriweather,
+      fontFamily: Fonts.inter,
       color: Colours.darkColour,
     );
     return Container(
@@ -80,7 +80,7 @@ class _ExpandableTextState extends State<ExpandableText> {
                         });
                       },
                     style: TextStyle(
-                      fontFamily: Fonts.merriweather,
+                      fontFamily: Fonts.inter,
                       color: Colours.primaryColour,
                       fontSize: 14,
                     ),

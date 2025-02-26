@@ -19,7 +19,7 @@ class OtherGroupTile extends StatelessWidget {
       color: Colors.white,
       elevation: 0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(0),
+        borderRadius: BorderRadius.circular(10),
         side: BorderSide(color: Colors.grey.shade300, width: 0.5),
       ),
       child: ListTile(
@@ -50,7 +50,7 @@ class OtherGroupTile extends StatelessWidget {
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
                   color: Colours.darkColour,
-                  fontFamily: Fonts.merriweather, // Texte légèrement plus clair
+                  fontFamily: Fonts.inter, // Texte légèrement plus clair
                 ),
                 overflow: TextOverflow.ellipsis,
               ),
@@ -62,22 +62,23 @@ class OtherGroupTile extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(10),
                 ),
               ),
               onPressed: () async {
                 if (context.currentUser!.subscribed) {
-                return context.read<ChatCubit>().joinGroup(
-                      groupId: group.id,
-                      userId: context.currentUser!.uid,
-                    );
-                 }
-                await Navigator.of(context).pushNamed(SubscriptionScreen.routeName);
+                  return context.read<ChatCubit>().joinGroup(
+                        groupId: group.id,
+                        userId: context.currentUser!.uid,
+                      );
+                }
+                await Navigator.of(context)
+                    .pushNamed(SubscriptionScreen.routeName);
               },
               child: const Text(
                 'Intégrer',
                 style: TextStyle(
-                  fontFamily: Fonts.merriweather, // Texte légèrement plus clair
+                  fontFamily: Fonts.inter, // Texte légèrement plus clair
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                 ),

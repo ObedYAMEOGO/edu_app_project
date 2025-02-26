@@ -18,6 +18,7 @@ class Res {
   static const leaderboardGradientBackground =
       '$_baseImages/leaderboard_gradient_background.png';
   static const chatScreenBackgroundImage = '$_baseImages/chatbg.jpg';
+  static const scholarshipBackground = "$_baseImages/scholarchipbackgroung.png";
 
   //VIcons
   static const user = '$_baseIcons/user.png';

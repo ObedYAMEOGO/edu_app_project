@@ -1,3 +1,4 @@
+import 'package:edu_app_project/core/common/widgets/gradient_background.dart';
 import 'package:edu_app_project/core/res/colours.dart';
 import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/res/media_res.dart';
@@ -53,49 +54,52 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          const SizedBox(height: 250),
-          Center(
-            child: ScaleTransition(
-              scale: _animation,
-              child: Image(
-                image: AssetImage(Res.logoImage),
-                width: 130,
-                height: 130,
+      body: GradientBackground(
+        image: Res.leaderboardGradientBackground,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const SizedBox(height: 250),
+            Center(
+              child: ScaleTransition(
+                scale: _animation,
+                child: Image(
+                  image: AssetImage(Res.logoImage),
+                  width: 130,
+                  height: 130,
+                ),
               ),
             ),
-          ),
-          const Spacer(),
-          Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  '| Développé par l\'équipe Eruditio',
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w500,
-                    color: Colours.darkColour,
-                    fontFamily: Fonts.merriweather,
+            const Spacer(),
+            Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    '| Développé par l\'équipe Eruditio',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                      color: Colours.darkColour,
+                      fontFamily: Fonts.inter,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  '© 2024 Tout droit réservé',
-                  style: TextStyle(
-                    fontSize: 9,
-                    fontWeight: FontWeight.w300,
-                    color: Colours.darkColour,
-                    fontFamily: Fonts.merriweather,
+                  const SizedBox(height: 5),
+                  Text(
+                    '© 2024 Tout droit réservé',
+                    style: TextStyle(
+                      fontSize: 9,
+                      fontWeight: FontWeight.w300,
+                      color: Colours.darkColour,
+                      fontFamily: Fonts.inter,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 30),
-              ],
+                  const SizedBox(height: 30),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

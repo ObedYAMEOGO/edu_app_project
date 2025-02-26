@@ -50,6 +50,7 @@ class Utils {
                       title ?? _getTitle(contentType),
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
+                        fontFamily: Fonts.inter,
                         color: textColor,
                         fontSize: 13,
                       ),
@@ -59,6 +60,7 @@ class Utils {
                       message,
                       style: const TextStyle(
                         color: textColor,
+                        fontFamily: Fonts.inter,
                         fontSize: 10,
                       ),
                     ),
@@ -200,7 +202,7 @@ class Utils {
             style: TextStyle(
               color: Colours.darkColour,
 
-              fontFamily: Fonts.merriweather, // Texte légèrement plus clair
+              fontFamily: Fonts.inter, // Texte légèrement plus clair
             ),
           ),
           actions: [
@@ -213,7 +215,7 @@ class Utils {
                 style: TextStyle(
                   color: Colours.darkColour,
 
-                  fontFamily: Fonts.merriweather, // Texte légèrement plus clair
+                  fontFamily: Fonts.inter, // Texte légèrement plus clair
                 ),
               ),
             ),

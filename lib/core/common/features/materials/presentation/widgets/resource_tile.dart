@@ -52,7 +52,7 @@ class ResourceTile extends StatelessWidget {
             style: TextStyle(
                 color: Colours.darkColour,
                 fontWeight: FontWeight.w500,
-                fontFamily: Fonts.merriweather,
+                fontFamily: Fonts.inter,
                 letterSpacing: -0.5,
                 fontSize: 14),
           ),
@@ -75,14 +75,14 @@ class ResourceTile extends StatelessWidget {
                               style: TextStyle(
                                   color: Colours.redColour,
                                   fontWeight: FontWeight.w500,
-                                  fontFamily: Fonts.merriweather,
+                                  fontFamily: Fonts.inter,
                                   fontSize: 12),
                             ),
                             const SizedBox(height: 5),
                             Text(
                               resource.author!,
                               style: const TextStyle(
-                                  fontFamily: Fonts.merriweather,
+                                  fontFamily: Fonts.inter,
                                   fontSize: 10,
                                   color: Colours.darkColour),
                             ),
@@ -106,7 +106,7 @@ class ResourceTile extends StatelessWidget {
                               'Description',
                               style: TextStyle(
                                   color: Colours.redColour,
-                                  fontFamily: Fonts.merriweather,
+                                  fontFamily: Fonts.inter,
                                   fontWeight: FontWeight.w500,
                                   fontSize: 12),
                             ),
@@ -114,7 +114,7 @@ class ResourceTile extends StatelessWidget {
                             Text(
                               resource.description!,
                               style: const TextStyle(
-                                  fontFamily: Fonts.merriweather,
+                                  fontFamily: Fonts.inter,
                                   fontSize: 10,
                                   color: Colours.darkColour),
                             ),

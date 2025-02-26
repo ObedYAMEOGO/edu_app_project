@@ -53,17 +53,20 @@ class _CoursePickerState extends State<CoursePicker> {
             readOnly: true,
             decoration: InputDecoration(
               labelText: 'Choisir Cours',
+              labelStyle: TextStyle(
+                fontFamily: Fonts.inter,
+              ),
               hintStyle: TextStyle(
-                fontFamily: Fonts.merriweather,
+                fontFamily: Fonts.inter,
               ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: Colours.redColour,
+                  color: Colours.shade,
                 ),
               ),
               border: const OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: Colours.redColour,
+                  color: Colours.shade,
                 ),
               ),
               contentPadding: const EdgeInsets.symmetric(horizontal: 10),
@@ -79,7 +82,7 @@ class _CoursePickerState extends State<CoursePicker> {
                                 child: Text(
                                   course.title,
                                   style: TextStyle(
-                                      fontFamily: Fonts.merriweather,
+                                      fontFamily: Fonts.inter,
                                       fontWeight: FontWeight.w300),
                                 ),
                                 onTap: () {
@@ -96,7 +99,7 @@ class _CoursePickerState extends State<CoursePicker> {
                       child: Text(
                         'Entrain de charger...',
                         style: TextStyle(
-                          fontFamily: Fonts.merriweather,
+                          fontFamily: Fonts.inter,
                         ),
                       ),
                     ),

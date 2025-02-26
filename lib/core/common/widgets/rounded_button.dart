@@ -23,22 +23,35 @@ class RoundedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height,
-      width: width,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            backgroundColor: buttonColour ?? Colours.primaryColour,
-            foregroundColor: labelColour ?? Colors.white,
-            minimumSize: const Size(double.maxFinite, 50),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(3))),
-        onPressed: onPressed,
-        child: Text(
-          label,
-          style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontFamily: Fonts.merriweather,
-              color: Colours.whiteColour),
+      height: height ?? 50, // Default height
+      width: width ?? double.maxFinite, // Default width
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: buttonColour != null
+              ? LinearGradient(colors: [buttonColour!, buttonColour!])
+              : Colours
+                  .primaryGradient, // Use gradient if no solid color is provided
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.transparent, // Make button transparent
+            shadowColor: Colors.transparent, // Remove button shadow
+            foregroundColor: labelColour ?? Colours.whiteColour,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+          onPressed: onPressed,
+          child: Text(
+            label,
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: 14,
+              fontFamily: Fonts.inter,
+              color: labelColour ?? Colours.whiteColour,
+            ),
+          ),
         ),
       ),
     );

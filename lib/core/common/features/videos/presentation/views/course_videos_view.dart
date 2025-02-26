@@ -3,10 +3,12 @@ import 'package:edu_app_project/core/common/features/videos/domain/entities/vide
 import 'package:edu_app_project/core/common/features/videos/presentation/app/cubit/video_cubit.dart';
 import 'package:edu_app_project/core/common/features/videos/presentation/widgets/video_tile.dart';
 import 'package:edu_app_project/core/common/views/loading_view.dart';
+import 'package:edu_app_project/core/common/widgets/gradient_background.dart';
 import 'package:edu_app_project/core/common/widgets/nested_back_button.dart';
 import 'package:edu_app_project/core/common/widgets/not_found_text.dart';
 import 'package:edu_app_project/core/res/colours.dart';
 import 'package:edu_app_project/core/res/fonts.dart';
+import 'package:edu_app_project/core/res/media_res.dart';
 import 'package:edu_app_project/core/utils/core_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -81,7 +83,11 @@ class _CourseVideosViewState extends State<CourseVideosView> {
               decoration: InputDecoration(
                 hintText: 'Recherche...',
                 border: InputBorder.none,
-                hintStyle: TextStyle(color: Colors.grey[600], fontSize: 14),
+                hintStyle: TextStyle(
+                  color: Colors.grey[600],
+                  fontSize: 14,
+                  fontFamily: Fonts.inter,
+                ),
                 contentPadding: const EdgeInsets.symmetric(vertical: 10),
               ),
               textAlignVertical: TextAlignVertical.center,
@@ -97,65 +103,68 @@ class _CourseVideosViewState extends State<CourseVideosView> {
           ),
         ],
       ),
-      body: SafeArea(
-        child: BlocConsumer<VideoCubit, VideoState>(
-          listener: (context, state) {
-            if (state is VideoError) {
-              Utils.showSnackBar(context, state.message, ContentType.failure,
-                  title: 'Oups!');
-            }
-          },
-          builder: (context, state) {
-            if (state is! VideosLoaded && state is! VideoError) {
-              return const LoadingView();
-            }
-
-            if (state is VideosLoaded && state.videos.isNotEmpty) {
-              if (filteredVideos.isEmpty && searchController.text.isEmpty) {
-                filteredVideos = state.videos;
+      body: GradientBackground(
+        image: Res.leaderboardGradientBackground,
+        child: SafeArea(
+          child: BlocConsumer<VideoCubit, VideoState>(
+            listener: (context, state) {
+              if (state is VideoError) {
+                Utils.showSnackBar(context, state.message, ContentType.failure,
+                    title: 'Oups!');
               }
-              return Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '${widget.course.title}',
-                      style: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                        color: Colours.darkColour,
-                        fontFamily: Fonts.merriweather,
+            },
+            builder: (context, state) {
+              if (state is! VideosLoaded && state is! VideoError) {
+                return const LoadingView();
+              }
+        
+              if (state is VideosLoaded && state.videos.isNotEmpty) {
+                if (filteredVideos.isEmpty && searchController.text.isEmpty) {
+                  filteredVideos = state.videos;
+                }
+                return Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '${widget.course.title}',
+                        style: const TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                          color: Colours.darkColour,
+                          fontFamily: Fonts.inter,
+                        ),
                       ),
-                    ),
-                    Text(
-                      '${filteredVideos.length} vidéos trouvées',
-                      style: const TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w500,
-                        color: Colours.primaryColour,
-                        fontFamily: Fonts.merriweather,
+                      Text(
+                        '${filteredVideos.length} vidéos trouvées',
+                        style: const TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w500,
+                          color: Colours.primaryColour,
+                          fontFamily: Fonts.inter,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 20),
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: filteredVideos.length,
-                        itemBuilder: (context, index) {
-                          final video = filteredVideos[index];
-                          return VideoTile(video: video);
-                        },
+                      const SizedBox(height: 20),
+                      Expanded(
+                        child: ListView.builder(
+                          itemCount: filteredVideos.length,
+                          itemBuilder: (context, index) {
+                            final video = filteredVideos[index];
+                            return VideoTile(video: video);
+                          },
+                        ),
                       ),
-                    ),
-                  ],
-                ),
+                    ],
+                  ),
+                );
+              }
+        
+              return NotFoundText(
+                'Pas de vidéos disponibles \n pour le cours de ${widget.course.title}',
               );
-            }
-
-            return NotFoundText(
-              'Pas de vidéos disponibles \n pour le cours de ${widget.course.title}',
-            );
-          },
+            },
+          ),
         ),
       ),
     );

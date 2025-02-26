@@ -57,7 +57,7 @@ class _ChatInputFieldState extends State<ChatInputField> {
           hintText: 'Message',
           hintStyle: TextStyle(
             color: Colors.grey[600],
-            fontFamily: Fonts.merriweather, // Texte légèrement plus clair
+            fontFamily: Fonts.inter, // Texte légèrement plus clair
 
             fontSize: 14,
             fontWeight: FontWeight.w400,

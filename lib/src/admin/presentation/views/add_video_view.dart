@@ -157,7 +157,7 @@ class _AddVideoViewState extends State<AddVideoView> {
             style: TextStyle(
                 color: Colours.darkColour,
                 fontWeight: FontWeight.w600,
-                fontFamily: Fonts.merriweather,
+                fontFamily: Fonts.inter,
                 fontSize: 17),
           ),
         ),
@@ -179,7 +179,7 @@ class _AddVideoViewState extends State<AddVideoView> {
                 controller: urlController,
                 hintText: 'Entrez l’URL de la vidéo',
                 hintStyle: TextStyle(
-                  fontFamily: Fonts.merriweather,
+                  fontFamily: Fonts.inter,
                 ),
                 onEditingComplete: fetchVideo,
                 focusNode: urlFocusNode,
@@ -200,7 +200,7 @@ class _AddVideoViewState extends State<AddVideoView> {
                             'Rechercher la vidéo',
                             style: TextStyle(
                               color: Colours.secondaryColour,
-                              fontFamily: Fonts.merriweather,
+                              fontFamily: Fonts.inter,
                             ),
                           ),
                         ),
@@ -267,7 +267,7 @@ class _AddVideoViewState extends State<AddVideoView> {
                   focusNode: tutorNameFocusNode,
                   labelText: 'Nom du tuteur',
                   hintStyle: TextStyle(
-                    fontFamily: Fonts.merriweather,
+                    fontFamily: Fonts.inter,
                   ),
                   onEditingComplete: () {
                     setState(() {});
@@ -278,7 +278,7 @@ class _AddVideoViewState extends State<AddVideoView> {
                   controller: videoTitleController,
                   labelText: 'Titre de la vidéo',
                   hintStyle: TextStyle(
-                    fontFamily: Fonts.merriweather,
+                    fontFamily: Fonts.inter,
                   ),
                   focusNode: videoTitleFocusNode,
                   onEditingComplete: () {
@@ -323,8 +323,8 @@ class _AddVideoViewState extends State<AddVideoView> {
                 ),
               ),
               const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () async {
+              GestureDetector(
+                onTap: () async {
                   reset();
                   video = await AdminUtils.pickVideo() as VideoModel?;
                   if (video != null) {
@@ -335,31 +335,31 @@ class _AddVideoViewState extends State<AddVideoView> {
                     });
                   }
                 },
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(3),
-                  ),
-                  backgroundColor: Colours.primaryColour,
+                child: Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(Icons.video_library, color: Colors.white),
-                    const SizedBox(width: 8),
-                    Text(
-                      urlController.text.trim().isNotEmpty
-                          ? 'Remplacer la vidéo par URL'
-                          : 'Ajouter une vidéo depuis la galerie',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontFamily: Fonts.merriweather,
+                  decoration: BoxDecoration(
+                    gradient: Colours.primaryGradient,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(Icons.video_library, color: Colors.white),
+                      const SizedBox(width: 8),
+                      Text(
+                        urlController.text.trim().isNotEmpty
+                            ? 'Remplacer la vidéo par URL'
+                            : 'Ajouter une vidéo depuis la galerie',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontFamily: Fonts.inter,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
+              )
             ],
           ),
         ),

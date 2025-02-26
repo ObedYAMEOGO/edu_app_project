@@ -14,7 +14,6 @@ import 'package:edu_app_project/src/admin/presentation/widgets/category_picker.d
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iconly/iconly.dart';
 
 class AddCourseSheet extends StatefulWidget {
   const AddCourseSheet({super.key});
@@ -32,9 +31,7 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
   final formKey = GlobalKey<FormState>();
 
   File? image;
-
   bool isFile = false;
-
   bool loading = false;
 
   @override
@@ -109,8 +106,7 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
             child: Form(
               key: formKey,
               child: Column(
-                mainAxisSize:
-                    MainAxisSize.min, // S'assure que la hauteur est ajustée
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
@@ -121,13 +117,12 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
                         style: TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.w500,
-                          fontFamily: Fonts.merriweather,
+                          fontFamily: Fonts.inter,
                         ),
                       ),
                       IconButton(
                         onPressed: () => Navigator.pop(context),
-                        icon: Icon(IconlyBroken.close_square,
-                            color: Colors.red, size: 30),
+                        icon: Icon(Icons.close, color: Colors.red, size: 30),
                       ),
                     ],
                   ),
@@ -136,7 +131,7 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
                     controller: titleController,
                     title: 'Intitulé du cours',
                     hintStyle: TextStyle(
-                      fontFamily: Fonts.merriweather,
+                      fontFamily: Fonts.inter,
                     ),
                   ),
                   const SizedBox(height: 20),
@@ -144,7 +139,7 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
                     controller: descriptionController,
                     title: 'Description du cours',
                     hintStyle: TextStyle(
-                      fontFamily: Fonts.merriweather,
+                      fontFamily: Fonts.inter,
                     ),
                     required: false,
                   ),
@@ -162,7 +157,7 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
                     hintStyle: const TextStyle(
                       color: Colors.grey,
                       fontSize: 12,
-                      fontFamily: Fonts.merriweather,
+                      fontFamily: Fonts.inter,
                     ),
                     required: false,
                     suffixIcon: IconButton(
@@ -175,49 +170,51 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
                           imageController.text = imageName;
                         }
                       },
-                      icon: const Icon(IconlyBroken.image,
-                          color: Colours.primaryColour),
+                      icon:
+                          const Icon(Icons.image, color: Colours.primaryColour),
                     ),
                   ),
                   const SizedBox(height: 20),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colours.primaryColour,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(3),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 15, horizontal: 50),
+
+                  // Gradient Button
+                  GestureDetector(
+                    onTap: () {
+                      if (formKey.currentState!.validate()) {
+                        final now = DateTime.now();
+                        final course = CourseModel.empty().copyWith(
+                          title: titleController.text.trim(),
+                          description: descriptionController.text.trim(),
+                          image: imageController.text.trim().isEmpty
+                              ? kDefaultImage
+                              : isFile
+                                  ? image!.path
+                                  : imageController.text.trim(),
+                          createdAt: now,
+                          updatedAt: now,
+                          imageIsFile: isFile,
+                          courseCategoryId:
+                              categoryNotifier.value?.categoryId ?? '',
+                        );
+                        context.read<CourseCubit>().addCourse(course);
+                      }
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 15, horizontal: 50),
+                      decoration: BoxDecoration(
+                        gradient: Colours.primaryGradient,
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          final now = DateTime.now();
-                          final course = CourseModel.empty().copyWith(
-                            title: titleController.text.trim(),
-                            description: descriptionController.text.trim(),
-                            image: imageController.text.trim().isEmpty
-                                ? kDefaultImage
-                                : isFile
-                                    ? image!.path
-                                    : imageController.text.trim(),
-                            createdAt: now,
-                            updatedAt: now,
-                            imageIsFile: isFile,
-                            courseCategoryId:
-                                categoryNotifier.value?.categoryId ?? '',
-                          );
-                          context.read<CourseCubit>().addCourse(course);
-                        }
-                      },
-                      child: const Text(
-                        'Ajouter',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: Fonts.merriweather,
+                      child: const Center(
+                        child: Text(
+                          'Ajouter',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: Fonts.inter,
+                          ),
                         ),
                       ),
                     ),

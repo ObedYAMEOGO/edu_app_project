@@ -11,7 +11,6 @@ import 'package:edu_app_project/core/utils/core_utils.dart';
 import 'package:edu_app_project/src/admin/presentation/utils/admin_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iconly/iconly.dart';
 
 class AddCategorySheet extends StatefulWidget {
   const AddCategorySheet({super.key});
@@ -26,9 +25,7 @@ class _AddCategorySheetState extends State<AddCategorySheet> {
   final formKey = GlobalKey<FormState>();
 
   File? image;
-
   bool isFile = false;
-
   bool loading = false;
 
   @override
@@ -70,19 +67,17 @@ class _AddCategorySheetState extends State<AddCategorySheet> {
           }
           Utils.showSnackBar(
             context,
-            'Une nouvelle catégorie de cours a été ajouté avec succès',
+            'Une nouvelle catégorie de cours a été ajoutée avec succès',
             ContentType.success,
             title: 'Parfait!',
           );
-          Utils.showLoadingDialog(context);
-          final navigator = Navigator.of(context);
           Utils.sendNotification(
             context,
             title: 'Du nouveau sur (${titleController.text.trim()})',
-            body: 'Une nouvelle catégorie vient d\'être ajouté',
+            body: 'Une nouvelle catégorie vient d\'être ajoutée',
             category: NotificationCategory.COURSE,
           );
-          navigator
+          Navigator.of(context)
             ..pop()
             ..pop();
         }
@@ -100,25 +95,24 @@ class _AddCategorySheetState extends State<AddCategorySheet> {
           child: Form(
             key: formKey,
             child: Column(
-              mainAxisSize:
-                  MainAxisSize.min, // S'assure que la hauteur est ajustée
+              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
-                      'Ajouter un nouveau cours',
+                      'Ajouter une nouvelle catégorie',
                       style: TextStyle(
-                        fontFamily: Fonts.merriweather,
+                        fontFamily: Fonts.inter,
                         fontSize: 17,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                     IconButton(
                       onPressed: () => Navigator.pop(context),
-                      icon: Icon(IconlyBroken.close_square,
-                          color: Colours.redColour, size: 30),
+                      icon:
+                          Icon(Icons.close, color: Colours.redColour, size: 30),
                     ),
                   ],
                 ),
@@ -127,7 +121,7 @@ class _AddCategorySheetState extends State<AddCategorySheet> {
                   controller: titleController,
                   title: 'Nom catégorie',
                   hintStyle: TextStyle(
-                    fontFamily: Fonts.merriweather,
+                    fontFamily: Fonts.inter,
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -139,7 +133,7 @@ class _AddCategorySheetState extends State<AddCategorySheet> {
                   hintStyle: const TextStyle(
                     color: Colors.grey,
                     fontSize: 12,
-                    fontFamily: Fonts.merriweather,
+                    fontFamily: Fonts.inter,
                   ),
                   required: false,
                   suffixIcon: IconButton(
@@ -152,43 +146,42 @@ class _AddCategorySheetState extends State<AddCategorySheet> {
                         imageController.text = imageName;
                       }
                     },
-                    icon: const Icon(IconlyBroken.image,
-                        color: Colours.primaryColour),
+                    icon: const Icon(Icons.image, color: Colours.primaryColour),
                   ),
                 ),
                 const SizedBox(height: 20),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colours.primaryColour,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(3),
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 15, horizontal: 50),
+                GestureDetector(
+                  onTap: () {
+                    if (formKey.currentState!.validate()) {
+                      final category = CategoryModel.empty().copyWith(
+                        categoryTitle: titleController.text.trim(),
+                        categoryImage: imageController.text.trim().isEmpty
+                            ? kDefaultImage
+                            : isFile
+                                ? image!.path
+                                : imageController.text.trim(),
+                        isImageFile: isFile,
+                      );
+                      context.read<CategoryCubit>().addCategory(category);
+                    }
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 50),
+                    decoration: BoxDecoration(
+                      gradient: Colours.primaryGradient,
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        final category = CategoryModel.empty().copyWith(
-                          categoryTitle: titleController.text.trim(),
-                          categoryImage: imageController.text.trim().isEmpty
-                              ? kDefaultImage
-                              : isFile
-                                  ? image!.path
-                                  : imageController.text.trim(),
-                          isImageFile: isFile,
-                        );
-                        context.read<CategoryCubit>().addCategory(category);
-                      }
-                    },
-                    child: const Text(
-                      'Ajouter',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: Fonts.merriweather,
+                    child: const Center(
+                      child: Text(
+                        'Ajouter',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: Fonts.inter,
+                        ),
                       ),
                     ),
                   ),

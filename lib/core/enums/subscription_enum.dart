@@ -6,23 +6,24 @@ enum Subscription {
     title: 'Pack Mensuel',
     description: 'Un mois d’accès illimité au contenu premium.',
     price: 1499, // 9.99 USD * 600
-    star: 1, //
+    star: 1,
   ),
   QUARTERLY(
     code: 3,
     title: 'Pack Trimestriel',
     description: 'Trois mois d’apprentissage continu.',
     price: 3999, // 24.99 USD * 600
-    star: 2, //
+    star: 2,
   ),
   ANNUALLY(
     code: 12,
     title: 'Pack Annuel',
     description: 'Un an d’accès complet au contenu exclusif.',
     price: 6999, // 89.99 USD * 600
-    star: 3, //
+    star: 3,
   );
 
+  // Déclaration correcte d'un constructeur pour une énumération
   const Subscription({
     required this.code,
     required this.title,
@@ -35,5 +36,14 @@ enum Subscription {
   final String title;
   final String description;
   final double price;
-  final int star; 
+  final int star;
+
+  // Ajout d'une méthode pour récupérer une Subscription à partir de son code
+  static Subscription? fromCode(int code) {
+    return Subscription.values.firstWhere(
+      (sub) => sub.code == code,
+      // ignore: cast_from_null_always_fails
+      orElse: () => null as Subscription,
+    );
+  }
 }

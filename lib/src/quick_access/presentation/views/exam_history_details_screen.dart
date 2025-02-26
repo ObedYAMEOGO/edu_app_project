@@ -29,7 +29,7 @@ class _ExamHistoryDetailsScreenState extends State<ExamHistoryDetailsScreen> {
             'Historique',
             style: TextStyle(
               fontSize: 18,
-              fontFamily: Fonts.merriweather,
+              fontFamily: Fonts.inter,
               fontWeight: FontWeight.w600,
               color: Colours.darkColour,
             ),
@@ -48,6 +48,7 @@ class _ExamHistoryDetailsScreenState extends State<ExamHistoryDetailsScreen> {
                   style: TextStyle(
                     color: Colours.darkColour,
                     fontWeight: FontWeight.w600,
+                    fontFamily: Fonts.inter,
                   ),
                   children: [
                     TextSpan(
@@ -55,6 +56,7 @@ class _ExamHistoryDetailsScreenState extends State<ExamHistoryDetailsScreen> {
                           .format(widget.exam.dateSubmitted),
                       style: TextStyle(
                         color: Colours.darkColour,
+                        fontFamily: Fonts.inter,
                         fontWeight: FontWeight.normal,
                       ),
                     ),

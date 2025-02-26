@@ -195,7 +195,7 @@ class _ExamViewState extends State<ExamView> {
                       style: const TextStyle(
                         color: Colours.darkColour,
                         fontSize: 17,
-                        fontFamily: Fonts.merriweather,
+                        fontFamily: Fonts.inter,
                       ),
                     ),
                   ],
@@ -208,7 +208,7 @@ class _ExamViewState extends State<ExamView> {
                         style: TextStyle(
                             color: Colours.primaryColour,
                             fontSize: 17,
-                            fontFamily: Fonts.merriweather,
+                            fontFamily: Fonts.inter,
                             fontWeight: FontWeight.bold)),
                   ),
                 ],
@@ -228,7 +228,7 @@ class _ExamViewState extends State<ExamView> {
                               style: const TextStyle(
                                 fontSize: 17,
                                 fontWeight: FontWeight.w600,
-                                fontFamily: Fonts.merriweather,
+                                fontFamily: Fonts.inter,
                                 color: Colours.darkColour,
                               ),
                             ),
@@ -236,7 +236,7 @@ class _ExamViewState extends State<ExamView> {
                             DecoratedBox(
                               decoration: BoxDecoration(
                                 color: Colours.whiteColour,
-                                borderRadius: BorderRadius.circular(3),
+                                borderRadius: BorderRadius.circular(10),
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.all(20.0),
@@ -262,7 +262,7 @@ class _ExamViewState extends State<ExamView> {
                                 color: Colours.darkColour,
                                 fontSize: 15,
                                 fontWeight: FontWeight.w600,
-                                fontFamily: Fonts.merriweather,
+                                fontFamily: Fonts.inter,
                               ),
                             ),
                           ],
@@ -298,7 +298,7 @@ class _ExamViewState extends State<ExamView> {
                                 '${choice.identifier}. ${choice.choiceAnswer}',
                                 style: const TextStyle(
                                     color: Colours.darkColour,
-                                    fontFamily: Fonts.merriweather,
+                                    fontFamily: Fonts.inter,
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500),
                               ),

@@ -56,7 +56,7 @@ class _SignInScreenState extends State<SignInScreen> {
         },
         builder: (context, state) {
           return GradientBackground(
-            image: Res.backgroundImg,
+            image: Res.leaderboardGradientBackground,
             child: SafeArea(
                 child: Center(
               child: ListView(
@@ -66,7 +66,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   Text(
                     "Connexion",
                     style: TextStyle(
-                      fontFamily: Fonts.merriweather,
+                      fontFamily: Fonts.inter,
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
                     ),
@@ -92,9 +92,9 @@ class _SignInScreenState extends State<SignInScreen> {
                         child: Text(
                           'Mot de passe oublié ?',
                           style: TextStyle(
-                              fontFamily: Fonts.merriweather,
+                              fontFamily: Fonts.inter,
                               color: Colours.primaryColour,
-                              fontSize: 12),
+                              fontSize: 14),
                         ),
                       )),
                   const SizedBox(
@@ -132,23 +132,22 @@ class _SignInScreenState extends State<SignInScreen> {
                             SignUpScreen.routeName,
                           );
                         },
-                        child: const Row(
+                        child: Row(
                           children: [
                             Text(
                               'Pas de compte?   ',
                               style: TextStyle(
-                                color: Colours.darkColour,
-                                fontSize: 12,
-                                fontFamily: Fonts.merriweather,
+                                color: Colours.shade,
+                                fontSize: 14,
+                                fontFamily: Fonts.inter,
                               ),
                             ),
                             Text(
                               '  S\'inscrire',
                               style: TextStyle(
                                 color: Colours.primaryColour,
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: Fonts.merriweather,
+                                fontSize: 14,
+                                fontFamily: Fonts.inter,
                               ),
                             )
                           ],
