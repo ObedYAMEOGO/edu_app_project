@@ -31,7 +31,7 @@ class ExamHistoryAnswerTile extends StatelessWidget {
         answer.isCorrect ? 'Vrai' : 'Faux',
         style: TextStyle(
             fontSize: 12,
-            color: answer.isCorrect ? Colours.successColor : Colours.redColour,
+            color: answer.isCorrect ? Colours.successColor : Colours.pinkColour,
             fontWeight: FontWeight.w400,
             fontFamily: Fonts.inter),
       ),
@@ -40,7 +40,7 @@ class ExamHistoryAnswerTile extends StatelessWidget {
           'Ma reponse: ${answer.userChoice}',
           style: TextStyle(
               color:
-                  answer.isCorrect ? Colours.successColor : Colours.redColour,
+                  answer.isCorrect ? Colours.successColor : Colours.pinkColour,
               fontSize: 12,
               fontWeight: FontWeight.w500,
               fontFamily: Fonts.inter),

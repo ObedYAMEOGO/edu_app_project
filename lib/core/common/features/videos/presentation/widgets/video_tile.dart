@@ -2,11 +2,13 @@ import 'dart:io';
 
 import 'package:edu_app_project/core/common/features/videos/domain/entities/video.dart';
 import 'package:edu_app_project/core/common/widgets/time_tile.dart';
+import 'package:edu_app_project/core/extensions/context_extension.dart';
 import 'package:edu_app_project/core/extensions/string_extensions.dart';
 import 'package:edu_app_project/core/res/colours.dart';
 import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/res/media_res.dart';
 import 'package:edu_app_project/src/profile/presentation/utils/home_utils.dart';
+import 'package:edu_app_project/src/subscription/presentation/views/subscription_screen.dart';
 import 'package:flutter/material.dart';
 
 class VideoTile extends StatelessWidget {
@@ -30,11 +32,21 @@ class VideoTile extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       height: 108,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: Row(
         children: [
           GestureDetector(
             onTap: tappable
-                ? () => HomeUtils.playVideo(context, video.videoURL)
+                ? () async {
+                    if (context.currentUser!.subscribed) {
+                      HomeUtils.playVideo(context, video.videoURL);
+                    } else {
+                      await Navigator.of(context)
+                          .pushNamed(SubscriptionScreen.routeName);
+                    }
+                  }
                 : null,
             child: Stack(
               alignment: Alignment.center,
@@ -85,22 +97,22 @@ class VideoTile extends StatelessWidget {
                       const Icon(
                         Icons.star_rounded,
                         color: Color.fromARGB(255, 246, 181, 2),
-                        size: 14,
+                        size: 9,
                       ),
                       const Icon(
                         Icons.star_rounded,
                         color: Color.fromARGB(255, 246, 181, 2),
-                        size: 14,
+                        size: 9,
                       ),
                       const Icon(
                         Icons.star_rounded,
                         color: Color.fromARGB(255, 246, 181, 2),
-                        size: 14,
+                        size: 9,
                       ),
                       const Icon(
                         Icons.star_rounded,
                         color: Color.fromARGB(255, 246, 181, 2),
-                        size: 14,
+                        size: 9,
                       ),
                       // Text(
                       //   video.rating.toString(),
@@ -118,7 +130,7 @@ class VideoTile extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      fontSize: 14,
+                      fontSize: 12,
                       fontWeight: FontWeight.w500,
                       fontFamily: Fonts.inter,
                       color: Colours.darkColour,

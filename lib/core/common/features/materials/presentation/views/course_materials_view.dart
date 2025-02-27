@@ -3,10 +3,12 @@ import 'package:edu_app_project/core/common/features/materials/presentation/app/
 import 'package:edu_app_project/core/common/features/materials/presentation/app/providers/resource_controller.dart';
 import 'package:edu_app_project/core/common/features/materials/presentation/widgets/resource_tile.dart';
 import 'package:edu_app_project/core/common/views/loading_view.dart';
+import 'package:edu_app_project/core/common/widgets/gradient_background.dart';
 import 'package:edu_app_project/core/common/widgets/nested_back_button.dart';
 import 'package:edu_app_project/core/common/widgets/not_found_text.dart';
 import 'package:edu_app_project/core/res/colours.dart';
 import 'package:edu_app_project/core/res/fonts.dart';
+import 'package:edu_app_project/core/res/media_res.dart';
 import 'package:edu_app_project/core/services/injection_container.dart';
 import 'package:edu_app_project/core/utils/core_utils.dart';
 import 'package:flutter/material.dart' hide MaterialState;
@@ -73,18 +75,21 @@ class _CourseMaterialsViewState extends State<CourseMaterialsView> {
               ..sort(
                 (a, b) => b.uploadDate.compareTo(a.uploadDate),
               );
-            return SafeArea(
-              child: ListView.separated(
-                padding: const EdgeInsets.only(left: 7, right: 7),
-                itemCount: materials.length,
-                separatorBuilder: (_, __) => const SizedBox.shrink(),
-                itemBuilder: (_, index) {
-                  return ChangeNotifierProvider(
-                    create: (_) =>
-                        sl<ResourceController>()..init(materials[index]),
-                    child: const ResourceTile(),
-                  );
-                },
+            return GradientBackground(
+              image: Res.universalBackground,
+              child: SafeArea(
+                child: ListView.separated(
+                  padding: const EdgeInsets.only(left: 7, right: 7),
+                  itemCount: materials.length,
+                  separatorBuilder: (_, __) => const SizedBox.shrink(),
+                  itemBuilder: (_, index) {
+                    return ChangeNotifierProvider(
+                      create: (_) =>
+                          sl<ResourceController>()..init(materials[index]),
+                      child: const ResourceTile(),
+                    );
+                  },
+                ),
               ),
             );
           }

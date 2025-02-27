@@ -187,7 +187,7 @@ class _ExamViewState extends State<ExamView> {
                   children: [
                     Icon(
                       Icons.timer,
-                      color: Colours.redColour,
+                      color: Colours.pinkColour,
                     ),
                     const SizedBox(width: 10),
                     Text(

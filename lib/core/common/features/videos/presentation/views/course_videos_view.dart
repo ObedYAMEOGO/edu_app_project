@@ -70,9 +70,9 @@ class _CourseVideosViewState extends State<CourseVideosView> {
         title: Center(
           child: Container(
             decoration: BoxDecoration(
-              color: const Color(0xFFE4E6EA),
-              borderRadius: BorderRadius.circular(0),
-            ),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(5),
+                border: Border.all(color: Colours.iconColor)),
             padding: const EdgeInsets.symmetric(horizontal: 10),
             width: MediaQuery.of(context).size.width * 0.8,
             height: 36,
@@ -96,7 +96,7 @@ class _CourseVideosViewState extends State<CourseVideosView> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.search, color: Colours.darkColour),
+            icon: const Icon(Icons.search, color: Colours.iconColor),
             onPressed: () {
               _filterVideos(searchController.text);
             },
@@ -117,7 +117,7 @@ class _CourseVideosViewState extends State<CourseVideosView> {
               if (state is! VideosLoaded && state is! VideoError) {
                 return const LoadingView();
               }
-        
+
               if (state is VideosLoaded && state.videos.isNotEmpty) {
                 if (filteredVideos.isEmpty && searchController.text.isEmpty) {
                   filteredVideos = state.videos;
@@ -159,7 +159,7 @@ class _CourseVideosViewState extends State<CourseVideosView> {
                   ),
                 );
               }
-        
+
               return NotFoundText(
                 'Pas de vidéos disponibles \n pour le cours de ${widget.course.title}',
               );

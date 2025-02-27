@@ -103,6 +103,7 @@ class _ExamDetailsViewState extends State<ExamDetailsView> {
             height: 100,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
+              gradient: Colours.primaryGradient,
               boxShadow: [
                 BoxShadow(
                   color: Colors.white,
@@ -110,7 +111,6 @@ class _ExamDetailsViewState extends State<ExamDetailsView> {
                   offset: const Offset(0, 5),
                 )
               ],
-              color: Color(0xFFE4E6EA),
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(3),
@@ -137,7 +137,7 @@ class _ExamDetailsViewState extends State<ExamDetailsView> {
           style: const TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.bold,
-            color: Colours.redColour,
+            color: Colours.pinkColour,
             fontFamily: Fonts.inter,
           ),
         ),

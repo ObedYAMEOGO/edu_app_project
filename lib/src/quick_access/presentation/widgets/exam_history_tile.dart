@@ -35,7 +35,7 @@ class ExamHistoryTile extends StatelessWidget {
             width: 54,
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: Color(0xFFE4E6EA),
+              color: Colors.white,
               borderRadius: BorderRadius.circular(10),
             ),
             child: exam.examImageUrl == null
@@ -68,11 +68,11 @@ class ExamHistoryTile extends StatelessWidget {
                   text: TextSpan(
                     text: '${exam.answers.length}/${exam.totalQuestions} ',
                     style: TextStyle(
-                      fontFamily: Fonts.montserrat,
+                      fontFamily: Fonts.inter,
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
                       color: answeredQuestionsPercentage < .5
-                          ? Colours.redColour
+                          ? Colours.pinkColour
                           : Colours.successColor,
                     ),
                     children: const [
@@ -95,7 +95,7 @@ class ExamHistoryTile extends StatelessWidget {
             currentStep: exam.answers.length,
             unselectedColor: Color(0xFFE4E6EA),
             selectedColor: answeredQuestionsPercentage < .5
-                ? Colours.redColour
+                ? Colours.pinkColour
                 : Colours.successColor,
             padding: 0,
             width: 60,
@@ -107,7 +107,7 @@ class ExamHistoryTile extends StatelessWidget {
                   fontSize: 12,
                   fontFamily: Fonts.montserrat,
                   color: answeredQuestionsPercentage < .5
-                      ? Colours.redColour
+                      ? Colours.pinkColour
                       : Colours.darkColour,
                 ),
               ),

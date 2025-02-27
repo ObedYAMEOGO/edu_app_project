@@ -27,16 +27,16 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         // Transparent AppBar to show the gradient background
         AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colours.whiteColour,
           elevation: 0,
           automaticallyImplyLeading: false,
           title: Text(
             "Mes Cours",
             style: TextStyle(
               fontSize: 17,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w600,
               fontFamily: Fonts.inter,
-              color: Colours.darkColour,
+              color: Colours.pinkColour,
             ),
           ),
           actions: [
@@ -45,7 +45,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
               return Padding(
                   padding: EdgeInsets.only(right: 20, left: 20),
                   child: CircleAvatar(
-                    radius:15,
+                    radius: 15,
                     backgroundImage: provider.user!.profilePic != null
                         ? NetworkImage(provider.user!.profilePic!)
                         : const AssetImage(Res.user) as ImageProvider,

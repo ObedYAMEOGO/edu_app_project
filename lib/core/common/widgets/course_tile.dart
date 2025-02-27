@@ -1,4 +1,5 @@
 import 'package:edu_app_project/core/common/features/course/domain/entities/course.dart';
+import 'package:edu_app_project/core/res/colours.dart';
 import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,8 @@ class CourseTile extends StatelessWidget {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Color(0xFFE4E6EA),
+                color: Colours.whiteColour,
+                border: Border.all(color: Colours.iconColor),
                 borderRadius: BorderRadius.circular(10),
               ),
               height: 54,

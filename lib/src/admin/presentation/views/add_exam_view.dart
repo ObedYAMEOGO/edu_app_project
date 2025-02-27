@@ -96,8 +96,7 @@ class _AddExamViewState extends State<AddExamView> {
             Utils.sendNotification(
               context,
               title: '${courseNotifier.value!.title}',
-              body: 'Un nouveau quiz vient d\'être ajouté pour le cours de '
-                  '${courseNotifier.value!.title}',
+              body: 'Un nouveau quiz vient d\'être ajout',
               category: NotificationCategory.NONE,
             );
           }

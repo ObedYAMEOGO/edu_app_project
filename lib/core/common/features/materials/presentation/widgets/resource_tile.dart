@@ -1,6 +1,8 @@
 import 'package:edu_app_project/core/common/features/materials/presentation/app/providers/resource_controller.dart';
+import 'package:edu_app_project/core/extensions/context_extension.dart';
 import 'package:edu_app_project/core/res/colours.dart';
 import 'package:edu_app_project/core/res/fonts.dart';
+import 'package:edu_app_project/src/subscription/presentation/views/subscription_screen.dart';
 import 'package:file_icon/file_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,9 +21,16 @@ class ResourceTile extends StatelessWidget {
             resource.description == null || resource.description!.isEmpty;
 
         final downloadButton = ElevatedButton(
-          onPressed: controller.fileExists
-              ? controller.openFile
-              : controller.downloadAndSaveFile,
+          onPressed: () async {
+            if (context.currentUser!.subscribed) {
+              controller.fileExists
+                  ? controller.openFile()
+                  : controller.downloadAndSaveFile();
+            } else {
+              await Navigator.of(context)
+                  .pushNamed(SubscriptionScreen.routeName);
+            }
+          },
           child: Icon(
             controller.fileExists
                 ? Icons.read_more_rounded
@@ -30,7 +39,7 @@ class ResourceTile extends StatelessWidget {
             color: Colors.white, // Icon color for contrast
           ),
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colours.redColour, // Vibrant Green
+            backgroundColor: Colours.iconColor, // Vibrant Green
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(90),
             ),
@@ -38,95 +47,103 @@ class ResourceTile extends StatelessWidget {
           ),
         );
 
-        return ExpansionTile(
-          iconColor: Colours.darkColour,
-          shape: const OutlineInputBorder(
-            borderSide: BorderSide.none,
-          ),
-          tilePadding: EdgeInsets.zero,
-          expandedAlignment: Alignment.centerLeft,
-          childrenPadding: const EdgeInsets.symmetric(horizontal: 10),
-          leading: FileIcon('.${resource.fileExtension}', size: 30),
-          title: Text(
-            resource.title!,
-            style: TextStyle(
-                color: Colours.darkColour,
-                fontWeight: FontWeight.w500,
-                fontFamily: Fonts.inter,
-                letterSpacing: -0.5,
-                fontSize: 14),
-          ),
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (authorIsNull && descriptionIsNull) downloadButton,
-                if (!authorIsNull)
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Text(
-                              'Auteur',
-                              style: TextStyle(
-                                  color: Colours.redColour,
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: Fonts.inter,
-                                  fontSize: 12),
-                            ),
-                            const SizedBox(height: 5),
-                            Text(
-                              resource.author!,
-                              style: const TextStyle(
-                                  fontFamily: Fonts.inter,
-                                  fontSize: 10,
-                                  color: Colours.darkColour),
-                            ),
-                          ],
-                        ),
-                      ),
-                      downloadButton,
-                    ],
-                  ),
-                if (!descriptionIsNull)
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            if (!authorIsNull) const SizedBox(height: 10),
-                            const Text(
-                              'Description',
-                              style: TextStyle(
-                                  color: Colours.redColour,
-                                  fontFamily: Fonts.inter,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 12),
-                            ),
-                            const SizedBox(height: 5),
-                            Text(
-                              resource.description!,
-                              style: const TextStyle(
-                                  fontFamily: Fonts.inter,
-                                  fontSize: 10,
-                                  color: Colours.darkColour),
-                            ),
-                          ],
-                        ),
-                      ),
-                      if (authorIsNull) downloadButton,
-                    ],
-                  ),
-              ],
+        return GestureDetector(
+          onTap: () async {
+            if (!context.currentUser!.subscribed) {
+              await Navigator.of(context)
+                  .pushNamed(SubscriptionScreen.routeName);
+            }
+          },
+          child: ExpansionTile(
+            iconColor: Colours.darkColour,
+            shape: const OutlineInputBorder(
+              borderSide: BorderSide.none,
             ),
-          ],
+            tilePadding: EdgeInsets.zero,
+            expandedAlignment: Alignment.centerLeft,
+            childrenPadding: const EdgeInsets.symmetric(horizontal: 10),
+            leading: FileIcon('.${resource.fileExtension}', size: 30),
+            title: Text(
+              resource.title!,
+              style: TextStyle(
+                  color: Colours.darkColour,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: Fonts.inter,
+                  letterSpacing: -0.5,
+                  fontSize: 14),
+            ),
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  if (authorIsNull && descriptionIsNull) downloadButton,
+                  if (!authorIsNull)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const Text(
+                                'Auteur',
+                                style: TextStyle(
+                                    color: Colours.redColour,
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: Fonts.inter,
+                                    fontSize: 12),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                resource.author!,
+                                style: const TextStyle(
+                                    fontFamily: Fonts.inter,
+                                    fontSize: 10,
+                                    color: Colours.darkColour),
+                              ),
+                            ],
+                          ),
+                        ),
+                        downloadButton,
+                      ],
+                    ),
+                  if (!descriptionIsNull)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              if (!authorIsNull) const SizedBox(height: 10),
+                              const Text(
+                                'Description',
+                                style: TextStyle(
+                                    color: Colours.redColour,
+                                    fontFamily: Fonts.inter,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 12),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                resource.description!,
+                                style: const TextStyle(
+                                    fontFamily: Fonts.inter,
+                                    fontSize: 10,
+                                    color: Colours.darkColour),
+                              ),
+                            ],
+                          ),
+                        ),
+                        if (authorIsNull) downloadButton,
+                      ],
+                    ),
+                ],
+              ),
+            ],
+          ),
         );
       },
     );

@@ -16,7 +16,7 @@ class QuickAccessView extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: QuickAccessAppBar(),
       body: GradientBackground(
-        image: Res.leaderboardGradientBackground,
+        image: Res.universalBackground,
         child: Center(
           child: Column(
             children: [

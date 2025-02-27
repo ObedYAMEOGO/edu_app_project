@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen>
     return Scaffold(
       backgroundColor: Colors.white,
       body: GradientBackground(
-        image: Res.leaderboardGradientBackground,
+        image: Res.universalBackground,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -65,8 +65,8 @@ class _SplashScreenState extends State<SplashScreen>
                 scale: _animation,
                 child: Image(
                   image: AssetImage(Res.logoImage),
-                  width: 130,
-                  height: 130,
+                  width: 200,
+                  height: 200,
                 ),
               ),
             ),

@@ -30,7 +30,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GradientBackground(
-        image: Res.leaderboardGradientBackground,
+        image: Res.universalBackground,
         child: BlocConsumer<OnBoardingCubit, OnBoardingState>(
           listener: (context, state) {
             if (state is OnBoardingStatus && !state.isFirstTimer) {

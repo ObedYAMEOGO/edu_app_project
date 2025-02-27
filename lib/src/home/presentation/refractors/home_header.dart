@@ -17,7 +17,7 @@ class HomeHeader extends StatelessWidget {
         children: [
           Positioned(
             left: 20,
-            top: 10,
+            top: 30,
             child: RichText(
               text: TextSpan(
                 children: [

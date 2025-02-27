@@ -38,6 +38,7 @@ dependencies:
   flutter_tindercard:
     git:
       url: https://github.com/NonymousMorlock/flutter_tindercard.git
+  gradient_icon: ^2.0.9
   font_awesome_flutter: ^10.7.0
   get_it: ^8.0.0
   http: ^0.13.6

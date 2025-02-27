@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:edu_app_project/core/extensions/date_time_extensions.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:flutter/material.dart';
 
 class TimeText extends StatefulWidget {
@@ -51,15 +52,20 @@ class _TimeTextState extends State<TimeText> {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      '${widget.prefixText != null ? '${widget.prefixText}' : ''}$timeAgo',
-      maxLines: widget.maxLines,
-      overflow: widget.overflow,
-      style: widget.style ??
-          const TextStyle(
-            fontSize: 10,
-            color: Colours.redColour,
-          ),
+    return Padding(
+      padding: const EdgeInsets.only(right: 10.0),
+      child: Text(
+        '${widget.prefixText != null ? '${widget.prefixText}' : ''}$timeAgo',
+        maxLines: widget.maxLines,
+        overflow: widget.overflow,
+        textAlign: TextAlign.right,
+        style: widget.style ??
+            const TextStyle(
+              fontSize: 10,
+              fontFamily: Fonts.inter,
+              color: Colours.pinkColour,
+            ),
+      ),
     );
   }
 }

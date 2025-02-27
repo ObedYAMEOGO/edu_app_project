@@ -56,7 +56,7 @@ class _SignInScreenState extends State<SignInScreen> {
         },
         builder: (context, state) {
           return GradientBackground(
-            image: Res.leaderboardGradientBackground,
+            image: Res.onBoardingBackground,
             child: SafeArea(
                 child: Center(
               child: ListView(

@@ -16,8 +16,8 @@ class TimeTile extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            const Color(0xFFE4E6EA),
-            const Color(0xFFE4E6EA),
+            Color.fromARGB(255, 2, 82, 201), // Primary Blue
+            Color(0xff00c6ff), // Cyan Accent
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -32,7 +32,7 @@ class TimeTile extends StatelessWidget {
               time,
               prefixText: prefixText,
               style: TextStyle(
-                color: Colours.darkColour,
+                color: Colours.whiteColour,
                 fontFamily: Fonts.inter,
                 fontSize: 9,
               ),

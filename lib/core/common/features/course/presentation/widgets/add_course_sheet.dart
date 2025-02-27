@@ -83,7 +83,7 @@ class _AddCourseSheetState extends State<AddCourseSheet> {
           final navigator = Navigator.of(context);
           Utils.sendNotification(
             context,
-            title: 'Du nouveau sur (${titleController.text.trim()})',
+            title: '${titleController.text.trim()}',
             body: 'Un nouveau cours vient d\'être ajouté',
             category: NotificationCategory.COURSE,
           );

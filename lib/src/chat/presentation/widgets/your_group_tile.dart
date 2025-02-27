@@ -1,4 +1,5 @@
 import 'package:edu_app_project/core/common/app/providers/tab_navigator.dart';
+import 'package:edu_app_project/core/extensions/context_extension.dart';
 import 'package:edu_app_project/core/res/colours.dart';
 import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/services/injection_container.dart';
@@ -6,6 +7,7 @@ import 'package:edu_app_project/src/chat/domain/entities/group.dart';
 import 'package:edu_app_project/src/chat/presentation/app/cubit/chat_cubit.dart';
 import 'package:edu_app_project/src/chat/presentation/app/providers/chat_controller.dart';
 import 'package:edu_app_project/src/chat/presentation/views/group_chat_view.dart';
+import 'package:edu_app_project/src/subscription/presentation/views/subscription_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +26,7 @@ class YourGroupTile extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10), // Pas arrondi
         side: BorderSide(
-          color: Color(0xFFE4E6EA),
+          color: Colours.iconColor,
         ), // Bord très fin gris
       ),
       child: ListTile(
@@ -91,36 +93,39 @@ class YourGroupTile extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 8),
-            group.lastMessageTimestamp != null
-                ? Text(
-                    '${group.lastMessageTimestamp}', // Affiche l'heure du dernier message
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontFamily:
-                          Fonts.montserrat, // Texte légèrement plus clair
+            // group.lastMessageTimestamp != null
+            //     ? Text(
+            //         '${group.lastMessageTimestamp}', // Affiche l'heure du dernier message
+            //         style: TextStyle(
+            //           color: Colors.black,
+            //           fontFamily:
+            //               Fonts.montserrat, // Texte légèrement plus clair
 
-                      fontSize: 8,
-                    ),
-                  )
-                : const Icon(
-                    Icons.fiber_new,
-                    color: Colors.black,
-                    size: 20,
-                  ),
+            //           fontSize: 8,
+            //         ),
+            //       )
+            //     : const Icon(
+            //         Icons.fiber_new,
+            //         color: Colors.black,
+            //         size: 20,
+            //       ),
           ],
         ),
-        onTap: () {
-          context.read<TabNavigator>().push(
-                TabItem(
-                  child: ChangeNotifierProvider(
-                    create: (_) => sl<ChatController>(),
-                    child: BlocProvider(
-                      create: (_) => sl<ChatCubit>(),
-                      child: GroupChatView(group: group),
+        onTap: () async {
+          if (context.currentUser!.subscribed) {
+            context.read<TabNavigator>().push(
+                  TabItem(
+                    child: ChangeNotifierProvider(
+                      create: (_) => sl<ChatController>(),
+                      child: BlocProvider(
+                        create: (_) => sl<ChatCubit>(),
+                        child: GroupChatView(group: group),
+                      ),
                     ),
                   ),
-                ),
-              );
+                );
+          }
+          await Navigator.of(context).pushNamed(SubscriptionScreen.routeName);
         },
       ),
     );

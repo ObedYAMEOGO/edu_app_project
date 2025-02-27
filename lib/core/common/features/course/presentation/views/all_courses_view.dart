@@ -74,7 +74,7 @@ class _AllCoursesViewState extends State<AllCoursesView> {
       backgroundColor: Colors.white,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         titleSpacing: 0,
         leading: const NestedBackButton(),
         title: Center(
@@ -82,9 +82,9 @@ class _AllCoursesViewState extends State<AllCoursesView> {
             width: MediaQuery.of(context).size.width * 0.8,
             height: 36,
             decoration: BoxDecoration(
-              color: const Color(0xFFE4E6EA),
-              borderRadius: BorderRadius.circular(0),
-            ),
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(5),
+                border: Border.all(color: Colours.iconColor)),
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: TextField(
               controller: searchController,
@@ -108,7 +108,7 @@ class _AllCoursesViewState extends State<AllCoursesView> {
           IconButton(
             icon: Icon(
               Icons.search_outlined,
-              color: Colours.darkColour,
+              color: Colours.iconColor,
             ),
             onPressed: () {
               FocusScope.of(context).requestFocus(FocusNode());
@@ -243,12 +243,13 @@ class _AllCoursesViewState extends State<AllCoursesView> {
                   children: filteredCourses
                       .map(
                         (course) => CourseTile(
-                          course: course,
-                          onTap: () => Navigator.of(context).pushNamed(
-                            CourseDetailsScreen.routeName,
-                            arguments: course,
-                          ),
-                        ),
+                            course: course,
+                            onTap: () async {
+                              Navigator.of(context).pushNamed(
+                                CourseDetailsScreen.routeName,
+                                arguments: course,
+                              );
+                            }),
                       )
                       .toList(),
                 ),

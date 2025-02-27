@@ -120,7 +120,7 @@ class _AddScholarshipSheetState extends State<AddScholarshipSheet> {
           final navigator = Navigator.of(context);
           Utils.sendNotification(
             context,
-            title: 'Nouvelle bourse disponible (${nameController.text.trim()})',
+            title: '${nameController.text.trim()}',
             body: 'Une nouvelle bourse a été ajoutée',
             category: NotificationCategory.SCHOLARSHIP,
           );

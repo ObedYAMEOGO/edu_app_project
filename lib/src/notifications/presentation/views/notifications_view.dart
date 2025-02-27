@@ -33,7 +33,7 @@ class _NotificationsViewState extends State<NotificationsView> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         titleSpacing: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         title: const Text(
           'Notifications',
           style: TextStyle(

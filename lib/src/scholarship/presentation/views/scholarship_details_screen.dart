@@ -1,4 +1,5 @@
 import 'package:edu_app_project/core/common/widgets/expandable_text.dart';
+import 'package:edu_app_project/core/common/widgets/gradient_background.dart';
 import 'package:edu_app_project/core/common/widgets/nested_back_button.dart';
 import 'package:edu_app_project/core/extensions/context_extension.dart';
 import 'package:edu_app_project/core/res/colours.dart';
@@ -62,138 +63,142 @@ class ScholarshipDetailsScreen extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.white,
       ),
-      body: SafeArea(
-        child: ListView(
-          padding: const EdgeInsets.all(20),
-          children: [
-            // Scholarship Image
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              // ignore: unnecessary_null_comparison
-              child: scholarship.image != null
-                  ? Image.network(
-                      scholarship.image,
-                      height: context.height * .3,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                    )
-                  : Image.asset(
-                      Res.user,
-                      height: 250,
-                      width: 250,
-                      fit: BoxFit.cover,
-                    ),
-            ),
-            const SizedBox(height: 20),
-
-            // Scholarship Name & YouTube Icon
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Text(
-                    scholarship.name,
-                    style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700,
-                      color: Colours.darkColour,
-                      fontFamily: Fonts.inter,
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: _launchURL,
-                  child: Image.asset(
-                    Res.youtubeVideoIcon,
-                    width: 40,
-                    height: 40,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-
-            // Scholarship Description
-            ExpandableText(
-              context,
-              text: scholarship.description,
-            ),
-            const SizedBox(height: 20),
-
-            // Scholarship Details Card
-            Card(
-              elevation: 2,
-              shape: RoundedRectangleBorder(
+      body: GradientBackground(
+        image: Res.leaderboardGradientBackground,
+        child: SafeArea(
+          child: ListView(
+            padding: const EdgeInsets.all(20),
+            children: [
+              // Scholarship Image
+              ClipRRect(
                 borderRadius: BorderRadius.circular(10),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildDetailRow(
-                      icon: Icons.location_on_outlined,
-                      label: 'Pays d\'accueil',
-                      value: scholarship.country,
-                    ),
-                    const SizedBox(height: 10),
-                    _buildDetailRow(
-                      icon: Icons.people_outline,
-                      label: 'Nombre de places',
-                      value: scholarship.numberOfRecipients.toString(),
-                    ),
-                    const SizedBox(height: 10),
-                    _buildDetailRow(
-                      icon: Icons.calendar_today_outlined,
-                      label: 'Date limite',
-                      value: DateFormat('dd MMM yyyy')
-                          .format(scholarship.applicationDeadline),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-
-            // Available Fields
-            const Text(
-              'Filières disponibles:',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w600,
-                color: Colours.darkColour,
-                fontFamily: Fonts.inter,
-              ),
-            ),
-            const SizedBox(height: 10),
-            ...scholarship.availableFields.map((field) {
-              return Padding(
-                padding: const EdgeInsets.only(left: 8, bottom: 8),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 6,
-                      height: 6,
-                      decoration: BoxDecoration(
-                        color: Colours.darkColour,
-                        borderRadius: BorderRadius.circular(50),
+                // ignore: unnecessary_null_comparison
+                child: scholarship.image != null
+                    ? Image.network(
+                        scholarship.image,
+                        height: context.height * .3,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      )
+                    : Image.asset(
+                        Res.user,
+                        height: 250,
+                        width: 250,
+                        fit: BoxFit.cover,
                       ),
-                    ),
-                    const SizedBox(width: 8),
-                    Text(
-                      field,
-                      style: TextStyle(
-                        fontSize: 14,
+              ),
+              const SizedBox(height: 20),
+
+              // Scholarship Name & YouTube Icon
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Text(
+                      scholarship.name,
+                      style: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w700,
                         color: Colours.darkColour,
-                        fontWeight: FontWeight.w300,
                         fontFamily: Fonts.inter,
                       ),
                     ),
-                  ],
+                  ),
+                  GestureDetector(
+                    onTap: _launchURL,
+                    child: Image.asset(
+                      Res.youtubeVideoIcon,
+                      width: 40,
+                      height: 40,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+
+              // Scholarship Description
+              ExpandableText(
+                context,
+                text: scholarship.description,
+              ),
+              const SizedBox(height: 20),
+
+              // Scholarship Details Card
+              Card(
+                elevation: 2,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  side: BorderSide(color: Colours.iconColor)
                 ),
-              );
-            }).toList(),
-          ],
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildDetailRow(
+                        icon: Icons.location_on_outlined,
+                        label: 'Pays d\'accueil',
+                        value: scholarship.country,
+                      ),
+                      const SizedBox(height: 10),
+                      _buildDetailRow(
+                        icon: Icons.people_outline,
+                        label: 'Nombre de places',
+                        value: scholarship.numberOfRecipients.toString(),
+                      ),
+                      const SizedBox(height: 10),
+                      _buildDetailRow(
+                        icon: Icons.calendar_today_outlined,
+                        label: 'Date limite',
+                        value: DateFormat('dd MMM yyyy')
+                            .format(scholarship.applicationDeadline),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // Available Fields
+              const Text(
+                'Filières disponibles:',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: Colours.darkColour,
+                  fontFamily: Fonts.inter,
+                ),
+              ),
+              const SizedBox(height: 10),
+              ...scholarship.availableFields.map((field) {
+                return Padding(
+                  padding: const EdgeInsets.only(left: 8, bottom: 8),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 6,
+                        height: 6,
+                        decoration: BoxDecoration(
+                          color: Colours.darkColour,
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        field,
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colours.darkColour,
+                          fontWeight: FontWeight.w300,
+                          fontFamily: Fonts.inter,
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }).toList(),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(

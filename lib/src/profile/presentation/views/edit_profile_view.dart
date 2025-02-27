@@ -120,7 +120,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                 ),
                 // Transparent AppBar to show the gradient background
                 AppBar(
-                  backgroundColor: Colors.transparent,
+                  backgroundColor: Colors.white,
                   titleSpacing: 0,
                   elevation: 0,
                   title: const Text(
@@ -224,7 +224,7 @@ class _EditProfileViewState extends State<EditProfileView> {
             ),
           ),
           body: GradientBackground(
-            image: '',
+            image: Res.leaderboardGradientBackground,
             child: ListView(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               children: [

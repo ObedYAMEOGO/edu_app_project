@@ -20,7 +20,7 @@ class OtherGroupTile extends StatelessWidget {
       elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
-        side: BorderSide(color: Colors.grey.shade300, width: 0.5),
+        side: BorderSide(color: Colours.iconColor, width: 0.5),
       ),
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
@@ -55,32 +55,47 @@ class OtherGroupTile extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colours.primaryColour,
-                foregroundColor: Colors.white,
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color.fromARGB(255, 2, 82, 201), // Primary Blue
+                    Color(0xff00c6ff), // Cyan Accent
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
                 ),
+                borderRadius: BorderRadius.circular(10),
               ),
-              onPressed: () async {
-                if (context.currentUser!.subscribed) {
-                  return context.read<ChatCubit>().joinGroup(
-                        groupId: group.id,
-                        userId: context.currentUser!.uid,
-                      );
-                }
-                await Navigator.of(context)
-                    .pushNamed(SubscriptionScreen.routeName);
-              },
-              child: const Text(
-                'Intégrer',
-                style: TextStyle(
-                  fontFamily: Fonts.inter, // Texte légèrement plus clair
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.transparent, // Set to transparent
+                  shadowColor:
+                      Colors.transparent, // Avoid default shadow effect
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                onPressed: () async {
+                  if (context.currentUser!.subscribed) {
+                    return context.read<ChatCubit>().joinGroup(
+                          groupId: group.id,
+                          userId: context.currentUser!.uid,
+                        );
+                  }
+                  await Navigator.of(context)
+                      .pushNamed(SubscriptionScreen.routeName);
+                },
+                child: const Text(
+                  'Intégrer',
+                  style: TextStyle(
+                    fontFamily: Fonts.inter,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white, // Ensure text color remains visible
+                  ),
                 ),
               ),
             ),

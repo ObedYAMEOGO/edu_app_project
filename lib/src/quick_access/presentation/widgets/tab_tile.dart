@@ -23,7 +23,7 @@ class TabTile extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Color(0xFFE4E6EA),
+                    color: Colors.white,
                   ),
                   child: Text(
                     title,
@@ -35,7 +35,7 @@ class TabTile extends StatelessWidget {
               : Text(
                   title,
                   style: const TextStyle(
-                      color: Colors.grey, fontFamily: Fonts.inter),
+                      color: Colours.darkColour, fontFamily: Fonts.inter),
                 ),
         );
       },

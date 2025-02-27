@@ -56,7 +56,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         builder: (context, state) {
           return Scaffold(
             body: GradientBackground(
-              image: Res.leaderboardGradientBackground,
+              image: Res.onBoardingBackground,
               child: SafeArea(
                 child: Center(
                   child: ListView(
@@ -138,7 +138,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                 Text(
                                   'Se Connecter',
                                   style: TextStyle(
-                                    color: Colours.primaryColour,
+                                    color: Colours.iconColor,
                                     fontFamily: Fonts.merriweather,
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,

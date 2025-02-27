@@ -225,7 +225,7 @@ class Utils {
               },
               child: Text(
                 actionText ?? text!.split(' ')[0].trim().titleCase,
-                style: TextStyle(color: Colours.redColour),
+                style: TextStyle(color: Colours.pinkColour),
               ),
             ),
           ],

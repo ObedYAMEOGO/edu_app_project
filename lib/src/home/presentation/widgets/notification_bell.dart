@@ -3,6 +3,7 @@ import 'package:badges/badges.dart';
 import 'package:edu_app_project/core/common/app/providers/notifications_notifier.dart';
 import 'package:edu_app_project/core/extensions/context_extension.dart';
 import 'package:edu_app_project/core/res/colours.dart';
+import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/services/injection_container.dart';
 import 'package:edu_app_project/core/utils/core_utils.dart';
 import 'package:edu_app_project/src/notifications/presentation/cubit/notification_cubit.dart';
@@ -82,15 +83,31 @@ class _NotificationBellState extends State<NotificationBell> {
               child: Badge(
                 showBadge: showBadge,
                 position: BadgePosition.topEnd(end: -1),
+                badgeStyle: BadgeStyle(
+                  badgeColor: Colours.pinkColour,
+                  elevation: 3, // Adds depth to badge
+                  borderSide: BorderSide(
+                      color: Colors.white, width: 1), // Subtle border
+                ),
+                badgeAnimation: BadgeAnimation.slide(
+                  // Use `slide` instead of unnamed constructor
+                  animationDuration: Duration(milliseconds: 600),
+                  curve: Curves.easeOutBack, // Smooth bounce effect
+                ),
                 badgeContent: Text(
                   unseenNotificationsLength.toString(),
                   style: const TextStyle(
+                    fontFamily: Fonts.inter,
                     color: Colors.white,
                     fontSize: 8,
+                    fontWeight: FontWeight.bold, // Make it more readable
                   ),
                 ),
-                child: Icon(Icons.notifications_outlined,
-                    color: Colours.darkColour),
+                child: Icon(
+                  Icons.notifications,
+                  color: const Color.fromARGB(255, 250, 219, 106),
+                  size: 26, // Slightly larger for balance
+                ),
               ),
             ),
           );
@@ -98,7 +115,7 @@ class _NotificationBellState extends State<NotificationBell> {
         return Padding(
           padding: const EdgeInsets.only(right: 8.0),
           child: const Icon(Icons.notifications_outlined,
-              color: Colours.darkColour),
+              color: Colours.iconColor),
         );
       },
     );

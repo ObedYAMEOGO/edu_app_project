@@ -46,6 +46,30 @@ class _AddCategorySheetState extends State<AddCategorySheet> {
     super.dispose();
   }
 
+  void _validateAndSubmit() {
+    if (titleController.text.trim().isEmpty) {
+      Utils.showSnackBar(
+        context,
+        'Le nom de la catégorie ne peut pas être vide!',
+        ContentType.warning,
+        title: 'Attention!',
+      );
+      return;
+    }
+
+    final category = CategoryModel.empty().copyWith(
+      categoryTitle: titleController.text.trim(),
+      categoryImage: imageController.text.trim().isEmpty
+          ? kDefaultImage
+          : isFile
+              ? image!.path
+              : imageController.text.trim(),
+      isImageFile: isFile,
+    );
+
+    context.read<CategoryCubit>().addCategory(category);
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocListener<CategoryCubit, CategoryState>(
@@ -73,7 +97,7 @@ class _AddCategorySheetState extends State<AddCategorySheet> {
           );
           Utils.sendNotification(
             context,
-            title: 'Du nouveau sur (${titleController.text.trim()})',
+            title: '${titleController.text.trim()}',
             body: 'Une nouvelle catégorie vient d\'être ajoutée',
             category: NotificationCategory.COURSE,
           );
@@ -151,20 +175,7 @@ class _AddCategorySheetState extends State<AddCategorySheet> {
                 ),
                 const SizedBox(height: 20),
                 GestureDetector(
-                  onTap: () {
-                    if (formKey.currentState!.validate()) {
-                      final category = CategoryModel.empty().copyWith(
-                        categoryTitle: titleController.text.trim(),
-                        categoryImage: imageController.text.trim().isEmpty
-                            ? kDefaultImage
-                            : isFile
-                                ? image!.path
-                                : imageController.text.trim(),
-                        isImageFile: isFile,
-                      );
-                      context.read<CategoryCubit>().addCategory(category);
-                    }
-                  },
+                  onTap: _validateAndSubmit,
                   child: Container(
                     width: double.infinity,
                     padding: const EdgeInsets.symmetric(

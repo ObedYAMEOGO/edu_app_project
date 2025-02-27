@@ -19,6 +19,8 @@ class Res {
       '$_baseImages/leaderboard_gradient_background.png';
   static const chatScreenBackgroundImage = '$_baseImages/chatbg.jpg';
   static const scholarshipBackground = "$_baseImages/scholarchipbackgroung.png";
+  static const universalBackground =
+      "$_baseImages/universal_gradient_background.png";
 
   //VIcons
   static const user = '$_baseIcons/user.png';
@@ -29,7 +31,7 @@ class Res {
   static const course = '$_baseIcons/course.png';
   static const subscriptionMonthly = '$_baseIcons/subscription_month.png';
   static const subscriptionYearly = '$_baseIcons/subscription_year.png';
-  static const test = '$_baseIcons/test.png';
+  static const test = '$_baseIcons/exam.png';
   static const video = '$_baseIcons/video.png';
   static const material = '$_baseIcons/document.png';
   static const youtube = '$_baseIcons/youtube.png';

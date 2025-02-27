@@ -11,6 +11,7 @@ class QuickAccessAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: Colors.white,
       automaticallyImplyLeading: false,
       centerTitle: false,
       title: const Text(

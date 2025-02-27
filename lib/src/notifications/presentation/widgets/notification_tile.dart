@@ -41,15 +41,26 @@ class NotificationTile extends StatelessWidget {
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              notification.body, // Affiche le contenu de la notification
-              style: TextStyle(
-                fontSize: 11,
-                color: Colours.darkColour.withOpacity(0.8),
-                fontFamily: Fonts.inter,
+            Padding(
+              padding: const EdgeInsets.only(right: 10.0),
+              child: Text(
+                notification.body, // Affiche le contenu de la notification
+                style: TextStyle(
+                  fontSize: 11,
+                  color: Colours.darkColour.withOpacity(0.8),
+                  fontFamily: Fonts.inter,
+                ),
               ),
             ),
-            TimeText(notification.sentAt), // Affiche l'heure
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 10.0),
+                  child: TimeText(notification.sentAt),
+                ),
+              ],
+            ), // Affiche l'heure
           ],
         ),
       ),
@@ -73,7 +84,7 @@ class NotificationTile extends StatelessWidget {
   /// Construit l'arrière-plan de suppression pour le glissement
   Widget _buildDismissBackground() {
     return Container(
-      color: Colours.redColour,
+      color: Colours.pinkColour,
       alignment: Alignment.centerRight,
       padding: const EdgeInsets.only(right: 16),
       child: const Icon(Icons.delete, color: Colors.white),

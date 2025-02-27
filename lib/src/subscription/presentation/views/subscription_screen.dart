@@ -135,9 +135,12 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        titleSpacing: 0,
+        backgroundColor: Colors.white,
         title: const Text('Tarifs',
             style: TextStyle(
                 fontWeight: FontWeight.w600,
+                fontFamily: Fonts.inter,
                 fontSize: 17,
                 color: Colours.darkColour)),
         leading: const NestedBackButton(),
@@ -208,6 +211,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+          titleSpacing: 0,
           title: Text("Abonnement",
               style: TextStyle(
                 fontFamily: Fonts.inter,
