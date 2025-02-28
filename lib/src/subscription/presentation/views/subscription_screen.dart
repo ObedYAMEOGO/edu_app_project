@@ -81,7 +81,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
     required int subscriptionCode,
     required BuildContext context,
   }) async {
-    if (![1, 2, 3].contains(subscriptionCode)) {
+    if (![1, 3, 12].contains(subscriptionCode)) {
       print("Erreur: Code d'abonnement invalide");
       return;
     }
