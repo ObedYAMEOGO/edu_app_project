@@ -55,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen>
     return Scaffold(
       backgroundColor: Colors.white,
       body: GradientBackground(
-        image: Res.universalBackground,
+        image: Res.leaderboardGradientBackground,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [

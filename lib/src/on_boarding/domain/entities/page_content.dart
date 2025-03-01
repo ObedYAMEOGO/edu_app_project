@@ -20,7 +20,7 @@ class PageContent extends Equatable {
             image: Res.pageContentSecond,
             title: "Une large Communauté",
             description:
-                "Échangez avec d'autres apprenants et experts qui partagent vos centres d'interêts");
+                "Faire partie d'une communauté d'\apprenants et experts partagent vos centres d'interêts");
 
   const PageContent.third()
       : this(

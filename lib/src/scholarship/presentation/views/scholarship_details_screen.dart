@@ -6,6 +6,7 @@ import 'package:edu_app_project/core/res/colours.dart';
 import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/res/media_res.dart';
 import 'package:edu_app_project/src/scholarship/domain/entities/scholarship.dart';
+import 'package:edu_app_project/src/scholarship/presentation/widgets/full_screen_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -70,23 +71,34 @@ class ScholarshipDetailsScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             children: [
               // Scholarship Image
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                // ignore: unnecessary_null_comparison
-                child: scholarship.image != null
-                    ? Image.network(
-                        scholarship.image,
-                        height: context.height * .3,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                      )
-                    : Image.asset(
-                        Res.user,
-                        height: 250,
-                        width: 250,
-                        fit: BoxFit.cover,
-                      ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          FullScreenImage(imageUrl: scholarship.image),
+                    ),
+                  );
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: scholarship.image != null
+                      ? Image.network(
+                          scholarship.image,
+                          height: context.height * .3,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        )
+                      : Image.asset(
+                          Res.user,
+                          height: 250,
+                          width: 250,
+                          fit: BoxFit.contain,
+                        ),
+                ),
               ),
+
               const SizedBox(height: 20),
 
               // Scholarship Name & YouTube Icon
@@ -127,9 +139,8 @@ class ScholarshipDetailsScreen extends StatelessWidget {
               Card(
                 elevation: 2,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  side: BorderSide(color: Colours.iconColor)
-                ),
+                    borderRadius: BorderRadius.circular(10),
+                    side: BorderSide(color: Colours.iconColor)),
                 child: Padding(
                   padding: const EdgeInsets.all(16),
                   child: Column(
@@ -179,20 +190,24 @@ class ScholarshipDetailsScreen extends StatelessWidget {
                         width: 6,
                         height: 6,
                         decoration: BoxDecoration(
-                          color: Colours.darkColour,
+                          color: Colours.primaryColour,
                           borderRadius: BorderRadius.circular(50),
                         ),
                       ),
                       const SizedBox(width: 8),
-                      Text(
-                        field,
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colours.darkColour,
-                          fontWeight: FontWeight.w300,
-                          fontFamily: Fonts.inter,
+                      Flexible(
+                        child: Text(
+                          field,
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colours.darkColour,
+                            fontWeight: FontWeight.w300,
+                            fontFamily: Fonts.inter,
+                          ),
+                          softWrap: true,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                      ),
+                      )
                     ],
                   ),
                 );
