@@ -89,7 +89,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
     const String url =
         "https://api.yengapay.com/api/v1/groups/{organization_id}/payment-intent/{project_id}";
     String referenceId = generateUniqueReference();
-
+    print("Référence Firebase enregistrée: $referenceId");
     final Map<String, dynamic> payload = {
       "paymentAmount": price,
       "reference": referenceId,
@@ -119,7 +119,7 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
         final data = jsonDecode(response.body);
         final checkoutUrl = data["checkoutPageUrlWithPaymentToken"];
         await saveSubscription(referenceId, subscriptionCode);
-
+        print("Référence Firebase enregistrée: $referenceId");
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => WebViewScreen(url: checkoutUrl)));
       } else {
