@@ -151,50 +151,50 @@ class ScholarshipItems extends StatelessWidget {
                         ),
                       ),
                       // Divider
-                      Container(
-                        height: 1,
-                        color: Colors.grey[200],
-                      ),
-                      // Details button with gradient
-                      Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: SizedBox(
-                          width: double.infinity,
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(
-                              gradient: Colours
-                                  .primaryGradient, // Apply gradient here
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: ElevatedButton(
-                              onPressed: () => Navigator.of(context).pushNamed(
-                                ScholarshipDetailsScreen.routeName,
-                                arguments: scholarship,
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors
-                                    .transparent, // Transparent to show gradient
-                                shadowColor: Colors.transparent,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 16),
-                                elevation: 0,
-                              ),
-                              child: const Text(
-                                'Voir les détails',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: Fonts.inter,
-                                  fontSize: 14,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
+                      // Container(
+                      //   height: 1,
+                      //   color: Colors.grey[200],
+                      // ),
+                      // // Details button with gradient
+                      // Padding(
+                      //   padding: const EdgeInsets.all(12.0),
+                      //   child: SizedBox(
+                      //     width: double.infinity,
+                      //     child: DecoratedBox(
+                      //       decoration: BoxDecoration(
+                      //         gradient: Colours
+                      //             .primaryGradient, // Apply gradient here
+                      //         borderRadius: BorderRadius.circular(10),
+                      //       ),
+                      //       child: ElevatedButton(
+                      //         onPressed: () => Navigator.of(context).pushNamed(
+                      //           ScholarshipDetailsScreen.routeName,
+                      //           arguments: scholarship,
+                      //         ),
+                      //         style: ElevatedButton.styleFrom(
+                      //           backgroundColor: Colors
+                      //               .transparent, // Transparent to show gradient
+                      //           shadowColor: Colors.transparent,
+                      //           shape: RoundedRectangleBorder(
+                      //             borderRadius: BorderRadius.circular(10),
+                      //           ),
+                      //           padding: const EdgeInsets.symmetric(
+                      //               vertical: 10, horizontal: 16),
+                      //           elevation: 0,
+                      //         ),
+                      //         child: const Text(
+                      //           'Voir les détails',
+                      //           style: TextStyle(
+                      //             fontWeight: FontWeight.w600,
+                      //             fontFamily: Fonts.inter,
+                      //             fontSize: 14,
+                      //             color: Colors.white,
+                      //           ),
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
