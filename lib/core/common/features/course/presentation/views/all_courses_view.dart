@@ -131,59 +131,67 @@ class _AllCoursesViewState extends State<AllCoursesView> {
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontFamily: Fonts.inter,
-
                     fontSize: 18, // Increase title size
                   ),
                 ),
               ),
-              ListTile(
-                title: const Text(
-                  'Tous',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colours.darkColour,
-                    fontFamily: Fonts.inter,
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      ListTile(
+                        title: const Text(
+                          'Tous',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colours.darkColour,
+                            fontFamily: Fonts.inter,
+                          ),
+                        ),
+                        leading: Checkbox(
+                          value: selectedCategories.isEmpty,
+                          onChanged: (value) {
+                            setState(() {
+                              selectedCategories.clear();
+                              _filterCourses(searchController.text);
+                            });
+                          },
+                        ),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          setState(() {
+                            selectedCategories.clear();
+                            _filterCourses(searchController.text);
+                          });
+                        },
+                      ),
+                      ...widget.categories.map((category) {
+                        return ListTile(
+                          title: Text(
+                            category.categoryTitle,
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontFamily: Fonts.inter,
+                              color: Colours.darkColour,
+                            ),
+                          ),
+                          leading: Checkbox(
+                            value: selectedCategories
+                                .contains(category.categoryId),
+                            onChanged: (value) {
+                              _toggleCategorySelection(category.categoryId);
+                            },
+                          ),
+                          onTap: () {
+                            Navigator.of(context).pop();
+                            _toggleCategorySelection(category.categoryId);
+                          },
+                        );
+                      }).toList(),
+                    ],
                   ),
                 ),
-                leading: Checkbox(
-                  value: selectedCategories.isEmpty,
-                  onChanged: (value) {
-                    setState(() {
-                      selectedCategories.clear();
-                      _filterCourses(searchController.text);
-                    });
-                  },
-                ),
-                onTap: () {
-                  Navigator.of(context).pop();
-                  setState(() {
-                    selectedCategories.clear();
-                    _filterCourses(searchController.text);
-                  });
-                },
               ),
-              ...widget.categories.map((category) {
-                return ListTile(
-                  title: Text(
-                    category.categoryTitle,
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontFamily: Fonts.inter,
-                      color: Colours.darkColour,
-                    ),
-                  ),
-                  leading: Checkbox(
-                    value: selectedCategories.contains(category.categoryId),
-                    onChanged: (value) {
-                      _toggleCategorySelection(category.categoryId);
-                    },
-                  ),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    _toggleCategorySelection(category.categoryId);
-                  },
-                );
-              }).toList(),
             ],
           ),
         ),
@@ -191,70 +199,72 @@ class _AllCoursesViewState extends State<AllCoursesView> {
       body: GradientBackground(
         image: Res.leaderboardGradientBackground,
         child: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 12),
-              Padding(
-                padding: EdgeInsets.only(left: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Tous les cours',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontFamily: Fonts.inter,
-                        fontSize: 15,
-                        color: Colours.darkColour,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 12),
+                Padding(
+                  padding: EdgeInsets.only(left: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Tous les cours',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontFamily: Fonts.inter,
+                          fontSize: 15,
+                          color: Colours.darkColour,
+                        ),
                       ),
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'Filtrer',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontFamily: Fonts.inter,
-                            fontSize: 15,
-                            color: Colours.darkColour,
+                      Row(
+                        children: [
+                          Text(
+                            'Filtrer',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontFamily: Fonts.inter,
+                              fontSize: 15,
+                              color: Colours.darkColour,
+                            ),
                           ),
-                        ),
-                        IconButton(
-                          icon: Icon(
-                            Icons.filter_list,
-                            color: Colours.darkColour,
+                          IconButton(
+                            icon: Icon(
+                              Icons.filter_list,
+                              color: Colours.darkColour,
+                            ),
+                            onPressed: () {
+                              scaffoldKey.currentState?.openEndDrawer();
+                            },
                           ),
-                          onPressed: () {
-                            scaffoldKey.currentState?.openEndDrawer();
-                          },
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(height: 15),
-              Center(
-                child: Wrap(
-                  spacing: 20,
-                  runSpacing: 40,
-                  runAlignment: WrapAlignment.spaceEvenly,
-                  children: filteredCourses
-                      .map(
-                        (course) => CourseTile(
-                            course: course,
-                            onTap: () async {
-                              Navigator.of(context).pushNamed(
-                                CourseDetailsScreen.routeName,
-                                arguments: course,
-                              );
-                            }),
-                      )
-                      .toList(),
+                const SizedBox(height: 15),
+                Center(
+                  child: Wrap(
+                    spacing: 20,
+                    runSpacing: 40,
+                    runAlignment: WrapAlignment.spaceEvenly,
+                    children: filteredCourses
+                        .map(
+                          (course) => CourseTile(
+                              course: course,
+                              onTap: () async {
+                                Navigator.of(context).pushNamed(
+                                  CourseDetailsScreen.routeName,
+                                  arguments: course,
+                                );
+                              }),
+                        )
+                        .toList(),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

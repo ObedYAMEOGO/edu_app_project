@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart' hide State;
 import 'package:edu_app_project/core/common/views/custom_circular_progress_bar.dart';
 import 'package:edu_app_project/core/common/widgets/gradient_background.dart';
+import 'package:edu_app_project/core/common/widgets/not_found_text.dart';
 import 'package:edu_app_project/core/res/colours.dart';
 import 'package:edu_app_project/core/res/fonts.dart';
 import 'package:edu_app_project/core/res/media_res.dart';
@@ -72,8 +73,19 @@ class _ChatViewState extends State<ChatView>
 
   Widget _buildGroupSection(
       List<Group> groups, Widget Function(Group) tileBuilder) {
-    if (groups.isEmpty) return const SizedBox.shrink();
-    return Column(children: groups.map(tileBuilder).toList());
+    if (groups.isEmpty) {
+      return const Center(
+        child: Padding(
+            padding: EdgeInsets.all(20.0),
+            child: NotFoundText(
+                "Vous n'avez adhérer à aucun \ngroupe pour le moment")),
+      );
+    }
+    return ListView.builder(
+      padding: EdgeInsets.zero,
+      itemCount: groups.length,
+      itemBuilder: (context, index) => tileBuilder(groups[index]),
+    );
   }
 
   @override
@@ -92,12 +104,15 @@ class _ChatViewState extends State<ChatView>
               appBar: AppBar(
                 backgroundColor: Colors.white,
                 automaticallyImplyLeading: false,
-                title: const Text('Discussions',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontFamily: Fonts.inter,
-                        fontSize: 17,
-                        color: Colours.darkColour)),
+                title: const Text(
+                  'Discussions',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontFamily: Fonts.inter,
+                    fontSize: 17,
+                    color: Colours.darkColour,
+                  ),
+                ),
                 bottom: PreferredSize(
                   preferredSize: const Size.fromHeight(50),
                   child: Container(
@@ -138,18 +153,26 @@ class _ChatViewState extends State<ChatView>
               body: GradientBackground(
                 image: Res.universalBackground,
                 child: SafeArea(
-                  child: state is LoadingGroups
-                      ? const Center(
-                          child: CustomCircularProgressBarIndicator())
-                      : TabBarView(
-                          controller: _tabController,
-                          children: [
-                            _buildGroupSection(
-                                yourGroups, (group) => YourGroupTile(group)),
-                            _buildGroupSection(
-                                otherGroups, (group) => OtherGroupTile(group)),
-                          ],
+                  child: Column(
+                    children: [
+                      if (state is LoadingGroups)
+                        const Expanded(
+                            child: Center(
+                                child: CustomCircularProgressBarIndicator()))
+                      else
+                        Expanded(
+                          child: TabBarView(
+                            controller: _tabController,
+                            children: [
+                              _buildGroupSection(
+                                  yourGroups, (group) => YourGroupTile(group)),
+                              _buildGroupSection(otherGroups,
+                                  (group) => OtherGroupTile(group)),
+                            ],
+                          ),
                         ),
+                    ],
+                  ),
                 ),
               ),
             );

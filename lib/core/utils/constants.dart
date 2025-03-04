@@ -4,6 +4,8 @@ const kDefaultImage =
 const kAdmins = [
   'obedyameogo4@gmail.com',
   'kofrathur@gmail.com',
+  "danielborishounouvi@gmail.com",
+  "eruditio.contacts@gmail.com"
 ];
 
 const kDefaultAvatar =
