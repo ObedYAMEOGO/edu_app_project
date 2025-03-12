@@ -5,7 +5,8 @@ const kAdmins = [
   'obedyameogo4@gmail.com',
   'kofrathur@gmail.com',
   "danielborishounouvi@gmail.com",
-  "eruditio.contacts@gmail.com"
+  "eruditio.contacts@gmail.com",
+  "fab.bdm@gmail.com"
 ];
 
 const kDefaultAvatar =

@@ -111,8 +111,10 @@ class ScholarshipItems extends StatelessWidget {
                                   // Country
                                   Row(
                                     children: [
-                                      const Icon(Icons.location_on_outlined,
-                                          size: 16, color: Colours.darkColour),
+                                      const Icon(
+                                          Icons.airplanemode_active_outlined,
+                                          size: 16,
+                                          color: Colours.darkColour),
                                       const SizedBox(width: 8),
                                       Text(
                                         scholarship.country.toUpperCase(),

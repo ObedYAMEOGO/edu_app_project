@@ -127,21 +127,18 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                             child: const Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
-                                  'Mot de passe?   ',
-                                  style: TextStyle(
-                                    fontFamily: Fonts.merriweather,
-                                    fontSize: 14,
-                                    color: Colours.shade,
-                                  ),
-                                ),
+                                Text('Mot de passe?   ',
+                                    style: TextStyle(
+                                      color: Colours.shade,
+                                      fontSize: 14,
+                                      fontFamily: Fonts.inter,
+                                    )),
                                 Text(
                                   'Se Connecter',
                                   style: TextStyle(
-                                    color: Colours.iconColor,
-                                    fontFamily: Fonts.merriweather,
+                                    color: Colours.primaryColour,
                                     fontSize: 14,
-                                    fontWeight: FontWeight.bold,
+                                    fontFamily: Fonts.inter,
                                   ),
                                 ),
                               ],
