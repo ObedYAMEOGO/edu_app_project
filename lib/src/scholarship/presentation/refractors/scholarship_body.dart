@@ -49,7 +49,8 @@ class _ScholarshipViewBodyState extends State<ScholarshipViewBody> {
             'Pas de bourses disponibles pour le moment. \nVeuillez contacter l\'administrateur !',
           );
         } else if (state is ScholarshipsLoaded) {
-          final scholarships = List.of(state.scholarships)..shuffle(); // Shuffle the list
+          final scholarships = List.of(state.scholarships)
+            ..shuffle(); // Shuffle the list
 
           return GradientBackground(
             image: Res.leaderboardGradientBackground,
