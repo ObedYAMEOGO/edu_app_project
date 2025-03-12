@@ -38,8 +38,7 @@ class _ScholarshipViewBodyState extends State<ScholarshipViewBody> {
             ContentType.failure,
             title: 'Oups!',
           );
-        } else if (state is ScholarshipsLoaded &&
-            state.scholarships.isNotEmpty) {}
+        }
       },
       builder: (context, state) {
         if (state is LoadingScholarships) {
@@ -47,13 +46,11 @@ class _ScholarshipViewBodyState extends State<ScholarshipViewBody> {
         } else if (state is ScholarshipsLoaded && state.scholarships.isEmpty ||
             state is ScholarshipError) {
           return const NotFoundText(
-            'Pas de bourses disponible pour le moment \nVeuillez contacter l\'administrateur !',
+            'Pas de bourses disponibles pour le moment. \nVeuillez contacter l\'administrateur !',
           );
         } else if (state is ScholarshipsLoaded) {
-          final scholarships = state.scholarships
-            ..sort(
-              (a, b) => b.updatedAt.compareTo(a.updatedAt),
-            );
+          final scholarships = List.of(state.scholarships)..shuffle(); // Shuffle the list
+
           return GradientBackground(
             image: Res.leaderboardGradientBackground,
             child: ListView(
