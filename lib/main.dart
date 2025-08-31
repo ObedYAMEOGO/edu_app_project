@@ -16,7 +16,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:uni_links3/uni_links.dart';
+import 'package:app_links/app_links.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,7 +37,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  StreamSubscription? _sub;
+  AppLinks? _appLinks;
+  StreamSubscription<Uri>? _sub;
 
   @override
   void initState() {
@@ -52,26 +53,31 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _initDeepLink() async {
+    _appLinks = AppLinks();
+
     try {
-      String? initialLink = await getInitialLink();
-      if (initialLink != null) {
-        _handleDeepLink(initialLink);
+      // Handle initial deep link (cold start)
+      final Uri? initialUri = await _appLinks!.getInitialLink();
+      if (initialUri != null) {
+        _handleDeepLink(initialUri.toString());
       }
 
-      _sub = linkStream.listen((String? link) {
-        if (link != null) {
-          _handleDeepLink(link);
-        }
+      // Listen for deep links while app is running
+      _sub = _appLinks!.uriLinkStream.listen((Uri uri) {
+        _handleDeepLink(uri.toString());
       });
     } catch (e) {
-      print("Erreur : $e");
+      print("Erreur deep link : $e");
     }
   }
 
   void _handleDeepLink(String link) {
     print("Lien reçu : $link");
+
     if (link == "https://unilink-sever.vercel.app") {
       print("Redirection réussie !");
+      // 👉 Here you can navigate inside your app
+      // Navigator.pushNamed(context, SomePage.routeName);
     }
   }
 
@@ -84,7 +90,8 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (_) => CourseOfTheDayNotifier()),
         ChangeNotifierProvider(create: (_) => MessageReplyNotifier()),
         ChangeNotifierProvider(
-            create: (_) => NotificationsNotifier(sl<SharedPreferences>())),
+          create: (_) => NotificationsNotifier(sl<SharedPreferences>()),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -96,8 +103,9 @@ class _MyAppState extends State<MyApp> {
           appBarTheme: const AppBarTheme(
             color: Colors.transparent,
           ),
-          colorScheme:
-              ColorScheme.fromSwatch(accentColor: Colours.primaryColour),
+          colorScheme: ColorScheme.fromSwatch(
+            accentColor: Colours.primaryColour,
+          ),
         ),
         initialRoute: SplashScreen.routeName,
         onGenerateRoute: generateRoute,
